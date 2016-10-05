@@ -1,4 +1,6 @@
-﻿Shader "FX/Spherical Fog" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+Shader "FX/Spherical Fog" {
 	Properties {
 		_FogBaseColor ("Fog Base Color", Color) = (0,1,1,1)
 		_FogDenseColor ("Fog Dense Color", Color) = (1,1,1,1)
@@ -95,7 +97,7 @@
 				 
 				v2f vert (appdata_base v) {
 					v2f o;
-					float4 wPos = mul (_Object2World, v.vertex);
+					float4 wPos = mul (unity_ObjectToWorld, v.vertex);
 					o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
 					o.view = wPos.xyz - _WorldSpaceCameraPos;
 					o.projPos = ComputeScreenPos (o.pos);
