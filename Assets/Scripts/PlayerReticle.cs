@@ -15,6 +15,8 @@ public class PlayerReticle : MonoBehaviour {
     [SerializeField]
     Transform playerCamera;
 
+    public float reticleHitFloatingDistance;
+
     Vector3 originalScale;
     Quaternion originalRotation;
 
@@ -59,7 +61,7 @@ public class PlayerReticle : MonoBehaviour {
     public void SetPosition(RaycastHit hit)
     {
         reticleTransform.position = hit.point;
-        reticleTransform.localScale = originalScale * hit.distance;
+        reticleTransform.localScale = originalScale * (hit.distance - reticleHitFloatingDistance);
 
         if (alignToNormals)
         {
