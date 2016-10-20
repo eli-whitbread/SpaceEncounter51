@@ -9,6 +9,7 @@ public class VR_CharacterController : MonoBehaviour {
     public bool lockControls;
     public GameObject teleportPrefab;
     public PlayerReticle playerReticleScript;
+    private bool TeleportActive = false;
     float yPos;
 
    void Start()
@@ -27,18 +28,24 @@ public class VR_CharacterController : MonoBehaviour {
         
         if (!lockControls)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetMouseButtonDown(1))
             {
+                TeleportActive = true;
                 Vector3 temp = playerReticleScript.ReticleTransform.position;
                 teleportPrefab.transform.position = temp;
                 teleportPrefab.SetActive(true);
             }
-            else if(Input.GetKeyUp(KeyCode.Space))
+            else if(Input.GetMouseButtonUp(1))
+            {                
+                teleportPrefab.SetActive(false);
+                TeleportActive = false;
+            }
+
+            if(TeleportActive && Input.GetKeyDown(KeyCode.Space))
             {
                 Vector3 temp = playerReticleScript.ReticleTransform.position;
                 temp.y = transform.position.y;
                 transform.position = temp;
-                teleportPrefab.SetActive(false);
             }
 
             if (Input.GetAxis("Horizontal") != 0)
