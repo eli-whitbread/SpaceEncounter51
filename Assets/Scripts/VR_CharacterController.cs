@@ -7,12 +7,13 @@ public class VR_CharacterController : MonoBehaviour {
     public float moveSpeed;
     public Transform myCamera;
     public bool lockControls;
-
+    public GameObject teleportPrefab;
+    public PlayerReticle playerReticleScript;
     float yPos;
 
    void Start()
     {
-
+        teleportPrefab.SetActive(false);
         yPos = transform.position.y;
     }
 
@@ -26,6 +27,20 @@ public class VR_CharacterController : MonoBehaviour {
         
         if (!lockControls)
         {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Vector3 temp = playerReticleScript.ReticleTransform.position;
+                teleportPrefab.transform.position = temp;
+                teleportPrefab.SetActive(true);
+            }
+            else if(Input.GetKeyUp(KeyCode.Space))
+            {
+                Vector3 temp = playerReticleScript.ReticleTransform.position;
+                temp.y = transform.position.y;
+                transform.position = temp;
+                teleportPrefab.SetActive(false);
+            }
+
             if (Input.GetAxis("Horizontal") != 0)
             {
                 float sideMove = Input.GetAxis("Horizontal");
