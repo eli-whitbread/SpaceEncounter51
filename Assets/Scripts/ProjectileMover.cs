@@ -12,7 +12,7 @@ public class ProjectileMover : MonoBehaviour {
 	
 	void Update () {
 
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 	}
 
     void DeactivateProjectile()
