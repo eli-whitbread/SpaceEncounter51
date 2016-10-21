@@ -34,11 +34,11 @@ public class GunShootScript : MonoBehaviour {
 	void Update () {
 
         //used for testing only - BEGIN
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
         {
             ActivateGun();
         }
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
         {
             DeactivateGun();
         }

@@ -13,6 +13,7 @@ public class VR_CharacterController : MonoBehaviour {
     public CanvasGroup blinkCanvas;
     private bool TeleportActive = false;
     float yPos, blinkAlpha;
+    Vector3 temp = Vector3.zero;
 
     void Start()
     {
@@ -46,12 +47,17 @@ public class VR_CharacterController : MonoBehaviour {
         
         if (!lockControls)
         {
+            if(TeleportActive)
+            {
+                temp = playerReticleScript.ReticleTransform.position;
+                teleportPrefab.transform.position = temp;
+            }
             
             if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
             {
                 TeleportActive = true;
-                Vector3 temp = playerReticleScript.ReticleTransform.position;
-                teleportPrefab.transform.position = temp;
+                temp = playerReticleScript.ReticleTransform.position;
+                //teleportPrefab.transform.position = temp;
                 teleportPrefab.SetActive(true);
             }
             else if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("TeleportEnable"))
@@ -60,14 +66,15 @@ public class VR_CharacterController : MonoBehaviour {
                 TeleportActive = false;
             }
 
-            if(TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport"))
+            if(TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true)
             {
                 teleport = true;
                 blinkAlpha = 1.0f;
                 blinkCanvas.alpha = blinkAlpha;
-                Vector3 temp = playerReticleScript.ReticleTransform.position;
+                temp = playerReticleScript.ReticleTransform.position;
                 temp.y = transform.position.y;
                 transform.position = temp;
+                //InputTracking.Recenter();
                
             }
 
@@ -87,7 +94,6 @@ public class VR_CharacterController : MonoBehaviour {
             {
                 blinkAlpha = Mathf.Lerp(blinkAlpha, 0, blinkFadeInTime * blinkFadeTimeMultiplyer);
                 blinkCanvas.alpha = blinkAlpha;
-                Debug.Log(blinkCanvas.alpha.ToString());
 
                 if (blinkAlpha <= 0.01f)
                 { 

@@ -307,7 +307,7 @@ GameObject:
   - 224: {fileID: 595296724}
   - 223: {fileID: 595296726}
   - 114: {fileID: 595296725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ReticleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ RectTransform:
   m_GameObject: {fileID: 874787322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1409887005}
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -715,7 +715,7 @@ GameObject:
   - 33: {fileID: 992383740}
   - 64: {fileID: 992383739}
   - 23: {fileID: 992383738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   - 92: {fileID: 1147899992}
   - 124: {fileID: 1147899991}
   - 81: {fileID: 1147899990}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1099,7 +1099,7 @@ GameObject:
   - 224: {fileID: 1389157758}
   - 222: {fileID: 1389157760}
   - 114: {fileID: 1389157759}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ReticleImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -1220,16 +1220,16 @@ Canvas:
   m_GameObject: {fileID: 1409887001}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1147899993}
+  m_PlaneDistance: 0.11
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1409887005
 RectTransform:
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   gunGimbal: {fileID: 1011573998}
   playerReticleScript: {fileID: 1998403815}
   target: {fileID: 0}
-  gunActive: 0
+  gunActive: 1
 --- !u!1001 &1561118398
 Prefab:
   m_ObjectHideFlags: 0
@@ -1859,6 +1859,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: bb76652e02af8c2448aca396e6790db6, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb76652e02af8c2448aca396e6790db6, type: 3}
   m_IsPrefabParent: 0
@@ -1875,7 +1879,7 @@ GameObject:
   - 114: {fileID: 1998403812}
   - 114: {fileID: 1998403816}
   - 114: {fileID: 1998403815}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -1970,7 +1974,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1147899994}
   exclusionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   reticle: {fileID: 1998403815}
   showDebugRay: 0
   debugRayLength: 10
