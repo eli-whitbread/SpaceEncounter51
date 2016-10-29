@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TeleportCylinderMaterial
-  m_Shader: {fileID: 31, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: e80f53b0f3f53e44a8f78bae0ea68985, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,9 +19,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c8b6801cdea0a7c4ab76009b2f12ed0e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 1, y: 1}
+          m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+          m_Scale: {x: 0.12, y: 4.71}
+          m_Offset: {x: 3.45, y: 6.63}
       data:
         first:
           name: _BumpMap
@@ -109,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0.507
       data:
         first:
           name: _BumpScale
@@ -133,7 +133,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0
+        second: 0.236
     m_Colors:
       data:
         first:
@@ -142,4 +142,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.9044118, g: 0.9044118, b: 0.9044118, a: 0.641}
+        second: {r: 0.2794118, g: 0.70182556, b: 1, a: 1}

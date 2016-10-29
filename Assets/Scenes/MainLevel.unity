@@ -235,6 +235,19 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 440252, guid: c45b40d02ebc640478753c6397977335, type: 2}
   m_PrefabInternal: {fileID: 1561118398}
+--- !u!114 &345616168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 345616163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5ad47fb61734243ada91ee92898a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeedX: 1
+  scrollSpeedY: 0.5
 --- !u!1001 &367836819
 Prefab:
   m_ObjectHideFlags: 0
@@ -2466,7 +2479,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1001 &1232393779
 Prefab:
   m_ObjectHideFlags: 0
@@ -2941,6 +2954,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1998403811}
     m_Modifications:
+    - target: {fileID: 2390736, guid: c45b40d02ebc640478753c6397977335, type: 2}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 440252, guid: c45b40d02ebc640478753c6397977335, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2993,6 +3010,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8be656c92b6fbd448977492cc08eab5e, type: 2}
+    - target: {fileID: 440252, guid: c45b40d02ebc640478753c6397977335, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390736, guid: c45b40d02ebc640478753c6397977335, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c45b40d02ebc640478753c6397977335, type: 2}
   m_IsPrefabParent: 0
