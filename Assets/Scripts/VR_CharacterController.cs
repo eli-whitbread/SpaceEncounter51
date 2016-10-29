@@ -14,11 +14,13 @@ public class VR_CharacterController : MonoBehaviour {
     private bool TeleportActive = false;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
+    //private TeleportUnable teleportUnableScriptAccess;
 
     void Start()
     {
         teleportPrefab.SetActive(false);
         yPos = transform.position.y;
+        //teleportUnableScriptAccess = teleportPrefab.GetComponent<TeleportUnable>();
     }
 
     void Update()
@@ -50,15 +52,18 @@ public class VR_CharacterController : MonoBehaviour {
             if(TeleportActive)
             {
                 temp = playerReticleScript.ReticleTransform.position;
-                teleportPrefab.transform.position = temp;
+                teleportPrefab.transform.position = new Vector3(temp.x, 0, temp.z);
             }
             
             if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
             {
-                TeleportActive = true;
-                temp = playerReticleScript.ReticleTransform.position;
-                //teleportPrefab.transform.position = temp;
-                teleportPrefab.SetActive(true);
+                //if (teleportUnableScriptAccess.cannotTeleport == false)
+                //{
+                    TeleportActive = true;
+                    temp = playerReticleScript.ReticleTransform.position;
+                    //teleportPrefab.transform.position = temp;
+                    teleportPrefab.SetActive(true);
+                //}
             }
             else if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("TeleportEnable"))
             {                
