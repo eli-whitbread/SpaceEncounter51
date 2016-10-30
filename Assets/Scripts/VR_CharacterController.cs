@@ -7,7 +7,7 @@ public class VR_CharacterController : MonoBehaviour {
 
     public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer;
     public Transform myCamera;
-    public bool lockControls, teleport = false;
+    public bool lockControls, teleport = false, isUsingGun;
     public GameObject teleportPrefab;
     public PlayerReticle playerReticleScript;
     public CanvasGroup blinkCanvas;
@@ -16,11 +16,31 @@ public class VR_CharacterController : MonoBehaviour {
     Vector3 temp = Vector3.zero;
     //private TeleportUnable teleportUnableScriptAccess;
 
+    public bool IsUsingGun
+    {
+        get { return isUsingGun; }
+        set { isUsingGun = value; }
+    }
+
+    void Awake()
+    {
+        isUsingGun = false;
+    }
     void Start()
     {
         teleportPrefab.SetActive(false);
         yPos = transform.position.y;
         //teleportUnableScriptAccess = teleportPrefab.GetComponent<TeleportUnable>();
+    }
+
+    public void EnableGunControl()
+    {
+        gameObject.GetComponent<VR_PlayerEyeRaycast>().usingTurret = true;
+    }
+
+    public void DisableGunControl()
+    {
+        gameObject.GetComponent<VR_PlayerEyeRaycast>().usingTurret = false;
     }
 
     void Update()

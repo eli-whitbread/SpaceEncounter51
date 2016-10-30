@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class GunShootScript : MonoBehaviour {
 
+    public delegate void NewTargetSet(Transform newTarget);
+    public static event NewTargetSet OnTargetSet;
+
     public GameObject projectile;
     public Transform projectileSpawnPoint;
     public float projectilePoolSize, rateOfFire, warmupTime, coolDownTime, shotsBeforeOverheat;
@@ -12,7 +15,16 @@ public class GunShootScript : MonoBehaviour {
     float myTime, shotTime, coolingTime, shotsFired;
     bool coolingDown, gunEnabled;
     List<GameObject> projectilePool;
+    Transform target;
 
+    public Transform Target
+    {
+        get { return target; }
+        set { target = value;
+            if(OnTargetSet != null)
+             OnTargetSet(target);
+        }
+    }
    
 	// Use this for initialization
 	void Start () {

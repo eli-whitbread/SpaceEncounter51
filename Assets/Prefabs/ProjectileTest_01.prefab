@@ -106,7 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 80
-  lifeTime: 3
+  lifeTime: 1
+  trackTargetSpeed: 0.5
+  target: {fileID: 0}
 --- !u!136 &13692520
 CapsuleCollider:
   m_ObjectHideFlags: 1

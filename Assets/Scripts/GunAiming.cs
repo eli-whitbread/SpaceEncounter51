@@ -27,7 +27,9 @@ public class GunAiming : MonoBehaviour {
             Vector3 angleToTarget = target.position - gunGimbal.position;
             Vector3 newDir = Vector3.RotateTowards(gunGimbal.transform.forward, angleToTarget, rotationSpeed * Time.deltaTime, 0.0f);
 
-            gunGimbal.transform.rotation = Quaternion.LookRotation(newDir);
+            newDir.y = Mathf.Clamp(newDir.y, -0.3f, 0.8f);
+            
+            gunGimbal.transform.localRotation = Quaternion.LookRotation(newDir);
         }
 	}
 }

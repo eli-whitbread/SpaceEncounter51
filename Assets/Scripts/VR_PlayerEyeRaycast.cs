@@ -5,6 +5,10 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
 
     public event Action<RaycastHit> OnRaycastHit;
 
+    public GunShootScript gunShootScript;
+
+    public bool usingTurret;
+
     [SerializeField]
     Transform playerCamera;
     [SerializeField]
@@ -20,7 +24,6 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
     float debugRayDuration = 1.0f;
     [SerializeField]
     float rayLength = 500.0f;
-
 
     void Update()
     {
@@ -43,6 +46,10 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
             if (reticle)
             {
                 reticle.SetPosition(hit);
+                if (gunShootScript != null && usingTurret == true)
+                {
+                    gunShootScript.Target = hit.collider.gameObject.transform;
+                }
             }
             //if (OnRaycastHit != null)
             //{
@@ -54,6 +61,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
             if (reticle)
             {
                 reticle.SetPosition();
+                gunShootScript.Target = null;
             }
         }
     }
