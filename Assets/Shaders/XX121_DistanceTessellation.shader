@@ -2,10 +2,10 @@
 	Properties{
 		_Colour("Color", color) = (1,1,1,1)
 		_MainTex("Albedo (RGB)", 2D) = "white" {}
-	_EdgeLength("Edge Length", Range(2,50)) = 15
+		_EdgeLength("Edge Length", Range(2,50)) = 15
 		_DispTex("Disp Texture", 2D) = "gray"{}
-	_NormalMap("Normalmap", 2D) = "bump"{}
-	_Displacement("Displacement", Range(0,1.0)) = 0.3
+		_NormalMap("Normalmap", 2D) = "bump"{}
+		_Displacement("Displacement", Range(0,1.0)) = 0.3
 		_SpecColor("Spec Color", color) = (0.5,0.5,0.5,0.5)
 		[Toggle]_UseCulling("Use Culling", Range(0,1)) = 0
 	}
@@ -25,7 +25,7 @@
 		float3 normal : NORMAL;
 		float2 texcoord : TEXCOORD0;
 
-	};
+		};
 
 
 	float _EdgeLength;
