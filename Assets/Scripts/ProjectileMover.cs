@@ -4,7 +4,7 @@ using System.Collections;
 public class ProjectileMover : MonoBehaviour {
 
     public float moveSpeed, lifeTime, trackTargetSpeed;
-
+    public int damage;
     public Transform target;
 
     //public Transform Target
@@ -35,6 +35,18 @@ public class ProjectileMover : MonoBehaviour {
 
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Destructible"))
+        {
+            Destructible destObj = other.GetComponent<Destructible>();
+            destObj.ApplyDamage(damage);
+        }
+
+        CancelInvoke();
+        gameObject.SetActive(false);
+    }
 
     void DeactivateProjectile()
     {
