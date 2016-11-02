@@ -20,8 +20,10 @@ public class Flock_Controller : MonoBehaviour
     public int spawnNumber;
     public int totalSwooping = 3;
     private int currentSwooping = 0;
+    private int poolSize;
 
     private List<GameObject> birdList;
+    private List<GameObject> birdBath;
 
 
     // Use this for initialization
@@ -34,15 +36,24 @@ public class Flock_Controller : MonoBehaviour
     void Update()
     {
         ChooseRandomSwoop();
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            BirdBathing(true);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            BirdBathing(false);
+        }
     }
     private void StartUp()
     {
         birdList = new List<GameObject>();
         SpawnBirds(birdPrefab, spawnNumber);
         birdList.AddRange(GameObject.FindGameObjectsWithTag("Bird_AI"));
-
+        birdBath = new List<GameObject>();
         foreach (GameObject bird in birdList)
         {
+
             foreach (Transform point in flockingPoints)
             {
                 bird.GetComponent<Vermin_AI>().AddFlockGoal = point;
@@ -51,6 +62,9 @@ public class Flock_Controller : MonoBehaviour
             {
                 bird.GetComponent<Vermin_AI>().AddSwoop = point;
             }
+            bird.SetActive(false);
+            birdBath.Add(bird);
+            BirdBathing(false);
         }
     }
     private void SpawnBirds(Transform prefab, int numBirds)
@@ -101,5 +115,29 @@ public class Flock_Controller : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void BirdBathing(bool on)
+    {
+        if (on)
+        {
+            for (int i = 0; i < birdBath.Count; i++)
+            {
+                if (!birdBath[i].activeInHierarchy)
+                {
+                    birdBath[i].SetActive(true);
+                }
+            }
+        }
+        if (!on)
+        {
+            for (int i = 0; i < birdBath.Count; i++)
+            {
+                if (birdBath[i].activeInHierarchy)
+                {
+                    birdBath[i].SetActive(false);
+                }
+            }
+        }
+
     }
 }

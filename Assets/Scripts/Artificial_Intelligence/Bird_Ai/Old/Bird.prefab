@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 473088}
   - 114: {fileID: 11487974}
   - 23: {fileID: 2388646}
-  - 33: {fileID: 3332716}
+  - 33: {fileID: 3387302}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Bird_AI
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 257f712b9afa8824f853d983fcf98db8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -57,13 +57,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3332716
+--- !u!33 &3387302
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153342}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 2d10b206763d85946816d40e0f53e801, type: 3}
 --- !u!114 &11487974
 MonoBehaviour:
   m_ObjectHideFlags: 1
