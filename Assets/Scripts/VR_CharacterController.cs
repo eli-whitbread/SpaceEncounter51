@@ -7,14 +7,15 @@ public class VR_CharacterController : MonoBehaviour {
 
     public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer;
     public Transform myCamera;
-    public bool lockControls, teleport = false, isUsingGun;
-    public GameObject teleportPrefab;
+    public bool lockControls, teleportIsOn = false, teleportTooFar = false, isUsingGun;
+    public GameObject teleportPrefab, teleportCapsule, teleportBase;
+    public ParticleSystem teleportParticle1, teleportParticle2;
     public PlayerReticle playerReticleScript;
     public CanvasGroup blinkCanvas;
     private bool TeleportActive = false;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
-    //private TeleportUnable teleportUnableScriptAccess;
+    float maxTeleportDistance = 15f;
 
     public bool IsUsingGun
     {
@@ -30,7 +31,7 @@ public class VR_CharacterController : MonoBehaviour {
     {
         teleportPrefab.SetActive(false);
         yPos = transform.position.y;
-        //teleportUnableScriptAccess = teleportPrefab.GetComponent<TeleportUnable>();
+        
     }
 
     public void EnableGunControl()
@@ -70,38 +71,96 @@ public class VR_CharacterController : MonoBehaviour {
         if (!lockControls)
         {
             if(TeleportActive)
-            {
+            {                
                 temp = playerReticleScript.ReticleTransform.position;
+                
+                if (Vector3.SqrMagnitude(temp - transform.position) <= maxTeleportDistance * maxTeleportDistance)
+                {
+                    // Teleport is within range, can teleport here. Teleport will be blue coloured.
+                    teleportPrefab.SetActive(true);
+                    teleportTooFar = false;
+
+                    // Set Teleport Capsule to Blue                    
+                    Color32 blue = new Color32(12, 43, 135, 128);              
+                    teleportCapsule.GetComponent<Renderer>().material.SetColor("_TintColor", blue);
+
+                    // Set Particle System Start Color so to Show Material Blue Colour
+                    blue = new Color32(255, 255, 255, 255);
+                    teleportParticle1.startColor = blue;
+
+                    // Set Particle System Start Color so to Show Material Blue Colour
+                    blue = new Color32(7, 224, 244, 216);
+                    teleportParticle2.startColor = blue;
+
+                    // Set Teleport Base Color so to Show Material Blue Colour
+                    blue = new Color32(128, 128, 128, 179);
+                    teleportBase.GetComponent<Renderer>().material.SetColor("_TintColor", blue);
+                }
+                else if(Vector3.SqrMagnitude(temp - transform.position) > (maxTeleportDistance + 30f) * (maxTeleportDistance + 30f))
+                {
+                    // TURN TELEPORTER OFF, AS TOO FAR
+
+                    // Teleport is made inactive (invisible)
+                    teleportTooFar = true;
+
+                    teleportPrefab.SetActive(false);
+                }
+                else
+                {
+                    // TELEPORT TOO FAR, BUT WITHIN VISIBLE DISTANCE
+                    // -- cannot teleport here. Teleport will be red coloured.]
+                    teleportPrefab.SetActive(true);
+                    teleportTooFar = true;
+
+                    // Set Teleport Capsule to red
+                    Color32 red = new Color32(255, 0, 0, 127);
+                    teleportCapsule.GetComponent<Renderer>().material.SetColor("_TintColor", red);
+
+                    // Set Particle System Start Color so to Show Material red Colour
+                    red = new Color32(255, 0, 0, 255);
+                    teleportParticle1.startColor = red;
+
+                    // Set Particle System Start Color so to Show Material red Colour
+                    red = new Color32(163, 0, 30, 216);
+                    teleportParticle2.startColor = red;
+
+                    // Set Teleport Base Color so to Show Material red Colour
+                    red = new Color32(255, 0, 0, 179);
+                    teleportBase.GetComponent<Renderer>().material.SetColor("_TintColor", red);
+                }
                 teleportPrefab.transform.position = new Vector3(temp.x, 0, temp.z);
             }
             
-            if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
+            if(!teleportTooFar)
             {
-                //if (teleportUnableScriptAccess.cannotTeleport == false)
-                //{
+                if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
+                {
                     TeleportActive = true;
                     temp = playerReticleScript.ReticleTransform.position;
-                    //teleportPrefab.transform.position = temp;
-                    teleportPrefab.SetActive(true);
-                //}
-            }
-            else if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("TeleportEnable"))
-            {                
-                teleportPrefab.SetActive(false);
-                TeleportActive = false;
-            }
 
-            if(TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true)
-            {
-                teleport = true;
-                blinkAlpha = 1.0f;
-                blinkCanvas.alpha = blinkAlpha;
-                temp = playerReticleScript.ReticleTransform.position;
-                temp.y = transform.position.y;
-                transform.position = temp;
-                //InputTracking.Recenter();
-               
+                    teleportPrefab.SetActive(true);
+                }
+                else if (Input.GetMouseButtonUp(1) || Input.GetButtonUp("TeleportEnable"))
+                {
+                    teleportPrefab.SetActive(false);
+                    TeleportActive = false;
+                }
+
+                if (TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true)
+                {
+                    teleportIsOn = true;
+                    blinkAlpha = 1.0f;
+                    blinkCanvas.alpha = blinkAlpha;
+                    temp = playerReticleScript.ReticleTransform.position;
+                    temp.y = transform.position.y;
+                    transform.position = temp;
+                    //InputTracking.Recenter();
+
+                    teleportPrefab.SetActive(false);
+                    TeleportActive = false;
+                }
             }
+            
 
             if (Input.GetAxis("Horizontal") != 0)
             {
@@ -115,7 +174,7 @@ public class VR_CharacterController : MonoBehaviour {
             }
             transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
 
-            if (teleport)
+            if (teleportIsOn)
             {
                 blinkAlpha = Mathf.Lerp(blinkAlpha, 0, blinkFadeInTime * blinkFadeTimeMultiplyer);
                 blinkCanvas.alpha = blinkAlpha;
@@ -123,7 +182,7 @@ public class VR_CharacterController : MonoBehaviour {
                 if (blinkAlpha <= 0.01f)
                 { 
                     blinkCanvas.alpha = 0;
-                    teleport = false;
+                    teleportIsOn = false;
                 }
             }
         }
