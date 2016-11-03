@@ -130,9 +130,7 @@ public class VR_CharacterController : MonoBehaviour {
                 }
                 teleportPrefab.transform.position = new Vector3(temp.x, 0, temp.z);
             }
-            
-            if(!teleportTooFar)
-            {
+                        
                 if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
                 {
                     TeleportActive = true;
@@ -146,7 +144,7 @@ public class VR_CharacterController : MonoBehaviour {
                     TeleportActive = false;
                 }
 
-                if (TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true)
+                if ((TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true) && !teleportTooFar)
                 {
                     teleportIsOn = true;
                     blinkAlpha = 1.0f;
@@ -159,7 +157,6 @@ public class VR_CharacterController : MonoBehaviour {
                     teleportPrefab.SetActive(false);
                     TeleportActive = false;
                 }
-            }
             
 
             if (Input.GetAxis("Horizontal") != 0)
