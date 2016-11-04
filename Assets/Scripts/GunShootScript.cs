@@ -7,6 +7,8 @@ public class GunShootScript : MonoBehaviour {
     public delegate void NewTargetSet(Transform newTarget);
     public static event NewTargetSet OnTargetSet;
     public GunAiming gunAimScript;
+    public Animator topBarrelAnimation, BottomBarrelAnimation;
+    public GunBarrelShootSender gunBarrelScript;
 
     public GameObject projectile;
         
@@ -55,9 +57,12 @@ public class GunShootScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
         {
             ActivateGun();
+            topBarrelAnimation.SetBool("Fire", true);
         }
         if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
         {
+            topBarrelAnimation.SetBool("Fire", false);
+            BottomBarrelAnimation.SetBool("Fire", false);
             DeactivateGun();
         }
         //used for testing only - END
@@ -67,6 +72,8 @@ public class GunShootScript : MonoBehaviour {
             if (canShoot == false && coolingDown == false)
             {
                 gunEnabled = false;
+                topBarrelAnimation.SetBool("Fire", false);
+                BottomBarrelAnimation.SetBool("Fire", false);
                 return;
             }
 
@@ -88,7 +95,7 @@ public class GunShootScript : MonoBehaviour {
             if (canShoot == true && shotTime >= rateOfFire && myTime >= warmupTime && coolingDown == false)
             {
                 //AnimateGunBarrels();
-                CycleProjectileSpawnPoint();
+                //CycleProjectileSpawnPoint();
                 shotTime = 0;
             }
 
@@ -98,6 +105,8 @@ public class GunShootScript : MonoBehaviour {
                 coolingDown = true;
                 gunAimScript.CoolingDown = true;
                 coolingTime = coolDownTime * 1.5f;
+                topBarrelAnimation.SetBool("Fire", false);
+                BottomBarrelAnimation.SetBool("Fire", false);
             }
 
         }
@@ -140,22 +149,24 @@ public class GunShootScript : MonoBehaviour {
     //    CycleProjectileSpawnPoint();
     //}
 
-    void CycleProjectileSpawnPoint()
+    public void CycleProjectileSpawnPoint(bool top)
     {
-        if(fireTopBarrels == true)
+        //if(fireTopBarrels == true)
+        if(top == true)
         {
             Shoot(projectileSpawnPoint_TopL);
             Shoot(projectileSpawnPoint_TopR);
-            fireTopBarrels = false;
+            //fireTopBarrels = false;
         }
         else
         {
             Shoot(projectileSpawnPoint_BottomL);
             Shoot(projectileSpawnPoint_BottomR);
-            fireTopBarrels = true;
+            //fireTopBarrels = true;
         }
        
     }
+    
 
     void Shoot(Transform projectileSpawnPoint)
     {
