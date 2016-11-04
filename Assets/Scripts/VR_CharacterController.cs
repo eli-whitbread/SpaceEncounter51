@@ -12,6 +12,9 @@ public class VR_CharacterController : MonoBehaviour {
     public ParticleSystem teleportParticle1, teleportParticle2;
     public PlayerReticle playerReticleScript;
     public CanvasGroup blinkCanvas;
+    public GameObject Terrain;
+    [SerializeField]
+    private float groundLevel;
     private bool TeleportActive = false;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
@@ -31,7 +34,7 @@ public class VR_CharacterController : MonoBehaviour {
     {
         teleportPrefab.SetActive(false);
         yPos = transform.position.y;
-        
+        groundLevel = Terrain.transform.position.y;
     }
 
     public void EnableGunControl()
@@ -128,7 +131,7 @@ public class VR_CharacterController : MonoBehaviour {
                     red = new Color32(255, 0, 0, 179);
                     teleportBase.GetComponent<Renderer>().material.SetColor("_TintColor", red);
                 }
-                teleportPrefab.transform.position = new Vector3(temp.x, 0, temp.z);
+                teleportPrefab.transform.position = new Vector3(temp.x, groundLevel, temp.z);
             }
                         
                 if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
