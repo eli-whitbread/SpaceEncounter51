@@ -6,16 +6,21 @@ public class GunShootScript : MonoBehaviour {
 
     public delegate void NewTargetSet(Transform newTarget);
     public static event NewTargetSet OnTargetSet;
+    public GunAiming gunAimScript;
 
     public GameObject projectile;
-    public Transform projectileSpawnPoint;
-    public float projectilePoolSize, rateOfFire, warmupTime, coolDownTime, shotsBeforeOverheat;
+        
+    public Transform projectileSpawnPoint_TopL, projectileSpawnPoint_BottomL, projectileSpawnPoint_TopR, projectileSpawnPoint_BottomR;
+    public Transform gunBarrel_TopL, gunBarrel_BottomL, gunBarrel_TopR, gunBarrel_BottomR;
+
+    public float projectilePoolSize, rateOfFire, warmupTime, coolDownTime, shotsBeforeOverheat, barrelMoveTime;
     public bool canShoot;
 
     float myTime, shotTime, coolingTime, shotsFired;
-    bool coolingDown, gunEnabled;
+    bool coolingDown, gunEnabled, fireTopBarrels, gunBarrelSwitchDir = false;
     List<GameObject> projectilePool;
     Transform target;
+    public float gunBarrelMoveAmount = 0;
 
     public Transform Target
     {
@@ -32,6 +37,7 @@ public class GunShootScript : MonoBehaviour {
         canShoot = false;
         shotsFired = 0;
         gunEnabled = false;
+        fireTopBarrels = true;
 
         projectilePool = new List<GameObject>();
         for (int i = 0; i < projectilePoolSize; i++)
@@ -73,6 +79,7 @@ public class GunShootScript : MonoBehaviour {
                 if (coolingTime <= 0)
                 {
                     coolingDown = false;
+                    gunAimScript.CoolingDown = false;
                     shotsFired = 0;
                     myTime = 0;
                 }
@@ -80,7 +87,8 @@ public class GunShootScript : MonoBehaviour {
 
             if (canShoot == true && shotTime >= rateOfFire && myTime >= warmupTime && coolingDown == false)
             {
-                Shoot();
+                //AnimateGunBarrels();
+                CycleProjectileSpawnPoint();
                 shotTime = 0;
             }
 
@@ -88,8 +96,10 @@ public class GunShootScript : MonoBehaviour {
             {
                 canShoot = false;
                 coolingDown = true;
+                gunAimScript.CoolingDown = true;
                 coolingTime = coolDownTime * 1.5f;
             }
+
         }
 	}
 
@@ -109,13 +119,47 @@ public class GunShootScript : MonoBehaviour {
         if (shotsFired > 0 && coolingDown == false)
         {
             coolingDown = true;
+            gunAimScript.CoolingDown = true;
             coolingTime = coolDownTime;
         }
 
     }
 
-    void Shoot()
+    //void AnimateGunBarrels()
+    //{
+        
+
+
+    //    //float barrelMoveTop = Mathf.Lerp(131.0f, 143.0f, barrelMoveTime * Time.deltaTime);
+    //    //float barrelMoveBottom = Mathf.Lerp(143.0f, 131.0f, barrelMoveTime * Time.deltaTime);
+    //    gunBarrel_TopL.transform.localPosition = new Vector3(gunBarrel_TopL.transform.localPosition.x, gunBarrel_TopL.transform.localPosition.y, gunBarrel_TopL.transform.localPosition.z + gunBarrelMoveAmount);
+    //    gunBarrel_TopR.transform.localPosition = new Vector3(gunBarrel_TopR.transform.localPosition.x, gunBarrel_TopR.transform.localPosition.y, gunBarrel_TopR.transform.localPosition.z + gunBarrelMoveAmount);
+    //    //gunBarrel_BottomL.transform.localPosition = new Vector3(gunBarrel_BottomL.transform.localPosition.x, gunBarrel_BottomL.transform.localPosition.y, barrelMoveBottom);
+    //    //gunBarrel_BottomR.transform.localPosition = new Vector3(gunBarrel_BottomR.transform.localPosition.x, gunBarrel_BottomR.transform.localPosition.y, barrelMoveBottom);
+        
+    //    CycleProjectileSpawnPoint();
+    //}
+
+    void CycleProjectileSpawnPoint()
     {
+        if(fireTopBarrels == true)
+        {
+            Shoot(projectileSpawnPoint_TopL);
+            Shoot(projectileSpawnPoint_TopR);
+            fireTopBarrels = false;
+        }
+        else
+        {
+            Shoot(projectileSpawnPoint_BottomL);
+            Shoot(projectileSpawnPoint_BottomR);
+            fireTopBarrels = true;
+        }
+       
+    }
+
+    void Shoot(Transform projectileSpawnPoint)
+    {
+        
         for (int i = 0; i < projectilePool.Count; i++)
         {
             if (!projectilePool[i].activeInHierarchy)
