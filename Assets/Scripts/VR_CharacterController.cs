@@ -12,6 +12,8 @@ public class VR_CharacterController : MonoBehaviour {
     public ParticleSystem teleportParticle1, teleportParticle2;
     public PlayerReticle playerReticleScript;
     public CanvasGroup blinkCanvas;
+    public ParticleSystem dustStormParticles;
+    public GameObject ParticleOnOff;
     public GameObject Terrain;
     [SerializeField]
     private float groundLevel;
@@ -187,8 +189,22 @@ public class VR_CharacterController : MonoBehaviour {
             }
         }
 
-        
+        dustStormParticles.transform.rotation = new Quaternion(dustStormParticles.transform.rotation.x, 0, dustStormParticles.transform.rotation.z, dustStormParticles.transform.rotation.w);
     }
 
-    
+    void OnTriggerEnter(Collider hit)
+    {
+        if(hit.tag == "Dust Cloud")
+        {
+            ParticleOnOff.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit(Collider hit)
+    {
+        if (hit.tag == "Dust Cloud")
+        {
+            ParticleOnOff.SetActive(false);
+        }
+    }
 }

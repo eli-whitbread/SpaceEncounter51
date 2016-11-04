@@ -9,6 +9,7 @@ TagManager:
   - PickUp
   - End
   - Destructible
+  - Dust Cloud
   layers:
   - Default
   - TransparentFX
