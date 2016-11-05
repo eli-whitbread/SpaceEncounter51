@@ -1,0 +1,868 @@
+fileFormatVersion: 2
+guid: 67c77a4115600b840ba0d2866f1d613d
+timeCreated: 1478329919
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: alienLangTest_0
+    21300002: alienLangTest_1
+    21300004: alienLangTest_2
+    21300006: alienLangTest_3
+    21300008: alienLangTest_4
+    21300010: alienLangTest_5
+    21300012: alienLangTest_6
+    21300014: alienLangTest_7
+    21300016: alienLangTest_8
+    21300018: alienLangTest_9
+    21300020: alienLangTest_10
+    21300022: alienLangTest_11
+    21300024: alienLangTest_12
+    21300026: alienLangTest_13
+    21300028: alienLangTest_14
+    21300030: alienLangTest_15
+    21300032: alienLangTest_16
+    21300034: alienLangTest_17
+    21300036: alienLangTest_18
+    21300038: alienLangTest_19
+    21300040: alienLangTest_20
+    21300042: alienLangTest_21
+    21300044: alienLangTest_22
+    21300046: alienLangTest_23
+    21300048: alienLangTest_24
+    21300050: alienLangTest_25
+    21300052: alienLangTest_26
+    21300054: alienLangTest_27
+    21300056: alienLangTest_28
+    21300058: alienLangTest_29
+    21300060: alienLangTest_30
+    21300062: alienLangTest_31
+    21300064: alienLangTest_32
+    21300066: alienLangTest_33
+    21300068: alienLangTest_34
+    21300070: alienLangTest_35
+    21300072: alienLangTest_36
+    21300074: alienLangTest_37
+    21300076: alienLangTest_38
+    21300078: alienLangTest_39
+    21300080: alienLangTest_40
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: alienLangTest_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 406
+        width: 53
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: -5.5}
+        - {x: 2.5, y: -1.5}
+        - {x: 1.5, y: -1.5}
+        - {x: -1.5, y: -3.5}
+        - {x: -0.5, y: 2.5}
+        - {x: 11.5, y: -8.5}
+        - {x: 15.5, y: -11.5}
+        - {x: 17.5, y: -11.5}
+        - {x: 26.5, y: -10.5}
+        - {x: 26.5, y: 5.5}
+        - {x: -0.5, y: 42.5}
+        - {x: -17.5, y: 46.5}
+        - {x: -26.5, y: 46.5}
+        - {x: -26.5, y: -46.5}
+        - {x: -21.5, y: -46.5}
+        - {x: 1.5, y: -26.5}
+        - {x: 13.5, y: -15.5}
+        - {x: 13.5, y: -11.5}
+    - name: alienLangTest_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 406
+        width: 53
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1.5, y: 46.5}
+        - {x: -26.5, y: 33.5}
+        - {x: -26.5, y: -46.5}
+        - {x: 14.5, y: -46.5}
+        - {x: 24.5, y: -42.5}
+        - {x: 26.5, y: -38.5}
+        - {x: 26.5, y: 44.5}
+        - {x: 24.5, y: 46.5}
+    - name: alienLangTest_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 405
+        width: 55
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: 47}
+        - {x: -27.5, y: 11}
+        - {x: -27.5, y: -47}
+        - {x: 27.5, y: -47}
+        - {x: 27.5, y: 47}
+    - name: alienLangTest_3
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 406
+        width: 54
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 46.5}
+        - {x: -3, y: 26.5}
+        - {x: -15, y: 13.5}
+        - {x: -14, y: 9.5}
+        - {x: -12, y: 8.5}
+        - {x: -4, y: 1.5}
+        - {x: -2, y: 0.5}
+        - {x: 10, y: -12.5}
+        - {x: -10, y: 6.5}
+        - {x: -15, y: 10.5}
+        - {x: -19, y: 10.5}
+        - {x: -27, y: 3.5}
+        - {x: -27, y: -4.5}
+        - {x: 4, y: -40.5}
+        - {x: 19, y: -46.5}
+        - {x: 27, y: -46.5}
+        - {x: 27, y: 46.5}
+    - name: alienLangTest_4
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 406
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: -10.5}
+        - {x: 16, y: -11.5}
+        - {x: 26, y: -4.5}
+        - {x: 26, y: 4.5}
+        - {x: -21, y: 46.5}
+        - {x: -26, y: 46.5}
+        - {x: -26, y: -42.5}
+        - {x: -24, y: -46.5}
+        - {x: -12, y: -46.5}
+        - {x: 19, y: -20.5}
+        - {x: 18, y: -15.5}
+        - {x: 7, y: -5.5}
+    - name: alienLangTest_5
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 406
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 46.5}
+        - {x: -26, y: 46.5}
+        - {x: -26, y: -11.5}
+        - {x: -24, y: -13.5}
+        - {x: -26, y: -28.5}
+        - {x: -26, y: -42.5}
+        - {x: -24, y: -46.5}
+        - {x: -11, y: -46.5}
+        - {x: 13, y: -35.5}
+        - {x: 26, y: -27.5}
+        - {x: 26, y: -17.5}
+    - name: alienLangTest_6
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 406
+        width: 53
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 46.5}
+        - {x: -26.5, y: -46.5}
+        - {x: 26.5, y: -46.5}
+        - {x: 26.5, y: 46.5}
+    - name: alienLangTest_7
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 406
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 10.5}
+        - {x: 14, y: 10.5}
+        - {x: 16, y: 10.5}
+        - {x: 26, y: 20.5}
+        - {x: 26, y: 29.5}
+        - {x: 21, y: 43.5}
+        - {x: -5, y: 46.5}
+        - {x: -26, y: 46.5}
+        - {x: -26, y: -46.5}
+        - {x: -21, y: -46.5}
+        - {x: -5, y: -32.5}
+        - {x: 26, y: -3.5}
+        - {x: 26, y: 2.5}
+    - name: alienLangTest_8
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 406
+        width: 53
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 46.5}
+        - {x: -26.5, y: 46.5}
+        - {x: -26.5, y: -46.5}
+        - {x: -6.5, y: -46.5}
+        - {x: 26.5, y: 16.5}
+        - {x: 26.5, y: 32.5}
+        - {x: 14.5, y: 37.5}
+    - name: alienLangTest_9
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 398
+        width: 50
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 50.5}
+        - {x: -25, y: 34.5}
+        - {x: -25, y: -20.5}
+        - {x: -1, y: -47.5}
+        - {x: 2, y: -45.5}
+        - {x: 10, y: -37.5}
+        - {x: 14, y: -50.5}
+        - {x: 25, y: -50.5}
+        - {x: 25, y: 45.5}
+        - {x: 20, y: 50.5}
+    - name: alienLangTest_10
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 275
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: -23}
+        - {x: -10, y: -47}
+        - {x: 8, y: -47}
+        - {x: 8, y: -24}
+        - {x: 5, y: -21}
+        - {x: -8, y: -21}
+      - - {x: 22, y: 47}
+        - {x: 14, y: 41}
+        - {x: -27, y: 46}
+        - {x: -27, y: -10}
+        - {x: -20, y: -11}
+        - {x: -16, y: -10}
+        - {x: -8, y: -4}
+        - {x: 6, y: 7}
+        - {x: 10, y: -47}
+        - {x: 27, y: -47}
+        - {x: 27, y: 47}
+    - name: alienLangTest_11
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 274
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: alienLangTest_12
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 274
+        width: 52
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 47}
+        - {x: -26, y: -47}
+        - {x: 26, y: -47}
+        - {x: 26, y: 47}
+    - name: alienLangTest_13
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 274
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 47}
+        - {x: -27, y: -47}
+        - {x: 27, y: -47}
+        - {x: 27, y: 47}
+    - name: alienLangTest_14
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 274
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: 47}
+        - {x: -26.5, y: 3}
+        - {x: -26.5, y: -47}
+        - {x: 26.5, y: -47}
+        - {x: 26.5, y: 47}
+    - name: alienLangTest_15
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 274
+        width: 65
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 47}
+        - {x: -32.5, y: 7}
+        - {x: -32.5, y: -47}
+        - {x: 32.5, y: -47}
+        - {x: 32.5, y: 47}
+    - name: alienLangTest_16
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 274
+        width: 53
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 47.5}
+        - {x: -26.5, y: 38.5}
+        - {x: -26.5, y: -4.5}
+        - {x: 14.5, y: -47.5}
+        - {x: 26.5, y: -47.5}
+        - {x: 26.5, y: 47.5}
+    - name: alienLangTest_17
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 274
+        width: 52
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: -23.5}
+        - {x: 2, y: -43.5}
+        - {x: 19, y: -47.5}
+        - {x: 26, y: -47.5}
+        - {x: 26, y: 47.5}
+        - {x: 2, y: 47.5}
+        - {x: -26, y: 32.5}
+    - name: alienLangTest_18
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 274
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 47}
+        - {x: -26.5, y: 41}
+        - {x: -26.5, y: 26}
+        - {x: -2.5, y: 4}
+        - {x: 0.5, y: 5}
+        - {x: -26.5, y: -9}
+        - {x: -26.5, y: -32}
+        - {x: -12.5, y: -47}
+        - {x: 6.5, y: -47}
+        - {x: 26.5, y: -32}
+        - {x: 26.5, y: 47}
+    - name: alienLangTest_19
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 274
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 32}
+        - {x: 0.5, y: 47}
+        - {x: -22.5, y: 47}
+        - {x: -26.5, y: 45}
+        - {x: -26.5, y: -14}
+        - {x: -19.5, y: -40}
+        - {x: -10.5, y: -47}
+        - {x: -0.5, y: -47}
+        - {x: 10.5, y: -38}
+        - {x: 25.5, y: -29}
+        - {x: 26.5, y: -28}
+    - name: alienLangTest_20
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 275
+        width: 50
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 47}
+        - {x: 11, y: 46}
+        - {x: 8, y: 47}
+        - {x: -19, y: 47}
+        - {x: -25, y: 44}
+        - {x: -25, y: -36}
+        - {x: 18, y: -47}
+        - {x: 25, y: -47}
+        - {x: 25, y: 47}
+    - name: alienLangTest_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 142
+        width: 52
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 47}
+        - {x: 9, y: 2}
+        - {x: 9, y: 4}
+        - {x: -6, y: 21}
+        - {x: -10, y: 47}
+        - {x: -26, y: 47}
+        - {x: -26, y: -47}
+        - {x: 26, y: -47}
+        - {x: 26, y: 47}
+    - name: alienLangTest_22
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 142
+        width: 52
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 47}
+        - {x: -26, y: -11}
+        - {x: -26, y: -25}
+        - {x: 18, y: -47}
+        - {x: 26, y: -47}
+        - {x: 26, y: 47}
+    - name: alienLangTest_23
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 142
+        width: 55
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: 47}
+        - {x: 16.5, y: 43}
+        - {x: -15.5, y: 47}
+        - {x: -27.5, y: 47}
+        - {x: -27.5, y: -47}
+        - {x: 27.5, y: -47}
+        - {x: 27.5, y: 47}
+    - name: alienLangTest_24
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 143
+        width: 53
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 46.5}
+        - {x: -26.5, y: 46.5}
+        - {x: -26.5, y: -46.5}
+        - {x: -11.5, y: -46.5}
+        - {x: 20.5, y: -42.5}
+        - {x: 26.5, y: -34.5}
+        - {x: 26.5, y: 4.5}
+    - name: alienLangTest_25
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 142
+        width: 72
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 47.5}
+        - {x: -36, y: 19.5}
+        - {x: -36, y: -5.5}
+        - {x: -20, y: -47.5}
+        - {x: 36, y: -47.5}
+        - {x: 36, y: 47.5}
+    - name: alienLangTest_26
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 142
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 47}
+        - {x: -26.5, y: -47}
+        - {x: 26.5, y: -47}
+        - {x: 26.5, y: 47}
+    - name: alienLangTest_27
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 142
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: 47}
+        - {x: -26.5, y: 7}
+        - {x: -26.5, y: -26}
+        - {x: 8.5, y: -47}
+        - {x: 26.5, y: -47}
+        - {x: 26.5, y: 47}
+    - name: alienLangTest_28
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 143
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 47}
+        - {x: 14, y: 41}
+        - {x: -27, y: 46}
+        - {x: -27, y: -10}
+        - {x: -20, y: -11}
+        - {x: -16, y: -10}
+        - {x: -8, y: -4}
+        - {x: 6, y: 7}
+        - {x: 10, y: -47}
+        - {x: 27, y: -47}
+        - {x: 27, y: 47}
+    - name: alienLangTest_29
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 142
+        width: 52
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 47}
+        - {x: -26, y: -47}
+        - {x: -2, y: -47}
+        - {x: 26, y: -4}
+        - {x: 26, y: 11}
+        - {x: -21, y: 47}
+    - name: alienLangTest_30
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 142
+        width: 15
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: alienLangTest_31
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 14
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 46.5}
+        - {x: -26, y: 39.5}
+        - {x: -26, y: 22.5}
+        - {x: -21, y: 7.5}
+        - {x: -1, y: -46.5}
+        - {x: 26, y: -46.5}
+        - {x: 26, y: 46.5}
+    - name: alienLangTest_32
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 14
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: -4.5}
+        - {x: -10, y: 46.5}
+        - {x: -26, y: 46.5}
+        - {x: -26, y: -46.5}
+        - {x: 23, y: -46.5}
+        - {x: 26, y: -36.5}
+        - {x: 26, y: -23.5}
+        - {x: 3, y: -5.5}
+    - name: alienLangTest_33
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 14
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 47}
+        - {x: -27, y: 30}
+        - {x: -27, y: -5}
+        - {x: 21, y: -47}
+        - {x: 27, y: -47}
+        - {x: 27, y: 47}
+    - name: alienLangTest_34
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 14
+        width: 53
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 47.5}
+        - {x: -26.5, y: -5.5}
+        - {x: 2.5, y: -47.5}
+        - {x: 26.5, y: -47.5}
+        - {x: 26.5, y: 47.5}
+    - name: alienLangTest_35
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 14
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 47}
+        - {x: -27, y: -47}
+        - {x: 27, y: -47}
+        - {x: 27, y: -42}
+        - {x: 25, y: -36}
+        - {x: 27, y: 17}
+        - {x: 27, y: 47}
+    - name: alienLangTest_36
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 14
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 47}
+        - {x: -26.5, y: 47}
+        - {x: -26.5, y: -47}
+        - {x: -10.5, y: -47}
+        - {x: 26.5, y: 13}
+        - {x: 26.5, y: 27}
+    - name: alienLangTest_37
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 14
+        width: 53
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 46}
+        - {x: -8.5, y: 46}
+        - {x: -26.5, y: 42}
+        - {x: -26.5, y: -28}
+        - {x: -21.5, y: -44}
+        - {x: -11.5, y: -46}
+        - {x: 4.5, y: -46}
+        - {x: 11.5, y: -40}
+        - {x: 22.5, y: -30}
+        - {x: 26.5, y: -26}
+    - name: alienLangTest_38
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 14
+        width: 89
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.5, y: 3}
+        - {x: -7.5, y: 47}
+        - {x: -27.5, y: 47}
+        - {x: -44.5, y: 29}
+        - {x: -44.5, y: -7}
+        - {x: -34.5, y: -47}
+        - {x: 7.5, y: -47}
+        - {x: 44.5, y: -33}
+        - {x: 44.5, y: -21}
+        - {x: 40.5, y: -12}
+    - name: alienLangTest_39
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 14
+        width: 52
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 47.5}
+        - {x: -26, y: 47.5}
+        - {x: -26, y: -47.5}
+        - {x: 26, y: -47.5}
+    - name: alienLangTest_40
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 14
+        width: 61
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 49.5}
+        - {x: -29.5, y: 48.5}
+        - {x: -30.5, y: 43.5}
+        - {x: -30.5, y: 18.5}
+        - {x: -4.5, y: -44.5}
+        - {x: -2.5, y: -49.5}
+        - {x: 6.5, y: -49.5}
+        - {x: 24.5, y: -39.5}
+        - {x: 30.5, y: 4.5}
+        - {x: 30.5, y: 49.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
