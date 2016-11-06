@@ -22,6 +22,16 @@ public class VR_CharacterController : MonoBehaviour {
     Vector3 temp = Vector3.zero;
     float maxTeleportDistance = 15f;
 
+    //for Mouse Look
+    Vector2 _mouseAbsolute;
+    Vector2 _smoothMouse;
+    public Vector2 clampInDegrees = new Vector2(360, 180);
+    public bool lockCursor;
+    public Vector2 sensitivity = new Vector2(2, 2);
+    public Vector2 smoothing = new Vector2(3, 3);
+    public Vector2 targetDirection;
+    public Vector2 targetCharacterDirection;
+
     public bool IsUsingGun
     {
         get { return isUsingGun; }
@@ -37,6 +47,13 @@ public class VR_CharacterController : MonoBehaviour {
         teleportPrefab.SetActive(false);
         yPos = transform.position.y;
         groundLevel = Terrain.transform.position.y;
+
+        //for mouse look
+        // Set target direction to the camera's initial orientation.
+        targetDirection = myCamera.transform.localRotation.eulerAngles;
+
+        // Set target direction for the character body to its inital state.
+        targetCharacterDirection = transform.localRotation.eulerAngles;
     }
 
     public void EnableGunControl()
@@ -60,17 +77,7 @@ public class VR_CharacterController : MonoBehaviour {
         }
         else
         {
-            float lookX = Input.GetAxis("Mouse X") * mouseLookSpeed;
-            float lookY = Input.GetAxis("Mouse Y") * mouseLookSpeed;
-            Vector3 newRot = new Vector3(-lookY, lookX, 0);
-
-            newRot.z = 0;
-
-            myCamera.Rotate(newRot);
-
-            newRot.x = 0;
-            newRot.z = 0;
-            transform.Rotate(newRot);
+            MouseLook();
         }
         
         if (!lockControls)
@@ -206,5 +213,59 @@ public class VR_CharacterController : MonoBehaviour {
         {
             ParticleOnOff.SetActive(false);
         }
+    }
+
+    void MouseLook()
+    {
+
+        //Adapted from https://forum.unity3d.com/threads/a-free-simple-smooth-mouselook.73117/
+
+        // Allow the script to clamp based on a desired target value.
+        var targetOrientation = Quaternion.Euler(targetDirection);
+        var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
+
+        // Get raw mouse input for a cleaner reading on more sensitive mice.
+        var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+
+        // Scale input against the sensitivity setting and multiply that against the smoothing value.
+        mouseDelta = Vector2.Scale(mouseDelta, new Vector2(sensitivity.x * smoothing.x, sensitivity.y * smoothing.y));
+
+        // Interpolate mouse movement over time to apply smoothing delta.
+        _smoothMouse.x = Mathf.Lerp(_smoothMouse.x, mouseDelta.x, 1f / smoothing.x);
+        _smoothMouse.y = Mathf.Lerp(_smoothMouse.y, mouseDelta.y, 1f / smoothing.y);
+
+        // Find the absolute mouse movement value from point zero.
+        _mouseAbsolute += _smoothMouse;
+
+        // Clamp and apply the local x value first, so as not to be affected by world transforms.
+        if (clampInDegrees.x < 360)
+            _mouseAbsolute.x = Mathf.Clamp(_mouseAbsolute.x, -clampInDegrees.x * 0.5f, clampInDegrees.x * 0.5f);
+
+        var xRotation = Quaternion.AngleAxis(-_mouseAbsolute.y, targetOrientation * Vector3.right);
+        myCamera.transform.localRotation = xRotation;
+
+        // Then clamp and apply the global y value.
+        if (clampInDegrees.y < 360)
+            _mouseAbsolute.y = Mathf.Clamp(_mouseAbsolute.y, -clampInDegrees.y * 0.5f, clampInDegrees.y * 0.5f);
+
+        myCamera.transform.localRotation *= targetOrientation;
+
+
+        var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.up);
+        transform.localRotation = yRotation;
+        transform.localRotation *= targetCharacterOrientation;
+
+        //else
+        //{
+        //    var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.InverseTransformDirection(Vector3.up));
+        //    myCamera.transform.localRotation *= yRotation;
+        //}
+
+
+        //rotate the player capsule (forward move vector)
+        //Quaternion Bodyrot = myCamera.transform.rotation;
+        //Bodyrot.x = 0;
+        //Bodyrot.z = 0;
+        //transform.localRotation = Bodyrot;
     }
 }
