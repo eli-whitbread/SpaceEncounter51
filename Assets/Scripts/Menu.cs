@@ -27,6 +27,6 @@ public class Menu : MonoBehaviour
 	
     public void LoadOn()
     {
-        Application.LoadLevel (1);
+        //Application.LoadLevel (1);
     }
 }
