@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public static GameManager _gameManager;
+    public int birdsDestroyed;
 
     void Awake()
     {
@@ -20,4 +21,9 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void DestroyedObject()
+    {
+        birdsDestroyed++;
+    }
 }

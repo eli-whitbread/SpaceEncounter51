@@ -7,13 +7,12 @@ public class GunShootScript : MonoBehaviour {
     public delegate void NewTargetSet(Transform newTarget);
     public static event NewTargetSet OnTargetSet;
     public GunAiming gunAimScript;
-    public Animator topBarrelAnimation, BottomBarrelAnimation;
-    public GunBarrelShootSender gunBarrelScript;
+    public GunBarrelMover gunBarrelMover;
 
     public GameObject projectile;
         
     public Transform projectileSpawnPoint_TopL, projectileSpawnPoint_BottomL, projectileSpawnPoint_TopR, projectileSpawnPoint_BottomR;
-    public Transform gunBarrel_TopL, gunBarrel_BottomL, gunBarrel_TopR, gunBarrel_BottomR;
+    public Transform gunBarrelsAnchor_Top, gunBarrelsAnchor_Bottom;
 
     public float projectilePoolSize, rateOfFire, warmupTime, coolDownTime, shotsBeforeOverheat, barrelMoveTime;
     public bool canShoot;
@@ -48,6 +47,9 @@ public class GunShootScript : MonoBehaviour {
             obj.SetActive(false);
             projectilePool.Add(obj);
         }
+
+        //for testing
+        ActivateGun();
 	}
 	
 	// Update is called once per frame
@@ -57,12 +59,9 @@ public class GunShootScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
         {
             ActivateGun();
-            topBarrelAnimation.SetBool("Fire", true);
         }
         if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
         {
-            topBarrelAnimation.SetBool("Fire", false);
-            BottomBarrelAnimation.SetBool("Fire", false);
             DeactivateGun();
         }
         //used for testing only - END
@@ -72,8 +71,6 @@ public class GunShootScript : MonoBehaviour {
             if (canShoot == false && coolingDown == false)
             {
                 gunEnabled = false;
-                topBarrelAnimation.SetBool("Fire", false);
-                BottomBarrelAnimation.SetBool("Fire", false);
                 return;
             }
 
@@ -105,8 +102,6 @@ public class GunShootScript : MonoBehaviour {
                 coolingDown = true;
                 gunAimScript.CoolingDown = true;
                 coolingTime = coolDownTime * 1.5f;
-                topBarrelAnimation.SetBool("Fire", false);
-                BottomBarrelAnimation.SetBool("Fire", false);
             }
 
         }
@@ -120,11 +115,14 @@ public class GunShootScript : MonoBehaviour {
         }
         canShoot = true;
         gunEnabled = true;
+        gunBarrelMover.Activated = true;
     }
 
     public void DeactivateGun()
     {
         canShoot = false;
+
+        gunBarrelMover.Activated = false;
         if (shotsFired > 0 && coolingDown == false)
         {
             coolingDown = true;
@@ -134,21 +132,7 @@ public class GunShootScript : MonoBehaviour {
 
     }
 
-    //void AnimateGunBarrels()
-    //{
-        
-
-
-    //    //float barrelMoveTop = Mathf.Lerp(131.0f, 143.0f, barrelMoveTime * Time.deltaTime);
-    //    //float barrelMoveBottom = Mathf.Lerp(143.0f, 131.0f, barrelMoveTime * Time.deltaTime);
-    //    gunBarrel_TopL.transform.localPosition = new Vector3(gunBarrel_TopL.transform.localPosition.x, gunBarrel_TopL.transform.localPosition.y, gunBarrel_TopL.transform.localPosition.z + gunBarrelMoveAmount);
-    //    gunBarrel_TopR.transform.localPosition = new Vector3(gunBarrel_TopR.transform.localPosition.x, gunBarrel_TopR.transform.localPosition.y, gunBarrel_TopR.transform.localPosition.z + gunBarrelMoveAmount);
-    //    //gunBarrel_BottomL.transform.localPosition = new Vector3(gunBarrel_BottomL.transform.localPosition.x, gunBarrel_BottomL.transform.localPosition.y, barrelMoveBottom);
-    //    //gunBarrel_BottomR.transform.localPosition = new Vector3(gunBarrel_BottomR.transform.localPosition.x, gunBarrel_BottomR.transform.localPosition.y, barrelMoveBottom);
-        
-    //    CycleProjectileSpawnPoint();
-    //}
-
+    
     public void CycleProjectileSpawnPoint(bool top)
     {
         //if(fireTopBarrels == true)

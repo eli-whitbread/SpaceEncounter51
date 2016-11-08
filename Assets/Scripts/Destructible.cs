@@ -11,6 +11,7 @@ public class Destructible : MonoBehaviour {
         if(health <= 0)
         {
             gameObject.SetActive(false);
+            GameManager._gameManager.DestroyedObject();
         }
     }
 }

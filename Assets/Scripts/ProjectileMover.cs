@@ -7,12 +7,7 @@ public class ProjectileMover : MonoBehaviour {
     public int damage;
     public Transform target;
 
-    //public Transform Target
-    //{
-    //    get { return target; }
-    //    set { target = value; }
-    //}
-
+    
     void OnEnable()
     {
         GunShootScript.OnTargetSet += GunShootScript_OnTargetSet;
@@ -29,8 +24,12 @@ public class ProjectileMover : MonoBehaviour {
         if(target != null)
         {
             Vector3 angleToTarget = target.position - transform.position;
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, angleToTarget, trackTargetSpeed * Time.deltaTime, 0.0f);
-            transform.localRotation = Quaternion.LookRotation(newDir);
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, angleToTarget, trackTargetSpeed * Time.deltaTime, 1.0f);
+            //transform.localRotation = Quaternion.LookRotation(newDir);
+            if (newDir != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(newDir);
+            }
         }
 
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
