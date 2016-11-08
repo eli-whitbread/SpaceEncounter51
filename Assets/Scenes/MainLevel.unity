@@ -6451,6 +6451,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f180210f28f42ef4e869ad5c85812aa3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: f180210f28f42ef4e869ad5c85812aa3, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: f180210f28f42ef4e869ad5c85812aa3, type: 3}
@@ -7446,6 +7450,7 @@ GameObject:
   - 114: {fileID: 1207430409}
   - 114: {fileID: 1207430408}
   - 114: {fileID: 1207430411}
+  - 82: {fileID: 1207430412}
   m_Layer: 0
   m_Name: BigGun
   m_TagString: Untagged
@@ -7485,19 +7490,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunAimScript: {fileID: 1207430408}
   gunBarrelMover: {fileID: 1207430411}
+  shootSound: {fileID: 8300000, guid: 70ac23ea8f9f0dd4e9cfe05644108b0d, type: 3}
   projectile: {fileID: 110084, guid: 4c267096f7ae4a44e95ae9a16a3a1270, type: 2}
   projectileSpawnPoint_TopL: {fileID: 237915084}
   projectileSpawnPoint_BottomL: {fileID: 801505889}
   projectileSpawnPoint_TopR: {fileID: 1682335666}
   projectileSpawnPoint_BottomR: {fileID: 1863365185}
-  gunBarrelsAnchor_Top: {fileID: 0}
-  gunBarrelsAnchor_Bottom: {fileID: 0}
   projectilePoolSize: 100
   rateOfFire: 0.02
   warmupTime: 1
   coolDownTime: 1.5
   shotsBeforeOverheat: 200
   barrelMoveTime: 0
+  audioPitchMin: 0.9
+  audioPitchMax: 1
+  audioVolume: 3
   canShoot: 0
   gunBarrelMoveAmount: 0
 --- !u!4 &1207430410
@@ -7530,6 +7537,100 @@ MonoBehaviour:
   bottomBarrelsAnchor: {fileID: 1273350512}
   gunShootScript: {fileID: 1207430409}
   cycleTime: 1.5
+--- !u!82 &1207430412
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1207430407}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.9
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0.002
+      value: 0.9965839
+      inSlope: 0.023055825
+      outSlope: 0.023055825
+      tangentMode: 0
+    - time: 0.09264158
+      value: 0.89969206
+      inSlope: -3.0751786
+      outSlope: -3.0751786
+      tangentMode: 0
+    - time: 0.2784223
+      value: 0.10931678
+      inSlope: -1.4232825
+      outSlope: -1.4232825
+      tangentMode: 0
+    - time: 0.3675227
+      value: 0.039610762
+      inSlope: -0.38335344
+      outSlope: -0.38335344
+      tangentMode: 0
+    - time: 0.49681744
+      value: 0.010133497
+      inSlope: -0.09632774
+      outSlope: -0.09632774
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: -0.028314676
+      outSlope: -0.028314676
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.9
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1223349897
 GameObject:
   m_ObjectHideFlags: 0

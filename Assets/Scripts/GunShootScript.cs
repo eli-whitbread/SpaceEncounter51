@@ -8,13 +8,14 @@ public class GunShootScript : MonoBehaviour {
     public static event NewTargetSet OnTargetSet;
     public GunAiming gunAimScript;
     public GunBarrelMover gunBarrelMover;
+    public AudioClip shootSound;
+    AudioSource audioSource;
 
     public GameObject projectile;
         
     public Transform projectileSpawnPoint_TopL, projectileSpawnPoint_BottomL, projectileSpawnPoint_TopR, projectileSpawnPoint_BottomR;
-    public Transform gunBarrelsAnchor_Top, gunBarrelsAnchor_Bottom;
 
-    public float projectilePoolSize, rateOfFire, warmupTime, coolDownTime, shotsBeforeOverheat, barrelMoveTime;
+    public float projectilePoolSize, rateOfFire, warmupTime, coolDownTime, shotsBeforeOverheat, barrelMoveTime, audioPitchMin, audioPitchMax, audioVolume;
     public bool canShoot;
 
     float myTime, shotTime, coolingTime, shotsFired;
@@ -32,6 +33,10 @@ public class GunShootScript : MonoBehaviour {
         }
     }
    
+    void Awake()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
 	// Use this for initialization
 	void Start () {
 
@@ -49,7 +54,7 @@ public class GunShootScript : MonoBehaviour {
         }
 
         //for testing
-        ActivateGun();
+        //ActivateGun();
 	}
 	
 	// Update is called once per frame
@@ -162,6 +167,8 @@ public class GunShootScript : MonoBehaviour {
                 projectilePool[i].transform.position = projectileSpawnPoint.position;
                 projectilePool[i].transform.rotation = projectileSpawnPoint.rotation;
                 projectilePool[i].SetActive(true);
+                audioSource.pitch = Random.Range(audioPitchMin, audioPitchMax);
+                audioSource.PlayOneShot(shootSound, audioVolume);
                 shotsFired++;
                 break;
             }
