@@ -17,7 +17,7 @@ public class Bird_Agent : MonoBehaviour
     public int currentFlockTarg = 0;
     private Vector3 dir;
     private Quaternion rotation;
-    private float speed = 60;
+    private float speed = 40;
     private float turnspeed = 10;
     private bool oneTime = false;
     private bool returnSwoop;
@@ -30,14 +30,13 @@ public class Bird_Agent : MonoBehaviour
 
 
 
-    private int flockOrder = 0;
-    private int groupSize = 0;
+    public int flockOrder = 0;
+    public int groupSize = 0;
     private float neighboursRange = 3.0f;
-    private List<Bird_Agent> cur_Group = new List<Bird_Agent>();
+    public List<Bird_Agent> cur_Group = new List<Bird_Agent>();
     public List<Transform> swoopPoints = new List<Transform>();
     public List<Transform> flockGoals = new List<Transform>();
 
-    
 
     private void Awake()
     {
@@ -46,6 +45,7 @@ public class Bird_Agent : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
 
     }
     // Update is called once per frame
@@ -149,31 +149,38 @@ public class Bird_Agent : MonoBehaviour
     }
     private Vector3 FlockVector()
     {
+
         Vector3 flockVector = new Vector3();
-       
+        for (int i = 0; i<cur_Group.Count; i++) 
+            {
+                if (cur_Group[i] == null)
+                {
+                    cur_Group.Remove(cur_Group[i]);
+                }
+            }
 
         switch (flockOrder)
         {
             case 0:
-                if (cur_Group.Count != 0)
+                if (cur_Group.Count > 1)
                 {
                     foreach (var bird in cur_Group)
                     {
-                       
-                            coh += bird.newPos;
 
-                        
+                        coh += bird.newPos;
+
+
                     }
                     coh /= cur_Group.Count;
                     coh = coh - this.newPos;
                     coh = Vector3.Normalize(coh);
                     coh = coh * cohAmp;
-                   
+
                 }
                 flockOrder++;
                 break;
             case 1:
-                if (cur_Group.Count != 0)
+                if (cur_Group.Count >1 )
                 {
 
                     foreach (var bird in cur_Group)
@@ -187,12 +194,12 @@ public class Bird_Agent : MonoBehaviour
                     }
                     sep = Vector3.Normalize(sep);
                     sep = sep * sepAmp;
-                   
+
                 }
                 flockOrder++;
                 break;
             case 2:
-                if (cur_Group.Count != 0)
+                if (cur_Group.Count > 1)
                 {
                     foreach (var bird in cur_Group)
                     {
@@ -204,12 +211,12 @@ public class Bird_Agent : MonoBehaviour
                 flockOrder++;
                 break;
             case 3:
-                
 
-                    goal = flockGoals[currentFlockTarg].transform.position;
-                    goal -= this.newPos;
-                    goal *= goalAmp;
-                
+
+                goal = flockGoals[currentFlockTarg].transform.position;
+                goal -= this.newPos;
+                goal *= goalAmp;
+
                 flockOrder = 0;
                 break;
         }
@@ -248,5 +255,71 @@ public class Bird_Agent : MonoBehaviour
         newPos = transform.position;
         newVeloc = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
 
+    }
+
+    private void tempflock()
+    {
+
+        switch (flockOrder)
+        {
+            case 0:
+                if (cur_Group.Count > 1)
+                {
+                    foreach (var bird in cur_Group)
+                    {
+                        coh += bird.newPos;
+                    }
+                    coh /= cur_Group.Count;
+                    coh = coh - this.newPos;
+                    coh = Vector3.Normalize(coh);
+                    coh = coh * cohAmp;
+
+                }
+                flockOrder++;
+                break;
+            case 1:
+                if (cur_Group.Count > 1)
+                {
+
+                    foreach (var bird in cur_Group)
+                    {
+                        Vector3 towardsThis = this.newPos - bird.newPos;
+
+                        if (towardsThis.magnitude > 1)
+                        {
+                            sep += towardsThis.normalized / towardsThis.magnitude;
+                        }
+                    }
+                    sep = Vector3.Normalize(sep);
+                    sep = sep * sepAmp;
+
+                }
+                flockOrder++;
+                break;
+            case 2:
+                if (cur_Group.Count > 1)
+                {
+                    foreach (var bird in cur_Group)
+                    {
+                        all += bird.newVeloc;
+                    }
+                    all = Vector3.Normalize(all);
+                    all = all * allAmp;
+                }
+                flockOrder++;
+                break;
+            case 3:
+
+
+                goal = flockGoals[currentFlockTarg].transform.position;
+                goal -= this.newPos;
+                goal *= goalAmp;
+
+                flockOrder = 0;
+                break;
+        }
+
+       // flockVector = coh + sep + all + goal;
+       // return flockVector;
     }
 }

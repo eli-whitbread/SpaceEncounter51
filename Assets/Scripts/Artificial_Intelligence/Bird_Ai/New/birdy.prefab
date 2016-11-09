@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6552350}
   - 23: {fileID: 2347426}
   - 114: {fileID: 11445590}
+  - 114: {fileID: 11409046}
   m_Layer: 0
   m_Name: birdy
   m_TagString: Untagged
@@ -77,6 +78,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11409046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9c3ecdc5a3bbe45b0535c75d6cd700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &11445590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a066331c5beee4f8d9d9907e17344d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  maxVeloc: 10
+  maxSpeed: 30
+  maxVeloc: 30
   cohAmp: 35
   sepAmp: 60
   allAmp: 60
@@ -101,6 +114,9 @@ MonoBehaviour:
   currentFlockTarg: 0
   bController: {fileID: 0}
   flocking: 1
+  flockOrder: 0
+  groupSize: 0
+  cur_Group: []
   swoopPoints: []
   flockGoals: []
 --- !u!1001 &100100000

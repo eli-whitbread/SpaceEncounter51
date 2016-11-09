@@ -13,6 +13,7 @@ public class Drone : MonoBehaviour
     private float upForce = 200f, height = 3f, rotTime = 4f, elevateSpeed = 2f, elevateIncrement = 1.5f;
 
     public bool pickUp;
+    public bool techFound;
     private Rigidbody rigBody;
 
     // Use this for initialization
@@ -28,6 +29,10 @@ public class Drone : MonoBehaviour
         if (pickUp)
         {
             droneText.text = "you have the tech";
+        }
+        if (techFound)
+        {
+            droneText.text = "tech returned b to exit";
         }
     }
     private void FixedUpdate()
@@ -61,7 +66,7 @@ public class Drone : MonoBehaviour
     }
     private void RaiseLower()
     {
-        if (Input.GetButton("Raise") && height < 7)
+        if (Input.GetButton("TeleportEnable") && height < 7)
         {
             height += elevateIncrement * elevateSpeed * Time.deltaTime;
         }
@@ -93,7 +98,7 @@ public class Drone : MonoBehaviour
         }
         else
         {
-           rigBody.AddTorque(-rigBody.angularVelocity);
+            rigBody.AddTorque(-rigBody.angularVelocity);
         }
 
         Vector3 newRotation = transform.eulerAngles;
@@ -115,7 +120,7 @@ public class Drone : MonoBehaviour
     {
         if (collider.tag == "End" && pickUp)
         {
-            print("found");
+            techFound = true;
         }
     }
     private void StartUp()

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Bird_Controller : MonoBehaviour
 {
 
-    public GameObject birdy;
-    public int birdNumber;
+    //public GameObject birdy;
+    //public int birdNumber;
     public Transform[] swoops;
     public Transform[] flocks;
     public int amountSwoop = 0;
@@ -56,7 +56,7 @@ public class Bird_Controller : MonoBehaviour
         }
 
     }
-    private void BirdBathing(bool on)
+    public void BirdBathing(bool on)
     {
         if (on)
         {
