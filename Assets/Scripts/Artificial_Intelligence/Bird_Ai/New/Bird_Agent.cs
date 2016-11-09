@@ -17,7 +17,7 @@ public class Bird_Agent : MonoBehaviour
     public int currentFlockTarg = 0;
     private Vector3 dir;
     private Quaternion rotation;
-    private float speed = 40;
+    private float speed = 10;
     private float turnspeed = 10;
     private bool oneTime = false;
     private bool returnSwoop;
@@ -25,7 +25,7 @@ public class Bird_Agent : MonoBehaviour
     public bool flocking = true;
 
 
-   //---------------------------------
+    //---------------------------------
 
 
 
@@ -45,14 +45,14 @@ public class Bird_Agent : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
 
     }
     // Update is called once per frame
     void Update()
     {
         FlockHQ();
-       
+
     }
     private void FlockHQ()
     {
@@ -117,7 +117,7 @@ public class Bird_Agent : MonoBehaviour
             oneTime = false;
             returnSwoop = false;
             bController.amountSwoop--;
-          
+
         }
     }
     private void SwoopMovement()
@@ -137,7 +137,7 @@ public class Bird_Agent : MonoBehaviour
     }
     private void ChooseFlockTarget()
     {
-        currentFlockTarg = Random.Range(0, flockGoals.Count -1);
+        currentFlockTarg = Random.Range(0, flockGoals.Count - 1);
     }
     private void ChooseSwoopTarget()
     {
@@ -151,13 +151,14 @@ public class Bird_Agent : MonoBehaviour
     {
 
         Vector3 flockVector = new Vector3();
-        for (int i = 0; i<cur_Group.Count; i++) 
+
+        for (int i = 0; i < cur_Group.Count; i++)
+        {
+            if (cur_Group[0] == null || !cur_Group[0].isActiveAndEnabled)
             {
-                if (cur_Group[i] == null)
-                {
-                    cur_Group.Remove(cur_Group[i]);
-                }
+                cur_Group.RemoveAt(i);
             }
+        }
 
         switch (flockOrder)
         {
@@ -180,7 +181,7 @@ public class Bird_Agent : MonoBehaviour
                 flockOrder++;
                 break;
             case 1:
-                if (cur_Group.Count >1 )
+                if (cur_Group.Count > 1)
                 {
 
                     foreach (var bird in cur_Group)
@@ -242,7 +243,7 @@ public class Bird_Agent : MonoBehaviour
             colliderGroup = Physics.OverlapSphere(transform.position, range);
             foreach (var bird in colliderGroup)
             {
-                if (bird.transform != this.transform)
+                if (bird.tag == "Bird_AI" && bird.transform != this.transform)
                 {
                     tempBirds.Add(bird.gameObject.GetComponent<Bird_Agent>());
                 }
@@ -256,70 +257,18 @@ public class Bird_Agent : MonoBehaviour
         newVeloc = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
 
     }
-
-    private void tempflock()
+    public void ApplyDamage()
     {
-
-        switch (flockOrder)
+       
+            gameObject.SetActive(false);
+            GameManager._gameManager.DestroyedObject();
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Projectile")
         {
-            case 0:
-                if (cur_Group.Count > 1)
-                {
-                    foreach (var bird in cur_Group)
-                    {
-                        coh += bird.newPos;
-                    }
-                    coh /= cur_Group.Count;
-                    coh = coh - this.newPos;
-                    coh = Vector3.Normalize(coh);
-                    coh = coh * cohAmp;
-
-                }
-                flockOrder++;
-                break;
-            case 1:
-                if (cur_Group.Count > 1)
-                {
-
-                    foreach (var bird in cur_Group)
-                    {
-                        Vector3 towardsThis = this.newPos - bird.newPos;
-
-                        if (towardsThis.magnitude > 1)
-                        {
-                            sep += towardsThis.normalized / towardsThis.magnitude;
-                        }
-                    }
-                    sep = Vector3.Normalize(sep);
-                    sep = sep * sepAmp;
-
-                }
-                flockOrder++;
-                break;
-            case 2:
-                if (cur_Group.Count > 1)
-                {
-                    foreach (var bird in cur_Group)
-                    {
-                        all += bird.newVeloc;
-                    }
-                    all = Vector3.Normalize(all);
-                    all = all * allAmp;
-                }
-                flockOrder++;
-                break;
-            case 3:
-
-
-                goal = flockGoals[currentFlockTarg].transform.position;
-                goal -= this.newPos;
-                goal *= goalAmp;
-
-                flockOrder = 0;
-                break;
+            gameObject.SetActive(false);
         }
-
-       // flockVector = coh + sep + all + goal;
-       // return flockVector;
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - End
   - Destructible
   - Dust Cloud
+  - Projectile
   layers:
   - Default
   - TransparentFX

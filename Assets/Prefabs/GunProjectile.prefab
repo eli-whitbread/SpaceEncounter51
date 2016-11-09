@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11476600}
   m_Layer: 0
   m_Name: GunProjectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 100
   lifeTime: 1
-  trackTargetSpeed: 0.1
+  trackTargetSpeed: 0.9
   damage: 100
   target: {fileID: 0}
 --- !u!198 &19848940
