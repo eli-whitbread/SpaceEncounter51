@@ -20,7 +20,8 @@ public class VR_CharacterController : MonoBehaviour {
     private bool TeleportActive = false;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
-    float maxTeleportDistance = 15f;
+    public float maxTeleportDistance = 15f;
+    int teleportOffDistance = 25;
 
     //for Mouse Look
     Vector2 _mouseAbsolute;
@@ -81,8 +82,8 @@ public class VR_CharacterController : MonoBehaviour {
         }
         
         if (!lockControls)
-        {
-            if(TeleportActive)
+        {            
+            if (TeleportActive)
             {                
                 temp = playerReticleScript.ReticleTransform.position;
                 
@@ -108,7 +109,7 @@ public class VR_CharacterController : MonoBehaviour {
                     blue = new Color32(128, 128, 128, 179);
                     teleportBase.GetComponent<Renderer>().material.SetColor("_TintColor", blue);
                 }
-                else if(Vector3.SqrMagnitude(temp - transform.position) > (maxTeleportDistance + 30f) * (maxTeleportDistance + 30f))
+                else if(Vector3.SqrMagnitude(temp - transform.position) > (maxTeleportDistance + teleportOffDistance) * (maxTeleportDistance + teleportOffDistance))
                 {
                     // TURN TELEPORTER OFF, AS TOO FAR
 
