@@ -13,7 +13,7 @@ public class VR_CharacterController : MonoBehaviour {
     public PlayerReticle playerReticleScript;
     public CanvasGroup blinkCanvas;
     public ParticleSystem dustStormParticles;
-    public GameObject ParticleOnOff;
+    public GameObject ParticleOnOff, BrokenGlassEffect;
     public GameObject Terrain;
     [SerializeField]
     private float groundLevel;
@@ -198,6 +198,7 @@ public class VR_CharacterController : MonoBehaviour {
         }
 
         dustStormParticles.transform.rotation = new Quaternion(dustStormParticles.transform.rotation.x, 0, dustStormParticles.transform.rotation.z, dustStormParticles.transform.rotation.w);
+        BrokenGlassEffect.transform.rotation = myCamera.transform.rotation;
     }
 
     void OnTriggerEnter(Collider hit)
