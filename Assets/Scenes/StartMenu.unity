@@ -301,7 +301,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 176989726}
   m_LocalRotation: {x: -0.006781192, y: -0.23768048, z: 0.00165935, w: -0.9713183}
-  m_LocalPosition: {x: -4.403, y: -5.18, z: 2.708}
+  m_LocalPosition: {x: -4.53, y: -5.326, z: 2.771}
   m_LocalScale: {x: 0.05, y: 0.7, z: 0.72}
   m_LocalEulerAnglesHint: {x: 0.79999995, y: 387.5, z: 0}
   m_Children: []
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 397627798}
   m_LocalRotation: {x: -0.006781192, y: -0.23768048, z: 0.00165935, w: -0.9713183}
-  m_LocalPosition: {x: -4.175, y: -5.616, z: 2.584}
+  m_LocalPosition: {x: -4.302, y: -5.762, z: 2.647}
   m_LocalScale: {x: -0.76, y: 0.09, z: 0.69}
   m_LocalEulerAnglesHint: {x: 0.79999995, y: 387.5, z: 0}
   m_Children: []
@@ -2424,6 +2424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4b65f03ce7ca64c904ce566153f9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAXYScaleIncrease: 0.01
+  ScaleIncreaseSpeed: 0.005
   XscrollSpeed: -0.0009
   YscrollSpeed: 0
   XrotateObject: 0
@@ -2431,15 +2433,15 @@ MonoBehaviour:
   rotateObject: 0
   displacementTransform: 0
   edgeLengthTransform: 0
+  increaseYScale: 0
   minDisplacement: 0
   maxDisplacement: 0
   minEdgeLength: 0
   maxEdgeLength: 0
   expandingDisplacement: 0
   expandingEdgeLength: 0
-  currentDisplacement: 0
+  maxYScaleReached: 0
   incrementDispValue: 0
-  currentEdgeLength: 0
   incrementEdgeValue: 0
 --- !u!23 &684448791
 MeshRenderer:
@@ -2488,6 +2490,49 @@ Transform:
   - {fileID: 1921863957}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &747810716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 747810718}
+  - 114: {fileID: 747810717}
+  m_Layer: 0
+  m_Name: _GM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &747810717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747810716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b022896d55561c4ca3a33006c6c8133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 02707778efaa45d46958bc2c5d12161c, type: 3}
+  fadeSpeed: 2.5
+  FadeIn: 0
+--- !u!4 &747810718
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747810716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.910635, y: 0.3912385, z: 5.658292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1074824922
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,6 +4187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: {fileID: 245915439}
+  WaitBeforeLoad: 6
+  _MenuManager: {fileID: 747810716}
   ShuttleAudioSourceAlarm: {fileID: 1757870733}
   ShuttleAudioSourceBurn: {fileID: 1413209253}
   ShuttleAudioSourceVoice: {fileID: 636905440}
@@ -5828,7 +5875,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 22609bb5413d66743a5fb7095b56669d, type: 2}
+  - {fileID: 2100000, guid: 662258d93d23db149b048ac3934f77ef, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -5851,6 +5898,82 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1356794677}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1389645690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1389645694}
+  - 33: {fileID: 1389645693}
+  - 65: {fileID: 1389645692}
+  - 23: {fileID: 1389645691}
+  m_Layer: 9
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1389645691
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389645690}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: f9b0a56a3c3a32c4581b6ac94f4a7538, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1389645692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389645690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1389645693
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389645690}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1389645694
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389645690}
+  m_LocalRotation: {x: 0.11910966, y: -0.50340503, z: 0.07030104, w: 0.8529092}
+  m_LocalPosition: {x: -10.463, y: 0.245, z: 5.091}
+  m_LocalScale: {x: 0.20020004, y: 0.39, z: 0.01}
+  m_LocalEulerAnglesHint: {x: 15.9, y: -61.1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &1413209251
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,6 +6427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4b65f03ce7ca64c904ce566153f9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAXYScaleIncrease: 0.01
+  ScaleIncreaseSpeed: 0.005
   XscrollSpeed: 0.005
   YscrollSpeed: 0
   XrotateObject: 0
@@ -6311,15 +6436,15 @@ MonoBehaviour:
   rotateObject: 0
   displacementTransform: 0
   edgeLengthTransform: 0
+  increaseYScale: 0
   minDisplacement: 0
   maxDisplacement: 0
   minEdgeLength: 0
   maxEdgeLength: 0
   expandingDisplacement: 0
   expandingEdgeLength: 0
-  currentDisplacement: 0
+  maxYScaleReached: 0
   incrementDispValue: 0
-  currentEdgeLength: 0
   incrementEdgeValue: 0
 --- !u!33 &1729376060
 MeshFilter:
@@ -6802,6 +6927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4b65f03ce7ca64c904ce566153f9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAXYScaleIncrease: 0.01
+  ScaleIncreaseSpeed: 0.005
   XscrollSpeed: 0.008
   YscrollSpeed: 0.001
   XrotateObject: 0
@@ -6809,15 +6936,15 @@ MonoBehaviour:
   rotateObject: 0
   displacementTransform: 0
   edgeLengthTransform: 0
+  increaseYScale: 0
   minDisplacement: 0
   maxDisplacement: 0
   minEdgeLength: 0
   maxEdgeLength: 0
   expandingDisplacement: 0
   expandingEdgeLength: 0
-  currentDisplacement: 0
+  maxYScaleReached: 0
   incrementDispValue: 0
-  currentEdgeLength: 0
   incrementEdgeValue: 0
 --- !u!23 &1921863959
 MeshRenderer:
