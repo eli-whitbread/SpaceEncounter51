@@ -64,6 +64,8 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                             interactableObj.Activate();
                             if(interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
                             {
+                                ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
+                                colChangeScript.ChangeState(true);
                                 usingTurret = true;
                             }
                         }
@@ -73,6 +75,8 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                             interactableObj.Deactivate();
                             if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
                             {
+                                ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
+                                colChangeScript.ChangeState(false);
                                 usingTurret = false;
                             }
                         }
@@ -81,6 +85,8 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                             currentInteractableObject.GetComponent<VR_InteractableObject>().Deactivate();
                             if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
                             {
+                                ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
+                                colChangeScript.ChangeState(false);
                                 usingTurret = false;
                             }
                             currentInteractableObject = hit.collider.gameObject;

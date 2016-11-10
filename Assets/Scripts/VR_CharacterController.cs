@@ -7,6 +7,7 @@ public class VR_CharacterController : MonoBehaviour {
 
     public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer, snapTurnAmount;
     public Transform myCamera;
+    public float vrCameraRenderScale = 1.0f;
     public bool lockControls, teleportIsOn = false, teleportTooFar = false, isUsingGun;
     public GameObject teleportPrefab, teleportCapsule, teleportBase, cameraAnchor;
     public ParticleSystem teleportParticle1, teleportParticle2;
@@ -42,6 +43,7 @@ public class VR_CharacterController : MonoBehaviour {
     void Awake()
     {
         isUsingGun = false;
+        VRSettings.renderScale = vrCameraRenderScale;
     }
     void Start()
     {
