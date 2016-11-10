@@ -309,6 +309,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 63f26f6bd51883c48a05a224baa1ca6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63f26f6bd51883c48a05a224baa1ca6d, type: 3}
   m_IsPrefabParent: 0
@@ -514,15 +518,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 139150605}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f4b65f03ce7ca64c904ce566153f9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MAXYScaleIncrease: 0.01
   ScaleIncreaseSpeed: 0.005
-  XscrollSpeed: 0
-  YscrollSpeed: -0.005
+  XscrollSpeed: 0.0005
+  YscrollSpeed: 0
   XrotateObject: 0
   YrotateObject: 0
   rotateObject: 0
@@ -9532,7 +9536,7 @@ MonoBehaviour:
   MAXYScaleIncrease: 0.01
   ScaleIncreaseSpeed: 0.005
   XscrollSpeed: 0
-  YscrollSpeed: -0.05
+  YscrollSpeed: 0.005
   XrotateObject: 0
   YrotateObject: 0
   rotateObject: 0
@@ -17863,6 +17867,7 @@ MonoBehaviour:
   blinkFadeOutTime: 0.02
   blinkFadeInTime: 0.005
   blinkFadeTimeMultiplyer: 5
+  snapTurnAmount: 0
   myCamera: {fileID: 1147899994}
   lockControls: 0
   teleportIsOn: 0
@@ -17871,6 +17876,7 @@ MonoBehaviour:
   teleportPrefab: {fileID: 1814740569}
   teleportCapsule: {fileID: 693790156}
   teleportBase: {fileID: 1445171260}
+  cameraAnchor: {fileID: 0}
   teleportParticle1: {fileID: 951238727}
   teleportParticle2: {fileID: 476467673}
   playerReticleScript: {fileID: 1998403815}
@@ -18713,6 +18719,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: 4435ed636d8ed3f47902a30c3412ccdd, type: 2}
+  - {fileID: 2100000, guid: 3d481479898424e4a81209bba9bbfbb8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
