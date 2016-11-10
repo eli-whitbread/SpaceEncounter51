@@ -73,11 +73,11 @@ public class GunShootScript : MonoBehaviour {
 
         if (gunEnabled)
         {
-            if (canShoot == false && coolingDown == false)
-            {
-                gunEnabled = false;
-                return;
-            }
+            //if (canShoot == false && coolingDown == false)
+            //{
+            //    gunEnabled = false;
+            //    return;
+            //}
 
             myTime += Time.deltaTime;
             shotTime += Time.deltaTime;
@@ -112,6 +112,16 @@ public class GunShootScript : MonoBehaviour {
         }
 	}
 
+    public void EnableGunControl()
+    {
+        gunEnabled = true;
+    }
+
+    public void DisableGunControl()
+    {
+        gunEnabled = false;
+    }
+
     public void ActivateGun()
     {
         if (canShoot == false)
@@ -119,7 +129,7 @@ public class GunShootScript : MonoBehaviour {
             myTime = 0;
         }
         canShoot = true;
-        gunEnabled = true;
+        //gunEnabled = true;
         gunBarrelMover.Activated = true;
     }
 

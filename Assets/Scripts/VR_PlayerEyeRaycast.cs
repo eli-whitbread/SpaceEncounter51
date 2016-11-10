@@ -25,6 +25,13 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
     [SerializeField]
     float rayLength = 500.0f;
 
+    GameObject currentInteractableObject;
+
+    void Awake()
+    {
+        usingTurret = false;
+    }
+
     void Update()
     {
         EyeRaycast();
@@ -46,6 +53,43 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
             if (reticle)
             {
                 reticle.SetPosition(hit);
+                if(hit.collider.CompareTag("Interactable") && Input.GetButtonDown("TeleportEnable"))
+                {
+                    VR_InteractableObject interactableObj = hit.collider.gameObject.GetComponent<VR_InteractableObject>();
+                    if(interactableObj != null)
+                    {
+                        if (currentInteractableObject == null)
+                        {
+                            currentInteractableObject = hit.collider.gameObject;
+                            interactableObj.Activate();
+                            if(interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
+                            {
+                                usingTurret = true;
+                            }
+                        }
+                        else if(currentInteractableObject == hit.collider.gameObject)
+                        {
+                            currentInteractableObject = null;
+                            interactableObj.Deactivate();
+                            if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
+                            {
+                                usingTurret = false;
+                            }
+                        }
+                        else if(currentInteractableObject != null && currentInteractableObject != hit.collider.gameObject)
+                        {
+                            currentInteractableObject.GetComponent<VR_InteractableObject>().Deactivate();
+                            if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
+                            {
+                                usingTurret = false;
+                            }
+                            currentInteractableObject = hit.collider.gameObject;
+                            interactableObj.Activate();
+
+                        }
+                        
+                    }
+                }
                 if (gunShootScript != null && usingTurret == true)
                 {
                     gunShootScript.Target = hit.collider.gameObject.transform;
