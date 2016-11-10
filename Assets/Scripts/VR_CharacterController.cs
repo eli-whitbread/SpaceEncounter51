@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class VR_CharacterController : MonoBehaviour {
 
-    public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer;
+    public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer, snapTurnAmount;
     public Transform myCamera;
     public bool lockControls, teleportIsOn = false, teleportTooFar = false, isUsingGun;
-    public GameObject teleportPrefab, teleportCapsule, teleportBase;
+    public GameObject teleportPrefab, teleportCapsule, teleportBase, cameraAnchor;
     public ParticleSystem teleportParticle1, teleportParticle2;
     public PlayerReticle playerReticleScript;
     public CanvasGroup blinkCanvas;
@@ -17,7 +17,7 @@ public class VR_CharacterController : MonoBehaviour {
     public GameObject Terrain;
     [SerializeField]
     private float groundLevel;
-    private bool TeleportActive = false;
+    private bool TeleportActive = false, snapTurnActive = false;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
     public float maxTeleportDistance = 15f;
@@ -82,7 +82,26 @@ public class VR_CharacterController : MonoBehaviour {
         }
         
         if (!lockControls)
-        {            
+        {
+            //blink turn
+            if(Input.GetAxis("SnapTurn") == 0 && snapTurnActive == true)
+            {
+                snapTurnActive = false;
+            }
+            if(Input.GetAxis("SnapTurn") != 0 && snapTurnActive == false)
+            {
+                snapTurnActive = true;
+                float snapDir = Input.GetAxis("SnapTurn");
+
+                teleportIsOn = true;
+                blinkAlpha = 1.0f;
+                blinkCanvas.alpha = blinkAlpha;
+                Quaternion snapRot = cameraAnchor.transform.rotation;
+                //snapRot.y = snapRot.y + (snapTurnAmount * snapDir);
+                cameraAnchor.transform.rotation = Quaternion.AngleAxis(snapRot.y + 25.0f, Vector3.up);
+                //InputTracking.Recenter();
+                
+            }            
             if (TeleportActive)
             {                
                 temp = playerReticleScript.ReticleTransform.position;
@@ -144,32 +163,32 @@ public class VR_CharacterController : MonoBehaviour {
                 teleportPrefab.transform.position = new Vector3(temp.x, groundLevel, temp.z);
             }
                         
-                if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
-                {
-                    TeleportActive = true;
-                    temp = playerReticleScript.ReticleTransform.position;
+            if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("TeleportEnable"))
+            {
+                TeleportActive = true;
+                temp = playerReticleScript.ReticleTransform.position;
 
-                    teleportPrefab.SetActive(true);
-                }
-                else if (Input.GetMouseButtonUp(1) || Input.GetButtonUp("TeleportEnable"))
-                {
-                    teleportPrefab.SetActive(false);
-                    TeleportActive = false;
-                }
+                teleportPrefab.SetActive(true);
+            }
+            else if (Input.GetMouseButtonUp(1) || Input.GetButtonUp("TeleportEnable"))
+            {
+                teleportPrefab.SetActive(false);
+                TeleportActive = false;
+            }
 
-                if ((TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true) && !teleportTooFar)
-                {
-                    teleportIsOn = true;
-                    blinkAlpha = 1.0f;
-                    blinkCanvas.alpha = blinkAlpha;
-                    temp = playerReticleScript.ReticleTransform.position;
-                    temp.y = transform.position.y;
-                    transform.position = temp;
-                    //InputTracking.Recenter();
+            if ((TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true) && !teleportTooFar)
+            {
+                teleportIsOn = true;
+                blinkAlpha = 1.0f;
+                blinkCanvas.alpha = blinkAlpha;
+                temp = playerReticleScript.ReticleTransform.position;
+                temp.y = transform.position.y;
+                transform.position = temp;
+                //InputTracking.Recenter();
 
-                    teleportPrefab.SetActive(false);
-                    TeleportActive = false;
-                }
+                teleportPrefab.SetActive(false);
+                TeleportActive = false;
+            }
             
 
             if (Input.GetAxis("Horizontal") != 0)
