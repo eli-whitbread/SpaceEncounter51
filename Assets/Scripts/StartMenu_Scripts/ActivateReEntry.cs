@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ActivateReEntry : MonoBehaviour {
 
     public Light point;
+    public float WaitBeforeLoad = 0.6f;
+    [SerializeField]
+    private GameObject _MenuManager;
+
     [SerializeField] private AudioSource ShuttleAudioSourceAlarm;
     [SerializeField] private AudioSource ShuttleAudioSourceBurn;
     [SerializeField] private AudioSource ShuttleAudioSourceVoice;
@@ -27,6 +32,8 @@ public class ActivateReEntry : MonoBehaviour {
 
     public void StartGame()
     {
+        StartCoroutine("ChangeLevel");
+        ChangeLevel();
         point.GetComponent<Light>().enabled = true;
         ShuttleAudioSourceAlarm.clip = AlarmClip;
         ShuttleAudioSourceAlarm.Play();
@@ -44,5 +51,15 @@ public class ActivateReEntry : MonoBehaviour {
         ShuttleAudioSourceVoice.Stop();
         ShuttleAudioSourceVoice2.clip = Voice2Clip;
         ShuttleAudioSourceVoice2.Play();
+    }
+
+    IEnumerator ChangeLevel()
+    {
+        yield return new WaitForSeconds(WaitBeforeLoad);
+
+        float fadeTime = _MenuManager.GetComponent<FadeScript>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene(1);
+        Debug.Log("Level should be loading");
     }
 }

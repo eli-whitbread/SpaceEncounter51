@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Larissa-Texture
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _NORMALMAP
-  m_LightmapFlags: 0
-  m_CustomRenderQueue: -1
+  m_Name: LEverBackside
+  m_Shader: {fileID: 4800000, guid: d6897c55167dc104d96b2aa13c07db85, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: fbea884dec09b40438e381b1f3539e17, type: 3}
-          m_Scale: {x: 50, y: 100}
+          m_Texture: {fileID: 2800000, guid: e3c1af86d6e4e8b48b022e82cf1730a3, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 21494646c62ec36439e3253383f61405, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -55,7 +55,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 50, y: 100}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -93,6 +93,14 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Inside
+        second: 0.388
+      data:
+        first:
+          name: _Rim
+        second: 1.673
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -102,7 +110,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.16
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -135,4 +143,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.58823526, g: 0.27991888, b: 0, a: 1}
+        second: {r: 0, g: 0.04827571, b: 1, a: 1}
