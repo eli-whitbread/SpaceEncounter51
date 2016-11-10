@@ -14,6 +14,11 @@ public class VR_InteractableObject : MonoBehaviour {
         switch (objectType)
         {
             case InteractableObjectType.Pickup:
+                VR_Pickupable pickupScript = gameObject.GetComponent<VR_Pickupable>();
+                if(pickupScript != null)
+                {
+                    pickupScript.EnableInteraction();
+                }
                 break;
             case InteractableObjectType.Switch:
                 break;
@@ -35,6 +40,11 @@ public class VR_InteractableObject : MonoBehaviour {
         switch (objectType)
         {
             case InteractableObjectType.Pickup:
+                VR_Pickupable pickupScript = gameObject.GetComponent<VR_Pickupable>();
+                if (pickupScript != null)
+                {
+                    pickupScript.DisableInteraction();
+                }
                 break;
             case InteractableObjectType.Switch:
                 break;
