@@ -41,6 +41,8 @@ public class ProjectileMover : MonoBehaviour {
         {
             Destructible destObj = other.GetComponent<Destructible>();
             destObj.ApplyDamage(damage);
+           // Bird_Agent destBird = other.GetComponent<Bird_Agent>();
+           // destObj.ApplyDamage(damage);
         }
 
         CancelInvoke();
