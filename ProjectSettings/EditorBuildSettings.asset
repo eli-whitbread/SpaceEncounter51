@@ -9,3 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
   - enabled: 1
     path: Assets/Scenes/MainLevel.unity
+  - enabled: 1
+    path: Assets/Scripts/Artificial_Intelligence/Bird_Ai/New/Birds.unity
+  - enabled: 1
+    path: Assets/Scripts/Drone/drone.unity
