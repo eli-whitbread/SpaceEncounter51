@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class VR_CharacterController : MonoBehaviour {
 
+    public static VR_CharacterController _charController;
+
     public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer, snapTurnAmount;
     public Transform myCamera;
     public float vrCameraRenderScale = 1.0f;
@@ -18,7 +20,7 @@ public class VR_CharacterController : MonoBehaviour {
     public GameObject Terrain;
     [SerializeField]
     private float groundLevel;
-    private bool TeleportActive = false, snapTurnActive = false;
+    public bool TeleportActive = false, snapTurnActive = false;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
     public float maxTeleportDistance = 15f;
@@ -42,6 +44,8 @@ public class VR_CharacterController : MonoBehaviour {
 
     void Awake()
     {
+        teleportIsOn = false;
+        _charController = this;
         isUsingGun = false;
         VRSettings.renderScale = vrCameraRenderScale;
     }
@@ -236,6 +240,13 @@ public class VR_CharacterController : MonoBehaviour {
         {
             ParticleOnOff.SetActive(false);
         }
+    }
+
+    public void MovePlayer(Transform pos)
+    {
+        Vector3 newPos = pos.position;
+        newPos.y = transform.position.y;
+        transform.position = newPos;
     }
 
     void MouseLook()

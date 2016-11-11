@@ -60,6 +60,6 @@ public class ActivateReEntry : MonoBehaviour {
         float fadeTime = _MenuManager.GetComponent<FadeScript>().BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene(1);
-        Debug.Log("Level should be loading");
+        //Debug.Log("Level should be loading");
     }
 }
