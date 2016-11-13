@@ -61,23 +61,27 @@ public class GunShootScript : MonoBehaviour {
 	void Update () {
 
         //used for testing only - BEGIN
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
-        {
-            ActivateGun();
-        }
-        if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
-        {
-            DeactivateGun();
-        }
+        //if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
+        //{
+        //    ActivateGun();
+        //}
+        //if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
+        //{
+        //    DeactivateGun();
+        //}
         //used for testing only - END
 
         if (gunEnabled)
         {
-            //if (canShoot == false && coolingDown == false)
-            //{
-            //    gunEnabled = false;
-            //    return;
-            //}
+            if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
+            {
+                ActivateGun();
+            }
+            if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
+            {
+                DeactivateGun();
+                return;
+            }
 
             myTime += Time.deltaTime;
             shotTime += Time.deltaTime;
@@ -88,7 +92,7 @@ public class GunShootScript : MonoBehaviour {
                 if (coolingTime <= 0)
                 {
                     coolingDown = false;
-                    gunAimScript.CoolingDown = false;
+                    //gunAimScript.CoolingDown = false;
                     shotsFired = 0;
                     myTime = 0;
                 }
@@ -96,13 +100,13 @@ public class GunShootScript : MonoBehaviour {
 
             if (canShoot == true && shotTime >= rateOfFire && myTime >= warmupTime && coolingDown == false)
             {
-                //AnimateGunBarrels();
-                //CycleProjectileSpawnPoint();
                 shotTime = 0;
+                
             }
 
             if (shotsFired >= shotsBeforeOverheat && coolingDown == false)
             {
+                gunBarrelMover.Activated = false;
                 canShoot = false;
                 coolingDown = true;
                 gunAimScript.CoolingDown = true;
@@ -129,8 +133,8 @@ public class GunShootScript : MonoBehaviour {
             myTime = 0;
         }
         canShoot = true;
-        //gunEnabled = true;
         gunBarrelMover.Activated = true;
+        gunAimScript.CoolingDown = false;
     }
 
     public void DeactivateGun()
@@ -150,8 +154,8 @@ public class GunShootScript : MonoBehaviour {
     
     public void CycleProjectileSpawnPoint(bool top)
     {
-        //if(fireTopBarrels == true)
-        if(top == true)
+        
+        if (top == true)
         {
             Shoot(projectileSpawnPoint_TopL);
             Shoot(projectileSpawnPoint_TopR);
@@ -163,6 +167,7 @@ public class GunShootScript : MonoBehaviour {
             Shoot(projectileSpawnPoint_BottomR);
             //fireTopBarrels = true;
         }
+        
        
     }
     

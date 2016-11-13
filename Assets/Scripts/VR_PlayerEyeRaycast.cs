@@ -61,7 +61,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                         if (currentInteractableObject == null)
                         {
                             currentInteractableObject = hit.collider.gameObject;
-                            interactableObj.Activate();
+                            interactableObj.Activate(hit.point);
                             if(interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
                             {
                                 ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
@@ -90,7 +90,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                                 usingTurret = false;
                             }
                             currentInteractableObject = hit.collider.gameObject;
-                            interactableObj.Activate();
+                            interactableObj.Activate(hit.point);
 
                         }
                         

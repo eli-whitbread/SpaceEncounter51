@@ -9,7 +9,7 @@ public class VR_InteractableObject : MonoBehaviour {
     public GameObject secondaryObject;
 
 
-	public void Activate()
+	public void Activate(Vector3 rayHitPos)
     {
         switch (objectType)
         {
@@ -17,7 +17,7 @@ public class VR_InteractableObject : MonoBehaviour {
                 VR_Pickupable pickupScript = gameObject.GetComponent<VR_Pickupable>();
                 if(pickupScript != null)
                 {
-                    pickupScript.EnableInteraction();
+                    pickupScript.EnableInteraction(rayHitPos);
                 }
                 break;
             case InteractableObjectType.Switch:

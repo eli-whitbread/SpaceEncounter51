@@ -23,6 +23,7 @@ public class GunBarrelMover : MonoBehaviour {
 
     void Start()
     {
+        activated = false;
         topRecoiling = true;
         bottomRecoiling = false;
     }
@@ -61,7 +62,7 @@ public class GunBarrelMover : MonoBehaviour {
             }
 
             //bottom barrels
-            if (bottomRecoiling)
+            if (bottomRecoiling && topRecoiling == false)
             {
                 if (bPos.z >= -0.17f)
                 {

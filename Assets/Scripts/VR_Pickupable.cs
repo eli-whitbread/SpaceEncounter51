@@ -4,10 +4,11 @@ using UnityEngine.VR;
 
 public class VR_Pickupable : MonoBehaviour {
 
-    public float positionOffset;
+    public Vector3 positionOffset;
     public Transform mainCamera;
+    public bool turnOffPhysicsOnPickUp;
 
-    public float clampDist;
+    float clampDist;
     bool interacting = false;
     
 
@@ -20,16 +21,31 @@ public class VR_Pickupable : MonoBehaviour {
         }
 	}
 
-    public void EnableInteraction()
+    void OnCollisionEnter(Collision col)
+    {
+        if(interacting == true)
+        {
+            DisableInteraction();
+        }
+    }
+
+    public void EnableInteraction(Vector3 offSet)
     {
         interacting = true;
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        //positionOffset = offSet;
+        if (turnOffPhysicsOnPickUp == true)
+        {
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        }
         clampDist = Vector3.Distance(mainCamera.transform.position, transform.position);
     }
 
     public void DisableInteraction()
     {
         interacting = false;
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        if (turnOffPhysicsOnPickUp == true)
+        {
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 }

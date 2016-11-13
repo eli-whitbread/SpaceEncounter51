@@ -6,11 +6,13 @@ public class ProjectileMover : MonoBehaviour {
     public float moveSpeed, lifeTime, trackTargetSpeed;
     public int damage;
     public Transform target;
+    public bool trackTargets;
 
     
     void OnEnable()
     {
         GunShootScript.OnTargetSet += GunShootScript_OnTargetSet;
+        target = null;
         Invoke("DeactivateProjectile", lifeTime);
     }
 
@@ -21,7 +23,7 @@ public class ProjectileMover : MonoBehaviour {
 
     void Update () {
 
-        if(target != null)
+        if(target != null && trackTargets == true)
         {
             Vector3 angleToTarget = target.position - transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, angleToTarget, trackTargetSpeed * Time.deltaTime, 1.0f);
