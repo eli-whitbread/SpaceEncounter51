@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
                 if(passoutTime <= 0)
                 {
                     playerPassedOut = true;
-                    gameStates = GameStates.Free;
+                    gameStates = GameStates.Drone;
                 }
                 break;
 

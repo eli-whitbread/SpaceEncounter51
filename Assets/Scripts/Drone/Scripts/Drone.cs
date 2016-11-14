@@ -120,6 +120,7 @@ public class Drone : MonoBehaviour
     {
         if (collider.tag == "End" && pickUp)
         {
+            GameManager._gameManager.gameStates = GameManager.GameStates.Cannon;
             techFound = true;
         }
     }

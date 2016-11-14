@@ -92,10 +92,19 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                             interactableObj.Deactivate();
                             if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
                             {
+
                                 ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
                                 colChangeScript.ChangeState(false);
                                 usingTurret = false;
                             }
+                            if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.NPC)
+                            {
+
+                                VR_NPCInteractableObject npcInteractObj = hit.collider.GetComponent<VR_NPCInteractableObject>();
+                                npcInteractObj.NPCInteracted();
+                              
+                            }
+
                         }
                         else if(currentInteractableObject != null && currentInteractableObject != hit.collider.gameObject)
                         {

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class VR_InteractableObject : MonoBehaviour {
 
-    public enum InteractableObjectType { None, Pickup, Switch, Gun};
+    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC};
     public InteractableObjectType objectType;
 
     public GameObject secondaryObject;
@@ -40,6 +40,9 @@ public class VR_InteractableObject : MonoBehaviour {
                     shootScript.EnableGunControl();
                     secondaryObject.GetComponent<GunAiming>().GunActive = true;
                 }
+                break;
+            case InteractableObjectType.NPC:
+                
                 break;
             default:
                 break;
