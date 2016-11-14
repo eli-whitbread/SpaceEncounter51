@@ -97,7 +97,7 @@ public class VR_CharacterController : MonoBehaviour {
             if(Input.GetAxis("SnapTurn") != 0 && snapTurnActive == false)
             {
                 snapTurnActive = true;
-                float snapDir = Input.GetAxis("SnapTurn");
+                //float snapDir = Input.GetAxis("SnapTurn");
 
                 teleportIsOn = true;
                 blinkAlpha = 1.0f;

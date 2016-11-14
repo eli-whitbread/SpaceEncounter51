@@ -10,14 +10,14 @@ public class DroneCamera : MonoBehaviour {
 
 
 
-    private Camera cam;
+    //private Camera cam;
 
 
 
 	// Use this for initialization
 	void Start ()
     {
-        StartUp();
+        //StartUp();
        
 	}
 	
@@ -43,8 +43,8 @@ public class DroneCamera : MonoBehaviour {
        
 
     }
-    private void StartUp()
-    {
-        cam = GetComponent<Camera>();
-    }
+    //private void StartUp()
+    //{
+    //    cam = GetComponent<Camera>();
+    //}
 }

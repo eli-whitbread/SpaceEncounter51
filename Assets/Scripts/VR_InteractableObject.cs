@@ -1,13 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class VR_InteractableObject : MonoBehaviour {
 
-    public enum InteractableObjectType { Pickup, Switch, Gun};
+    public enum InteractableObjectType { None, Pickup, Switch, Gun};
     public InteractableObjectType objectType;
 
     public GameObject secondaryObject;
+    public Canvas toolTipCanvas;
+    public Text toolTipText;
+    public float tipHoverHeight;
 
+    void Awake()
+    {
+        if (toolTipCanvas != null)
+        {
+            toolTipCanvas.enabled = false;
+        }
+    }
 
 	public void Activate(Vector3 rayHitPos)
     {
@@ -58,6 +69,25 @@ public class VR_InteractableObject : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+    }
+
+    public void ShowToolTip(Vector3 pos)
+    {
+        if (toolTipCanvas != null)
+        {
+            toolTipCanvas.transform.position = new Vector3(transform.position.x, gameObject.GetComponent<MeshRenderer>().bounds.size.y + tipHoverHeight, transform.position.z);
+
+            toolTipCanvas.enabled = true;
+            toolTipText.text = "Press E to Interact";
+        }
+        
+    }
+    public void HideToolTip()
+    {
+        if (toolTipCanvas != null)
+        {
+            toolTipCanvas.enabled = false;
         }
     }
 }

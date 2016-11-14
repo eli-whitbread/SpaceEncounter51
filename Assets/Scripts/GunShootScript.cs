@@ -19,7 +19,7 @@ public class GunShootScript : MonoBehaviour {
     public bool canShoot;
 
     float myTime, shotTime, coolingTime, shotsFired;
-    bool coolingDown, gunEnabled, fireTopBarrels, gunBarrelSwitchDir = false;
+    bool coolingDown, gunEnabled; // fireTopBarrels, gunBarrelSwitchDir = false;
     List<GameObject> projectilePool;
     Transform target;
     public float gunBarrelMoveAmount = 0;
@@ -43,7 +43,7 @@ public class GunShootScript : MonoBehaviour {
         canShoot = false;
         shotsFired = 0;
         gunEnabled = false;
-        fireTopBarrels = true;
+        //fireTopBarrels = true;
 
         projectilePool = new List<GameObject>();
         for (int i = 0; i < projectilePoolSize; i++)

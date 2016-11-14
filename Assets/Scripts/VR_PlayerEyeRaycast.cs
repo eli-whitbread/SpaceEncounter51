@@ -25,7 +25,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
     [SerializeField]
     float rayLength = 500.0f;
 
-    GameObject currentInteractableObject;
+    GameObject currentInteractableObject, lookAtObj;
 
     void Awake()
     {
@@ -53,11 +53,28 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
             if (reticle)
             {
                 reticle.SetPosition(hit);
-                if(hit.collider.CompareTag("Interactable") && Input.GetButtonDown("TeleportEnable"))
+                if (hit.collider.CompareTag("Interactable"))
+                {
+                    lookAtObj = hit.collider.gameObject;
+                    VR_InteractableObject obj = lookAtObj.gameObject.GetComponent<VR_InteractableObject>();
+                    obj.ShowToolTip(hit.point);
+                }
+                else
+                {
+                    if (lookAtObj != null)
+                    {
+                        VR_InteractableObject obj = lookAtObj.GetComponent<VR_InteractableObject>();
+                        obj.HideToolTip();
+                        lookAtObj = null;
+                    }
+                }
+                if (hit.collider.CompareTag("Interactable") && Input.GetButtonDown("TeleportEnable"))
                 {
                     VR_InteractableObject interactableObj = hit.collider.gameObject.GetComponent<VR_InteractableObject>();
+                    
                     if(interactableObj != null)
                     {
+                        
                         if (currentInteractableObject == null)
                         {
                             currentInteractableObject = hit.collider.gameObject;
