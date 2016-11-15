@@ -49,7 +49,7 @@ public class GunAiming : MonoBehaviour {
             newDir.y = Mathf.Clamp(newDir.y, -0.3f, 0.8f);
             
             gunTiltGimbal.transform.localRotation = Quaternion.LookRotation(newDir);
-            Quaternion rot = gunTiltGimbal.transform.rotation;
+            Quaternion rot = gunTiltGimbal.transform.localRotation;
             rot.x = 0;
             rot.z = 0;
             gunRotGimbal.transform.localRotation = rot;
