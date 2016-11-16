@@ -48,9 +48,12 @@ public class VR_CharacterController : MonoBehaviour {
         _charController = this;
         isUsingGun = false;
         VRSettings.renderScale = vrCameraRenderScale;
+        lockControls = true;
+        
     }
     void Start()
     {
+        
         teleportPrefab.SetActive(false);
         yPos = transform.position.y;
         groundLevel = Terrain.transform.position.y;

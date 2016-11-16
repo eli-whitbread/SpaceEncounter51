@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     public bool isInGun = false;
     public bool canUseGun = false;
     public bool canUseDrone = false;
+    public bool startTimer = false;
     void Awake()
     {
         _gameManager = this;
@@ -34,8 +35,11 @@ public class GameManager : MonoBehaviour {
         switch (gameStates)
         {
             case GameStates.Start:
-                passoutTime -= Time.deltaTime;
-                if(passoutTime <= 0)
+                if (startTimer)
+                {
+                    passoutTime -= Time.deltaTime;
+                }
+                if (passoutTime <= 0)
                 {
                     playerPassedOut = true;
                     gameStates = GameStates.Drone;

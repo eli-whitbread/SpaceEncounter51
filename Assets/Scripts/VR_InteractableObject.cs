@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class VR_InteractableObject : MonoBehaviour {
 
-    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC};
+    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC, Ejector};
     public InteractableObjectType objectType;
 
     public GameObject secondaryObject;
@@ -33,6 +33,11 @@ public class VR_InteractableObject : MonoBehaviour {
                 }
                 break;
             case InteractableObjectType.Switch:
+                DoorEject door = secondaryObject.GetComponent<DoorEject>();
+                door.EjectorOn(this.gameObject);
+                break;
+            case InteractableObjectType.Ejector:
+
                 break;
             case InteractableObjectType.Gun:
                 GunShootScript shootScript = secondaryObject.GetComponent<GunShootScript>();
