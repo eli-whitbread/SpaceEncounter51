@@ -4629,6 +4629,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d5ad52fb10ec2445a57ce90bf7a5260, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &371785151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 371785152}
+  m_Layer: 2
+  m_Name: DirectionChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371785152
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 371785151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1998403811}
+  m_RootOrder: 6
 --- !u!1 &384641896 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 41f837ce03ee7634ca4dcdb1b902ca03, type: 3}
@@ -22146,6 +22174,7 @@ Transform:
   - {fileID: 1246679017}
   - {fileID: 1692698315}
   - {fileID: 344468672}
+  - {fileID: 371785152}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1998403812
@@ -22166,7 +22195,9 @@ MonoBehaviour:
   blinkFadeTimeMultiplyer: 5
   snapTurnAmount: 0
   myCamera: {fileID: 1147899994}
-  vrCameraRenderScale: 1
+  directionChecker: {fileID: 371785152}
+  vrCameraRenderScale: 1.2
+  collisionDistance: 1
   lockControls: 0
   teleportIsOn: 0
   teleportTooFar: 0

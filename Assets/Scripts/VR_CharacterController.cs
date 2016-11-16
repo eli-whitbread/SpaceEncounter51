@@ -8,8 +8,8 @@ public class VR_CharacterController : MonoBehaviour {
     public static VR_CharacterController _charController;
 
     public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer, snapTurnAmount;
-    public Transform myCamera;
-    public float vrCameraRenderScale = 1.0f;
+    public Transform myCamera, directionChecker;
+    public float vrCameraRenderScale = 1.0f, collisionDistance;
     public bool lockControls, teleportIsOn = false, teleportTooFar = false, isUsingGun;
     public GameObject teleportPrefab, teleportCapsule, teleportBase, cameraAnchor;
     public ParticleSystem teleportParticle1, teleportParticle2;
@@ -198,7 +198,19 @@ public class VR_CharacterController : MonoBehaviour {
                 teleportPrefab.SetActive(false);
                 TeleportActive = false;
             }
-            
+
+            //check if the player's intended path is blocked
+            if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                Vector3 checkDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                directionChecker.transform.rotation = Quaternion.LookRotation(checkDir);
+                RaycastHit colHit;
+                if(Physics.Raycast(directionChecker.position, directionChecker.forward, out colHit, collisionDistance))
+                {
+                    return;
+                }
+                
+            }
 
             if (Input.GetAxis("Horizontal") != 0)
             {
