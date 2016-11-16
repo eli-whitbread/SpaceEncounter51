@@ -5,6 +5,12 @@ using System.Collections.Generic;
 public class Bird_Controller : MonoBehaviour
 {
 
+
+    public static Bird_Controller _curBirdController;
+
+
+
+
     //public GameObject birdy;
     //public int birdNumber;
     public Transform[] swoops;
@@ -12,7 +18,13 @@ public class Bird_Controller : MonoBehaviour
     public int amountSwoop = 0;
     private List<Bird_Agent> birdys = new List<Bird_Agent>();
 
-   
+
+
+
+   void Awake()
+    {
+        _curBirdController = this;
+    }
     // Use this for initialization
     void Start()
     {

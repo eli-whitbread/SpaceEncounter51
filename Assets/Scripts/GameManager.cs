@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public static GameManager _gameManager;
+    public int deadBirdsRequired;
     public int birdsDestroyed;
 
 
@@ -11,17 +12,19 @@ public class GameManager : MonoBehaviour {
     public GameStates gameStates;
     public float passoutTime;
     public Transform wakeUpPosition;
-
+    
     public bool playerPassedOut = false;
-
+    public bool isInGun = false;
+    public bool canUseGun = false;
+    public bool canUseDrone = false;
     void Awake()
     {
         _gameManager = this;
-
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
@@ -44,11 +47,20 @@ public class GameManager : MonoBehaviour {
                 break;
 
             case GameStates.Drone:
-
                 break;
 
             case GameStates.Cannon:
+                if (canUseGun == false)
+                {
+                    Bird_Controller._curBirdController.BirdBathing(true);
+                }
+                canUseGun = true;
+                if (isInGun != true && birdsDestroyed >= deadBirdsRequired)
+                {
+                    Bird_Controller._curBirdController.BirdBathing(false);
 
+                    gameStates = GameStates.End;
+                }
                 break;
 
             case GameStates.Free:
@@ -62,7 +74,7 @@ public class GameManager : MonoBehaviour {
                 break;
         }
 
-        if(playerPassedOut == true)
+        if (playerPassedOut == true)
         {
             
             

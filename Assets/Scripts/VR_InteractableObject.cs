@@ -11,6 +11,7 @@ public class VR_InteractableObject : MonoBehaviour {
     public Canvas toolTipCanvas;
     public Text toolTipText;
     public float tipHoverHeight;
+    
 
     void Awake()
     {
@@ -35,20 +36,20 @@ public class VR_InteractableObject : MonoBehaviour {
                 break;
             case InteractableObjectType.Gun:
                 GunShootScript shootScript = secondaryObject.GetComponent<GunShootScript>();
-                if(shootScript != null)
+                if(shootScript != null && GameManager._gameManager.canUseGun)
                 {
+                    
                     shootScript.EnableGunControl();
                     secondaryObject.GetComponent<GunAiming>().GunActive = true;
+                    GameManager._gameManager.isInGun = true;
                 }
                 break;
             case InteractableObjectType.NPC:
-                
                 break;
             default:
                 break;
         }
     }
-
     public void Deactivate()
     {
         switch (objectType)
@@ -68,6 +69,7 @@ public class VR_InteractableObject : MonoBehaviour {
                 {
                     shootScript.DisableGunControl();
                     secondaryObject.GetComponent<GunAiming>().GunActive = false;
+                    GameManager._gameManager.isInGun = false;
                 }
                 break;
             default:

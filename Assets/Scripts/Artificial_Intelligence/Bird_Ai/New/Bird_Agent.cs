@@ -257,13 +257,14 @@ public class Bird_Agent : MonoBehaviour
         newVeloc = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
 
     }
-    public void ApplyDamage()
-    {
+    //public void ApplyDamage()
+    //{
        
-            gameObject.SetActive(false);
-            GameManager._gameManager.DestroyedObject();
+    //        gameObject.SetActive(false);
+    //        GameManager._gameManager.DestroyedObject();
+            
         
-    }
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Projectile")

@@ -39,7 +39,7 @@ public class ProjectileMover : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Destructible"))
+        if(other.CompareTag("Destructible") || other.CompareTag("Bird_AI"))
         {
             Destructible destObj = other.GetComponent<Destructible>();
             destObj.ApplyDamage(damage);

@@ -9,13 +9,13 @@ public class TogglePlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-	
+	 
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonDown("B"))
+        if (Input.GetButtonDown("B") && drone.activeInHierarchy)
         {
             playerController.lockControls = false;
             drone.SetActive(false);
@@ -25,11 +25,12 @@ public class TogglePlayer : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.P))
+            if ((Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.P)) && GameManager._gameManager.canUseDrone)
             {
                 collision.gameObject.GetComponent<VR_CharacterController>().lockControls = true;
                 playerController = collision.gameObject.GetComponent<VR_CharacterController>();
                 drone.SetActive(true);
+               
             }
         }
     }

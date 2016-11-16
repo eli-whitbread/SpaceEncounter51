@@ -49,7 +49,12 @@ public class VR_NPCInteractableObject : MonoBehaviour {
                 {
                     audioSource.PlayOneShot(drone[droneIndex]);
                     droneIndex++;
+                    if (droneIndex == drone.Count)
+                    {
+                        GameManager._gameManager.canUseDrone = true;
+                    }
                 }
+                
                 break;
             case GameManager.GameStates.Cannon:
                 if (!audioSource.isPlaying)
