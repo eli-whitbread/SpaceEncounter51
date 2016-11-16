@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class VR_NPCInteractableObject : MonoBehaviour {
 
-
+    public GameObject AlienTextTranslate;
     public List<AudioClip> free;
     public List<AudioClip> drone;
     public List<AudioClip> cannon;
@@ -49,6 +49,14 @@ public class VR_NPCInteractableObject : MonoBehaviour {
                 {
                     audioSource.PlayOneShot(drone[droneIndex]);
                     droneIndex++;
+                    if(droneIndex == 1)
+                    {
+                        AlienTextTranslate.SetActive(true);
+                    }
+                    else if(droneIndex == 2)
+                    {
+                        AlienTextTranslate.SetActive(false);
+                    }
                     if (droneIndex == drone.Count)
                     {
                         GameManager._gameManager.canUseDrone = true;
@@ -71,6 +79,7 @@ public class VR_NPCInteractableObject : MonoBehaviour {
                 }
                 break;
             default:
+                Debug.Log("Error..");
                 break;
         }
     }
