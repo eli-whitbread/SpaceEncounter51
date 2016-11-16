@@ -10,6 +10,7 @@ public class VR_InteractableObject : MonoBehaviour {
     public GameObject secondaryObject;
     public Canvas toolTipCanvas;
     public Text toolTipText;
+    public string toolTip;
     public float tipHoverHeight;
     
 
@@ -89,7 +90,14 @@ public class VR_InteractableObject : MonoBehaviour {
             toolTipCanvas.transform.position = new Vector3(transform.position.x, gameObject.GetComponent<MeshRenderer>().bounds.size.y + tipHoverHeight, transform.position.z);
 
             toolTipCanvas.enabled = true;
-            toolTipText.text = "Press E to Interact";
+            if (toolTip == "")
+            {
+                toolTipText.text = "Press E to Interact";
+            }
+            else
+            {
+                toolTipText.text = toolTip;
+            }
         }
         
     }

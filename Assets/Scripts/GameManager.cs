@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public bool canUseGun = false;
     public bool canUseDrone = false;
     public bool startTimer = false;
+
     void Awake()
     {
         _gameManager = this;
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour {
         StartCoroutine("FadeIn");
         
     }
+
     IEnumerator FadeIn()
     {
         playerPassedOut = false;
