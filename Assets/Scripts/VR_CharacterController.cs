@@ -277,6 +277,15 @@ public class VR_CharacterController : MonoBehaviour {
         transform.position = newPos;
     }
 
+    public void MovePlayerWithBlink(Transform pos)
+    {
+        blinkCanvas.alpha = blinkAlpha;
+        teleportIsOn = true;
+        Vector3 newPos = pos.position;
+        newPos.y = transform.position.y;
+        transform.position = newPos;
+    }
+
     void MouseLook()
     {
 
