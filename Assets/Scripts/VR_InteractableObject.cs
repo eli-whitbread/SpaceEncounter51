@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VR_InteractableObject : MonoBehaviour {
 
-    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC, Ejector};
+    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC, Ejector, ChangeScene};
     public InteractableObjectType objectType;
 
     public GameObject secondaryObject;
@@ -51,6 +52,9 @@ public class VR_InteractableObject : MonoBehaviour {
                 }
                 break;
             case InteractableObjectType.NPC:
+                break;
+            case InteractableObjectType.ChangeScene:
+                SceneManager.LoadScene(0);
                 break;
             default:
                 break;

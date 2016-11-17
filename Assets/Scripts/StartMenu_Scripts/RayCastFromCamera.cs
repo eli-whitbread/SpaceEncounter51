@@ -34,5 +34,10 @@ public class RayCastFromCamera : MonoBehaviour {
             }
         }
 
+        if(Input.GetButtonDown("MenuGameQuit"))
+        {
+            Application.Quit();
+        }
+
     }
 }

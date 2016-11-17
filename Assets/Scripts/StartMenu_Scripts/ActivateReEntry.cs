@@ -22,7 +22,6 @@ public class ActivateReEntry : MonoBehaviour {
     void Start () {
         ShuttleAudioSourceAlarm.loop = true;
         ShuttleAudioSourceBurn.loop = true;
-        ShuttleAudioSourceVoice.loop = true;
     }
 	
 	// Update is called once per frame

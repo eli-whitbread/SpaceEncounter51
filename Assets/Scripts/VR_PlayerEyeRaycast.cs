@@ -49,7 +49,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, rayLength, ~exclusionLayers))
         {
-            Debug.DrawRay(ray.origin, ray.direction, Color.green);
+            //Debug.DrawRay(ray.origin, ray.direction, Color.green);
             if (reticle)
             {
                 reticle.SetPosition(hit);
@@ -68,11 +68,12 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                         lookAtObj = null;
                     }
                 }
+                
                 if (hit.collider.CompareTag("Interactable") && Input.GetButtonDown("TeleportEnable"))
                 {
                     VR_InteractableObject interactableObj = hit.collider.gameObject.GetComponent<VR_InteractableObject>();
                     
-                    if(interactableObj != null)
+                    if (interactableObj != null)
                     {
                         
                         if (currentInteractableObject == null)
@@ -86,7 +87,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                                 usingTurret = true;
                             }
                         }
-                        else if(currentInteractableObject == hit.collider.gameObject)
+                        if(currentInteractableObject == hit.collider.gameObject)
                         {
                             currentInteractableObject = null;
                             interactableObj.Deactivate();

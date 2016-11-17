@@ -7,7 +7,7 @@ public class VR_CharacterController : MonoBehaviour {
 
     public static VR_CharacterController _charController;
 
-    public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer, snapTurnAmount;
+    public float moveSpeed, mouseLookSpeed, blinkFadeOutTime, blinkFadeInTime, blinkFadeTimeMultiplyer, snapTurnAmount, startGameFadeInTime;
     public Transform myCamera, directionChecker;
     public float vrCameraRenderScale = 1.0f, collisionDistance;
     public bool lockControls, teleportIsOn = false, teleportTooFar = false, isUsingGun;
@@ -20,7 +20,7 @@ public class VR_CharacterController : MonoBehaviour {
     public GameObject Terrain;
     [SerializeField]
     private float groundLevel;
-    public bool TeleportActive = false, snapTurnActive = false;
+    public bool TeleportActive = false, snapTurnActive = false, gameStart;
     float yPos, blinkAlpha;
     Vector3 temp = Vector3.zero;
     public float maxTeleportDistance = 15f;
@@ -44,6 +44,8 @@ public class VR_CharacterController : MonoBehaviour {
 
     void Awake()
     {
+        blinkAlpha = 1.0f;
+        gameStart = true;
         teleportIsOn = false;
         _charController = this;
         isUsingGun = false;
@@ -78,6 +80,17 @@ public class VR_CharacterController : MonoBehaviour {
 
     void Update()
     {
+        if(gameStart)
+        {
+            blinkAlpha = Mathf.Lerp(blinkAlpha, 0, startGameFadeInTime * Time.deltaTime);
+            blinkCanvas.alpha = blinkAlpha;
+
+            if (blinkAlpha <= 0.01f)
+            {
+                blinkCanvas.alpha = 0;
+                gameStart = false;
+            }
+        }
         if (VRDevice.isPresent)
         {
             Quaternion lookDirection = InputTracking.GetLocalRotation(VRNode.Head);

@@ -50,7 +50,7 @@ public class InteractiveItemLever : MonoBehaviour {
     {
         isLookedAt = true;
 
-        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire 1"))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             StartCoroutine("RotateLever");
 

@@ -5,6 +5,7 @@ public class DoorEject : MonoBehaviour {
     
     public GameObject[] ejectors;
     public GameObject[] particles;
+    public GameObject shipAIHead;
 
     public bool[] ejectIndex;
     public Transform explosionPos;
@@ -31,6 +32,7 @@ public class DoorEject : MonoBehaviour {
         doorRigidBody.AddExplosionForce(Random.Range(4.5f, 30.0f),explosionPos.position, Random.Range(0.9f, 2.0f), Random.Range(0.3f, 0.9f), ForceMode.Impulse);
         VR_CharacterController._charController.lockControls = false;
         VR_CharacterController._charController.teleportIsOn = true;
+        shipAIHead.SetActive(false);
         GameManager._gameManager.startTimer = true;
     }
     public void EjectorOn(GameObject obj)

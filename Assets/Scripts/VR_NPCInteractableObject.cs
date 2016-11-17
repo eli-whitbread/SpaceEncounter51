@@ -62,7 +62,6 @@ public class VR_NPCInteractableObject : MonoBehaviour {
                         GameManager._gameManager.canUseDrone = true;
                     }
                 }
-                
                 break;
             case GameManager.GameStates.Cannon:
                 if (!audioSource.isPlaying)
