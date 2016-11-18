@@ -56,8 +56,11 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                 if (hit.collider.CompareTag("Interactable"))
                 {
                     lookAtObj = hit.collider.gameObject;
-                    VR_InteractableObject obj = lookAtObj.gameObject.GetComponent<VR_InteractableObject>();
-                    obj.ShowToolTip(hit.point);
+                    if (currentInteractableObject != null && currentInteractableObject != lookAtObj)
+                    {
+                        VR_InteractableObject obj = lookAtObj.gameObject.GetComponent<VR_InteractableObject>();
+                        obj.ShowToolTip(hit.point);
+                    }
                 }
                 else
                 {
@@ -75,19 +78,8 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                     
                     if (interactableObj != null)
                     {
-                        
-                        if (currentInteractableObject == null)
-                        {
-                            currentInteractableObject = hit.collider.gameObject;
-                            interactableObj.Activate(hit.point);
-                            if(interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
-                            {
-                                ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
-                                colChangeScript.ChangeState(true);
-                                usingTurret = true;
-                            }
-                        }
-                        if(currentInteractableObject == hit.collider.gameObject)
+                        interactableObj.HideToolTip();
+                        if (currentInteractableObject == hit.collider.gameObject)
                         {
                             currentInteractableObject = null;
                             interactableObj.Deactivate();
@@ -103,10 +95,22 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
 
                                 VR_NPCInteractableObject npcInteractObj = hit.collider.GetComponent<VR_NPCInteractableObject>();
                                 npcInteractObj.NPCInteracted();
-                              
+
                             }
 
                         }
+                        else if (currentInteractableObject == null)
+                        {
+                            currentInteractableObject = hit.collider.gameObject;
+                            interactableObj.Activate(hit.point);
+                            if(interactableObj.objectType == VR_InteractableObject.InteractableObjectType.Gun)
+                            {
+                                ButtonColourChanger colChangeScript = hit.collider.GetComponent<ButtonColourChanger>();
+                                colChangeScript.ChangeState(true);
+                                usingTurret = true;
+                            }
+                        }
+                        
                         else if(currentInteractableObject != null && currentInteractableObject != hit.collider.gameObject)
                         {
                             currentInteractableObject.GetComponent<VR_InteractableObject>().Deactivate();

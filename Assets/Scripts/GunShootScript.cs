@@ -40,7 +40,7 @@ public class GunShootScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        canShoot = false;
+        //canShoot = false;
         shotsFired = 0;
         gunEnabled = false;
         //fireTopBarrels = true;
@@ -73,11 +73,11 @@ public class GunShootScript : MonoBehaviour {
 
         if (gunEnabled)
         {
-            if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Teleport"))
+            if (Input.GetButtonDown("Teleport"))
             {
                 ActivateGun();
             }
-            if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("Teleport"))
+            if (Input.GetButtonUp("Teleport"))
             {
                 DeactivateGun();
                 return;
@@ -124,6 +124,7 @@ public class GunShootScript : MonoBehaviour {
     public void DisableGunControl()
     {
         gunEnabled = false;
+        DeactivateGun();
     }
 
     public void ActivateGun()

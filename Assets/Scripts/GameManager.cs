@@ -58,8 +58,9 @@ public class GameManager : MonoBehaviour {
                 if (canUseGun == false)
                 {
                     Bird_Controller._curBirdController.BirdBathing(true);
+                    canUseGun = true;
                 }
-                canUseGun = true;
+                
                 if (isInGun != true && birdsDestroyed >= deadBirdsRequired)
                 {
                     Bird_Controller._curBirdController.BirdBathing(false);

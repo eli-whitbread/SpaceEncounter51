@@ -43,9 +43,8 @@ public class VR_InteractableObject : MonoBehaviour {
                 break;
             case InteractableObjectType.Gun:
                 GunShootScript shootScript = secondaryObject.GetComponent<GunShootScript>();
-                if(shootScript != null && GameManager._gameManager.canUseGun)
+                if (shootScript != null && GameManager._gameManager.canUseGun)
                 {
-                    
                     shootScript.EnableGunControl();
                     secondaryObject.GetComponent<GunAiming>().GunActive = true;
                     GameManager._gameManager.isInGun = true;
@@ -81,6 +80,7 @@ public class VR_InteractableObject : MonoBehaviour {
                 GunShootScript shootScript = secondaryObject.GetComponent<GunShootScript>();
                 if (shootScript != null)
                 {
+                    Debug.Log("Deactivate Gun");
                     shootScript.DisableGunControl();
                     secondaryObject.GetComponent<GunAiming>().GunActive = false;
                     GameManager._gameManager.isInGun = false;
@@ -100,7 +100,7 @@ public class VR_InteractableObject : MonoBehaviour {
             toolTipCanvas.enabled = true;
             if (toolTip == "")
             {
-                toolTipText.text = "Press E to Interact";
+                toolTipText.text = "X Button to Interact";
             }
             else
             {
