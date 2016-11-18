@@ -198,18 +198,22 @@ public class VR_CharacterController : MonoBehaviour {
                 TeleportActive = false;
             }
 
-            if ((TeleportActive && Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Teleport") && TeleportActive == true) && !teleportTooFar)
+            //if ((TeleportActive && Input.GetKeyDown(KeyCode.Space)) || (Input.GetButtonDown("Teleport") && TeleportActive == true) && !teleportTooFar)
+            if (!teleportTooFar)
             {
-                teleportIsOn = true;
-                blinkAlpha = 1.0f;
-                blinkCanvas.alpha = blinkAlpha;
-                temp = playerReticleScript.ReticleTransform.position;
-                temp.y = transform.position.y;
-                transform.position = temp;
-                //InputTracking.Recenter();
+                if ((Input.GetButtonDown("Teleport") || Input.GetMouseButtonDown(0)) && TeleportActive == true)
+                {
+                    teleportIsOn = true;
+                    blinkAlpha = 1.0f;
+                    blinkCanvas.alpha = blinkAlpha;
+                    temp = playerReticleScript.ReticleTransform.position;
+                    temp.y = transform.position.y;
+                    transform.position = temp;
+                    //InputTracking.Recenter();
 
-                teleportPrefab.SetActive(false);
-                TeleportActive = false;
+                    teleportPrefab.SetActive(false);
+                    TeleportActive = false;
+                }
             }
 
             //check if the player's intended path is blocked
@@ -282,7 +286,7 @@ public class VR_CharacterController : MonoBehaviour {
         blinkCanvas.alpha = blinkAlpha;
         teleportIsOn = true;
         Vector3 newPos = pos.position;
-        newPos.y = transform.position.y;
+        newPos.y = pos.position.y;
         transform.position = newPos;
     }
 

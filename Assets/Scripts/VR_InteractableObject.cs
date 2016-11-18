@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class VR_InteractableObject : MonoBehaviour {
 
-    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC, Ejector, ChangeScene};
+    public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC, Ejector, ChangeScene, ActivateTurret};
     public InteractableObjectType objectType;
 
     public GameObject secondaryObject;
@@ -55,6 +55,10 @@ public class VR_InteractableObject : MonoBehaviour {
                 break;
             case InteractableObjectType.ChangeScene:
                 SceneManager.LoadScene(0);
+                break;
+            case InteractableObjectType.ActivateTurret:
+                ToggleTurret togTurret = secondaryObject.GetComponent<ToggleTurret>();
+                togTurret.TeleportPlayer();
                 break;
             default:
                 break;

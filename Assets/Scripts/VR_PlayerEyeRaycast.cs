@@ -69,7 +69,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                     }
                 }
                 
-                if (hit.collider.CompareTag("Interactable") && Input.GetButtonDown("TeleportEnable"))
+                if (hit.collider.CompareTag("Interactable") && Input.GetButtonDown("Teleport") && VR_CharacterController._charController.TeleportActive == false)
                 {
                     VR_InteractableObject interactableObj = hit.collider.gameObject.GetComponent<VR_InteractableObject>();
                     
