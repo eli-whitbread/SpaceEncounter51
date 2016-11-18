@@ -12,12 +12,14 @@ public class GameManager : MonoBehaviour {
     public GameStates gameStates;
     public float passoutTime;
     public Transform wakeUpPosition;
-    
+    public UnityEngine.UI.Image fadeInImage;
+
     public bool playerPassedOut = false;
     public bool isInGun = false;
     public bool canUseGun = false;
     public bool canUseDrone = false;
     public bool startTimer = false;
+    public bool podHasLanded = false;
 
     void Awake()
     {
@@ -36,6 +38,10 @@ public class GameManager : MonoBehaviour {
         switch (gameStates)
         {
             case GameStates.Start:
+                if(podHasLanded)
+                {
+                    FadeInDropPod();
+                }
                 if (startTimer)
                 {
                     passoutTime -= Time.deltaTime;
@@ -110,5 +116,20 @@ public class GameManager : MonoBehaviour {
         gameObject.GetComponent<FadeScript>().BeginFade(-1);
         yield return new WaitForSeconds(passoutTime);
 
+    }
+
+    void FadeInDropPod()
+    {
+        if (fadeInImage.color.a <= 0.5f)
+        {
+            fadeInImage.gameObject.SetActive(false);
+            podHasLanded = false;
+        }
+        else
+        {
+            Color tmpColor = new Color(0, 0, 0, 0);
+            fadeInImage.color = Color.Lerp(fadeInImage.color, tmpColor, 5f * Time.deltaTime);
+            //fadeInImage.gameObject.SetActive(false);
+        }
     }
 }

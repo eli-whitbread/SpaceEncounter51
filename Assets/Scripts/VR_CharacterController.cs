@@ -80,7 +80,7 @@ public class VR_CharacterController : MonoBehaviour {
 
     void Update()
     {
-        if(gameStart)
+        if (gameStart)
         {
             blinkAlpha = Mathf.Lerp(blinkAlpha, 0, startGameFadeInTime * Time.deltaTime);
             blinkCanvas.alpha = blinkAlpha;

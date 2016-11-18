@@ -24,9 +24,25 @@ public class PlayInitialAudio : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                audioSource.PlayOneShot(A_initialDialogue[trackNo]);
-                trackNo++;
+                if(trackNo == 0)
+                {
+                    audioSource.PlayOneShot(A_initialDialogue[trackNo]);
+                    trackNo++;
+                }
+                else
+                {
+                    if(GameManager._gameManager.podHasLanded)
+                    {
+                        audioSource.PlayOneShot(A_initialDialogue[trackNo]);
+                        trackNo++;
+                    }
+                }
+
             }	
+        }
+        else
+        {
+            GetComponent<PlayInitialAudio>().enabled = false;
         }
 
 
