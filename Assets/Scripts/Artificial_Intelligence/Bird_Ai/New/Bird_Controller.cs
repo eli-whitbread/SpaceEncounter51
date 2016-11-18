@@ -57,8 +57,6 @@ public class Bird_Controller : MonoBehaviour
     }
     private void MakeBirdySwoop()
     {
-        
-
         if (amountSwoop <= 10)
         {
             int r = Random.Range(0, birdys.Count);

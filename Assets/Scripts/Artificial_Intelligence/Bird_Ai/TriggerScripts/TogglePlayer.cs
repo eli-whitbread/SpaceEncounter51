@@ -6,6 +6,9 @@ public class TogglePlayer : MonoBehaviour {
 
     public GameObject drone;
     private VR_CharacterController playerController;
+
+
+
 	// Use this for initialization
 	void Start ()
     {
