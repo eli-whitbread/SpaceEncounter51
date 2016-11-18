@@ -20,7 +20,7 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 2800000, guid: bd883f87538063745b468c9374e57d3b, type: 3}
-          m_Scale: {x: 100, y: 100}
+          m_Scale: {x: 20, y: 20}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -96,7 +96,7 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: 0.056
+        second: 0.069
       data:
         first:
           name: _Shininess
@@ -145,19 +145,19 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0.30147058, b: 0.30147058, a: 0.85882354}
+        second: {r: 1, g: 0.9, b: 0.75, a: 0.85882354}
       data:
         first:
           name: _SpecColor
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _TintColor
-        second: {r: 0, g: 0.32867146, b: 1, a: 0.9843137}
-      data:
-        first:
           name: _Emission
         second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 0, g: 0.32867146, b: 1, a: 0.9843137}
       data:
         first:
           name: _DistortParams
