@@ -5,13 +5,21 @@ public class Destructible : MonoBehaviour {
 
     public int health;
     public GameObject deathFX;
-    
-    
+
+    private Bird_Agent bird;
+   
 	public void ApplyDamage(int val)
     {
+        
+           
         health -= val;
         if(health <= 0)
         {
+            if (GetComponent<Bird_Agent>())
+            {
+                bird = GetComponent<Bird_Agent>();
+                bird.IsDead();
+            }
             GameManager._gameManager.DestroyedObject();
             if(deathFX != null)
             {
@@ -20,7 +28,7 @@ public class Destructible : MonoBehaviour {
                 fxObj.transform.rotation = Quaternion.identity;
                 fxObj.SetActive(true);
             }
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 }

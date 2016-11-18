@@ -70,7 +70,7 @@ public class Drone : MonoBehaviour
         {
             height += elevateIncrement * elevateSpeed * Time.deltaTime;
         }
-        if (Input.GetButton("Lower") && height > 0)
+        if (Input.GetButton("Lower") && height > 2)
         {
             height -= elevateIncrement * elevateSpeed * Time.deltaTime;
         }

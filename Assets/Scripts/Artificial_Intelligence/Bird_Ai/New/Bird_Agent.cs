@@ -38,6 +38,8 @@ public class Bird_Agent : MonoBehaviour
     public List<Transform> flockGoals = new List<Transform>();
 
 
+    private Rigidbody rigid;
+
     private void Awake()
     {
         StartUp();
@@ -255,7 +257,7 @@ public class Bird_Agent : MonoBehaviour
     {
         newPos = transform.position;
         newVeloc = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
-
+        rigid = GetComponent<Rigidbody>();
     }
     //public void ApplyDamage()
     //{
@@ -271,5 +273,10 @@ public class Bird_Agent : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    public void IsDead()
+    {
+        rigid.isKinematic = false;
+        rigid.useGravity = true;
     }
 }
