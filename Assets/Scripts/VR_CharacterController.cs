@@ -229,15 +229,17 @@ public class VR_CharacterController : MonoBehaviour {
                 
             }
 
+            //WARNING CONTROLs HAVE BEEN FLIPPED
+
             if (Input.GetAxis("Horizontal") != 0)
             {
                 float sideMove = Input.GetAxis("Horizontal");
-                transform.Translate(transform.right * sideMove * moveSpeed * Time.deltaTime);
+                transform.Translate(transform.forward * -sideMove * moveSpeed * Time.deltaTime);
             }
             if (Input.GetAxis("Vertical") != 0)
             {
                 float forwardMove = Input.GetAxis("Vertical");
-                transform.Translate(transform.forward * forwardMove * moveSpeed * Time.deltaTime);
+                transform.Translate(transform.right * forwardMove * moveSpeed * Time.deltaTime);
             }
             transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
 
@@ -247,7 +249,7 @@ public class VR_CharacterController : MonoBehaviour {
                 blinkCanvas.alpha = blinkAlpha;
 
                 if (blinkAlpha <= 0.01f)
-                { 
+                {
                     blinkCanvas.alpha = 0;
                     teleportIsOn = false;
                 }
