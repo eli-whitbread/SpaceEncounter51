@@ -45,10 +45,11 @@ public class VR_NPCInteractableObject : MonoBehaviour {
                 }
                 break;
             case GameManager.GameStates.Drone:
-                if (!audioSource.isPlaying && droneIndex <= drone.Count)
+                if (!audioSource.isPlaying && droneIndex < drone.Count)
                 {
                     audioSource.PlayOneShot(drone[droneIndex]);
                     droneIndex++;
+
                     if(droneIndex == 1)
                     {
                         AlienTextTranslate.SetActive(true);

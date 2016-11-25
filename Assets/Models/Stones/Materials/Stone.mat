@@ -21,7 +21,7 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: f68e1cce20b4b7a49a3503fe3a9d6d4d, type: 3}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: -0.68, y: 0}
+          m_Offset: {x: 0.1, y: 0}
       data:
         first:
           name: _BumpMap
@@ -32,6 +32,13 @@ Material:
       data:
         first:
           name: _DetailNormalMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -56,7 +63,7 @@ Material:
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: -0.68, y: 0}
+          m_Offset: {x: 0.1, y: 0}
       data:
         first:
           name: _DetailMask
@@ -67,13 +74,6 @@ Material:
       data:
         first:
           name: _DetailAlbedoMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -93,20 +93,24 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Parallax
-        second: 0.02
+          name: _Glossiness
+        second: 0
       data:
         first:
           name: _ZWrite
         second: 1
       data:
         first:
-          name: _Glossiness
+          name: _Metallic
         second: 0
       data:
         first:
           name: _BumpScale
         second: 1
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
       data:
         first:
           name: _OcclusionStrength
@@ -122,10 +126,6 @@ Material:
       data:
         first:
           name: _Mode
-        second: 0
-      data:
-        first:
-          name: _Metallic
         second: 0
     m_Colors:
       data:

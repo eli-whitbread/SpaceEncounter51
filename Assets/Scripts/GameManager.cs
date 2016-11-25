@@ -10,20 +10,24 @@ public class GameManager : MonoBehaviour {
 
     public enum GameStates { Start, End, Drone, Cannon, Free }
     public GameStates gameStates;
-    public float passoutTime;
+    public float passoutTime, wakeUpTime;
     public Transform wakeUpPosition;
     public UnityEngine.UI.Image fadeInImage;
 
-    public bool playerPassedOut = false;
+    public bool playerPassedOut = false, playerWoozie = true;
     public bool isInGun = false;
     public bool canUseGun = false;
     public bool canUseDrone = false;
     public bool startTimer = false;
     public bool podHasLanded = false;
 
+    float curTime;
+    bool countDown = false;
+
     void Awake()
     {
         _gameManager = this;
+        curTime = passoutTime;
     }
 
 	// Use this for initialization
@@ -38,18 +42,32 @@ public class GameManager : MonoBehaviour {
         switch (gameStates)
         {
             case GameStates.Start:
-                if(podHasLanded)
+
+                if (countDown == true)
+                {
+                    passoutTime -= Time.deltaTime;
+                }
+
+                if (podHasLanded)
                 {
                     FadeInDropPod();
                 }
                 if (startTimer)
                 {
-                    passoutTime -= Time.deltaTime;
+                    if(countDown == false)
+                    {
+                        countDown = true;
+                    }
+                    if(passoutTime <= 5.0f && playerWoozie == true)
+                    {
+                        StartCoroutine("FadeOut");
+                        
+                    }
                 }
                 if (passoutTime <= 0)
                 {
                     playerPassedOut = true;
-                    gameStates = GameStates.Drone;
+                    //gameStates = GameStates.Drone;
                 }
                 break;
 
@@ -91,6 +109,11 @@ public class GameManager : MonoBehaviour {
             
             
             StartCoroutine("FadeOut");
+            if(passoutTime < -5.0f)
+            {
+                StartCoroutine("FadeInSlow");
+                gameStates = GameStates.Drone;
+            }
             //playerPassedOut = false;
         }
 
@@ -105,8 +128,16 @@ public class GameManager : MonoBehaviour {
     {
         gameObject.GetComponent<FadeScript>().BeginFade(1);
         yield return new WaitForSeconds(2);
-        VR_CharacterController._charController.MovePlayer(wakeUpPosition);
-        StartCoroutine("FadeIn");
+        if (playerPassedOut == true)
+        {
+            VR_CharacterController._charController.MovePlayer(wakeUpPosition);
+            //StartCoroutine("FadeInSlow");
+        }
+        else
+        {
+            playerWoozie = false;
+            StartCoroutine("FadeIn");
+        }
         
     }
 
@@ -115,6 +146,14 @@ public class GameManager : MonoBehaviour {
         playerPassedOut = false;
         gameObject.GetComponent<FadeScript>().BeginFade(-1);
         yield return new WaitForSeconds(passoutTime);
+
+    }
+
+    IEnumerator FadeInSlow()
+    {
+        playerPassedOut = false;
+        gameObject.GetComponent<FadeScript>().BeginFade(-1);
+        yield return new WaitForSeconds(wakeUpTime);
 
     }
 

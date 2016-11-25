@@ -26,6 +26,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
     float rayLength = 500.0f;
 
     GameObject currentInteractableObject, lookAtObj;
+    public GameObject adultNPC, childNPC;
 
     void Awake()
     {
@@ -79,7 +80,7 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                     if (interactableObj != null)
                     {
                         interactableObj.HideToolTip();
-                        if (currentInteractableObject == hit.collider.gameObject)
+                        if (currentInteractableObject == hit.collider.gameObject || hit.collider.gameObject == adultNPC || hit.collider.gameObject == childNPC)
                         {
                             currentInteractableObject = null;
                             interactableObj.Deactivate();
@@ -90,13 +91,13 @@ public class VR_PlayerEyeRaycast : MonoBehaviour {
                                 colChangeScript.ChangeState(false);
                                 usingTurret = false;
                             }
-                            if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.NPC)
-                            {
+                            //if (interactableObj.objectType == VR_InteractableObject.InteractableObjectType.NPC)
+                            //{
 
-                                VR_NPCInteractableObject npcInteractObj = hit.collider.GetComponent<VR_NPCInteractableObject>();
-                                npcInteractObj.NPCInteracted();
+                            //    VR_NPCInteractableObject npcInteractObj = hit.collider.GetComponent<VR_NPCInteractableObject>();
+                            //    npcInteractObj.NPCInteracted();
 
-                            }
+                            //}
 
                         }
                         else if (currentInteractableObject == null)
