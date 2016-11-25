@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-	
-	}
+        canUseGun = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
         switch (gameStates)
         {
             case GameStates.Start:
+                Bird_Controller._curBirdController.BirdBathing(true);
 
                 if (countDown == true)
                 {
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour {
                 }
                 if (passoutTime <= 0)
                 {
+                    
                     playerPassedOut = true;
                     //gameStates = GameStates.Drone;
                 }
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour {
                 break;
 
             case GameStates.Drone:
+
                 break;
 
             case GameStates.Cannon:

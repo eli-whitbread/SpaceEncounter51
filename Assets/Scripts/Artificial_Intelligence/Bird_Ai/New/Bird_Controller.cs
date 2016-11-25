@@ -41,7 +41,7 @@ public class Bird_Controller : MonoBehaviour
         
         birdys.AddRange(GameObject.FindObjectsOfType<Bird_Agent>());
         AssignBirdys();
-        BirdBathing(false);
+       // BirdBathing(false);
 
     }
    

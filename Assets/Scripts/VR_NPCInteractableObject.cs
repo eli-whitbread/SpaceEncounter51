@@ -83,4 +83,11 @@ public class VR_NPCInteractableObject : MonoBehaviour {
                 break;
         }
     }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Player"))
+        {
+            DialogueManager._instance._speakingNPC = DialogueManager.speakingNPC.Adult;
+        }
+    }
 }
