@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case GameManager.GameStates.Drone:
 
-                    if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying)
+                    if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex <= adultDialogueClips.Count)
                     {
                         aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
                         adultDialogueIndex++;
@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
 
                         }
                     }
-                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying)
+                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex <= childDialogueClips.Count)
                     {
                         aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
                         childDialogueIndex++;

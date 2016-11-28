@@ -109,11 +109,12 @@ public class GameManager : MonoBehaviour {
 
         if (playerPassedOut == true)
         {
-            
+
             
             StartCoroutine("FadeOut");
             if(passoutTime < -5.0f)
             {
+                passoutTime = curTime;
                 StartCoroutine("FadeInSlow");
                 gameStates = GameStates.Drone;
             }

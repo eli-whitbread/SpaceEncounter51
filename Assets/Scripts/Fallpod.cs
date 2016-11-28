@@ -98,13 +98,13 @@ public class Fallpod : MonoBehaviour
     void LastFunction()
     {
         // Place camera where it's meant to be
-        cameraPlayer.transform.position = new Vector3(-45.374f, -3.2f, 11.5477f);
+        //cameraPlayer.transform.position = endHeadPosition.transform.position;
 
         // Position Pod how it's meant to be (rotation and position)
-        FallingdropPod.transform.position = endPosEmpty.transform.position;
-        FallingdropPod.transform.rotation = endPosEmpty.transform.rotation;
+        //FallingdropPod.transform.position = endPosEmpty.transform.position;
+        //FallingdropPod.transform.rotation = endPosEmpty.transform.rotation;
         cameraPlayer.transform.position = playerStartPOS.position;
-        cameraPlayer.transform.rotation = playerStartPOS.rotation;
+        //cameraPlayer.transform.rotation = playerStartPOS.rotation;
         UnityEngine.VR.InputTracking.Recenter();
         FallingdropPod.SetActive(false);
         groundDropPod.SetActive(true);
