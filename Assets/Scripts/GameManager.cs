@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour {
                     if(passoutTime <= 5.0f && playerWoozie == true)
                     {
                         StartCoroutine("FadeOut");
-                        
+                        TurnPodMeshColliderOnOff._instance.SwitchCollider(true);
+
                     }
                 }
                 if (passoutTime <= 0)

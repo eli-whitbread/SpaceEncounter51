@@ -34,6 +34,7 @@ public class DoorEject : MonoBehaviour {
         VR_CharacterController._charController.teleportIsOn = true;
         shipAIHead.SetActive(false);
         GameManager._gameManager.startTimer = true;
+        TurnPodMeshColliderOnOff._instance.SwitchCollider(false);
     }
     public void EjectorOn(GameObject obj)
     {
