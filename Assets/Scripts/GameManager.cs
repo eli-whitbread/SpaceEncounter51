@@ -50,9 +50,10 @@ public class GameManager : MonoBehaviour {
                 }
 
                 if (podHasLanded)
-                {
+                {                        
                     FadeInDropPod();
                 }
+
                 if (startTimer)
                 {
                     if(countDown == false)

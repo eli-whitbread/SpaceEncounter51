@@ -12,7 +12,16 @@ public class Fallpod : MonoBehaviour
     public Image fadeImg;
     public Transform playerStartPOS;
     public bool hasLanded, startFade;
+    private AudioSource fallpodAudioSource;
+    public AudioSource fallpodParticleEffectAudioSource;
+    public AudioSource fallPodDescentSource;
+    public AudioClip reentryBurnSound;
+    public AudioClip reentryAlarmSound;
+    public AudioClip shuttleDescentWindHissSound;
+    public GameObject reentryBurnParticleEffect;
+    public GameObject windParticleEffect;
 
+    static float t = 0.0f;
     public float howLongFadeTakes = 4.0f;
     private float currentTime = 0.0f, distance;
 
@@ -20,10 +29,21 @@ public class Fallpod : MonoBehaviour
     void Awake()
     {
         fadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+        fallpodAudioSource = GetComponent<AudioSource>();
     }
     // Use this for initialization
     void Start()
     {
+        // Start reentry burn sound
+        fallpodParticleEffectAudioSource.clip = reentryBurnSound;
+        fallPodDescentSource.clip = shuttleDescentWindHissSound;
+        //fallpodParticleEffectAudioSource.volume = 0.05f;
+        fallpodParticleEffectAudioSource.Play();
+
+        // Play Reentry Alarm Sound
+        fallpodAudioSource.clip = reentryAlarmSound;
+        fallpodAudioSource.volume = 0.05f;
+        fallpodAudioSource.Play();
 
         currentPos = startPosEmpty.transform.position.y;
         distance = startPosEmpty.transform.position.y - endPosEmpty.transform.position.y;
@@ -40,9 +60,39 @@ public class Fallpod : MonoBehaviour
             {
                 //Debug.Log("Distance Midway Equals = " + currentPos);
                 //UnityEditor.EditorApplication.isPaused = true;
+                fallpodParticleEffectAudioSource.Stop();
                 startFade = true;
             }
 
+            if(currentPos < (distance * 0.7f))
+            {
+                if(fallPodDescentSource.isPlaying)
+                {
+                    fallpodParticleEffectAudioSource.Stop();
+                }
+                //StartCoroutine("PlayHissDescentSound");
+
+                reentryBurnParticleEffect.GetComponent<ParticleSystem>().Stop();                
+            }
+
+            if (currentPos < (distance * 0.8f) && !fallPodDescentSource.isPlaying)
+            {
+                fallPodDescentSource.Play();
+                windParticleEffect.SetActive(true);
+            }
+
+            if (fallPodDescentSource.isPlaying)
+            {
+                t += 0.05f * Time.deltaTime;
+
+                fallPodDescentSource.volume = Mathf.Lerp(0.75f, 0.0f, t);
+                fallpodAudioSource.volume = Mathf.Lerp(0.05f, 0.003f, t);
+
+                if(fallPodDescentSource.volume <= 0.2)
+                {
+                    windParticleEffect.SetActive(false);
+                }
+            }
 
             if (currentPos > 0.1f)
             {
@@ -54,14 +104,7 @@ public class Fallpod : MonoBehaviour
                 FallingdropPod.transform.position = new Vector3(FallingdropPod.transform.position.x, currentPos, FallingdropPod.transform.position.z);
 
                 cameraPlayer.transform.position = whereHeadShouldBe.transform.position;
-                //cameraPlayer.transform.rotation = whereHeadShouldBe.transform.rotation;
             }
-            //else
-            //{
-            //    // Pod has reached the ground
-            //    hasLanded = true;
-            //    //Debug.Log("Has Landed");
-            //}
 
             if (startFade)
             {
@@ -97,6 +140,11 @@ public class Fallpod : MonoBehaviour
 
     void LastFunction()
     {
+        fallpodAudioSource.Stop();
+        
+        // Start Dust Storm Audio
+        VR_CharacterController._charController.playerAudioSource.volume = 0.01f;
+
         // Place camera where it's meant to be
         //cameraPlayer.transform.position = endHeadPosition.transform.position;
 
@@ -116,4 +164,5 @@ public class Fallpod : MonoBehaviour
         // Turn this script off! (Nothing will run following this)
         gameObject.GetComponent<Fallpod>().enabled = false;
     }
+    
 }

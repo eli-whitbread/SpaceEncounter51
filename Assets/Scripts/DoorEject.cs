@@ -6,12 +6,16 @@ public class DoorEject : MonoBehaviour {
     public GameObject[] ejectors;
     public GameObject[] particles;
     public GameObject shipAIHead;
+    private AudioSource ejectorAudioSouce;
+    public AudioClip ejectorButtonSound;
 
     public bool[] ejectIndex;
     public Transform explosionPos;
     private void Start()
     {
         ejectIndex = new bool[ejectors.Length];
+        ejectorAudioSouce = GetComponent<AudioSource>();
+        ejectorAudioSouce.clip = ejectorButtonSound;
     }
         
     private void EjectDoor()
@@ -34,6 +38,7 @@ public class DoorEject : MonoBehaviour {
         VR_CharacterController._charController.teleportIsOn = true;
         shipAIHead.SetActive(false);
         GameManager._gameManager.startTimer = true;
+        VR_CharacterController._charController.playerAudioSource.volume = 0.06f;
         TurnPodMeshColliderOnOff._instance.SwitchCollider(false);
     }
     public void EjectorOn(GameObject obj)
@@ -44,6 +49,7 @@ public class DoorEject : MonoBehaviour {
             {
                 ejectIndex[i] = true;
                 obj.GetComponent<Renderer>().material.color = Color.green;
+                ejectorAudioSouce.PlayOneShot(ejectorButtonSound);
                 particles[i].SetActive(true);
             }
         }

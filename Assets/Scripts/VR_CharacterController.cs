@@ -25,6 +25,7 @@ public class VR_CharacterController : MonoBehaviour {
     Vector3 temp = Vector3.zero;
     public float maxTeleportDistance = 15f;
     int teleportOffDistance = 25;
+    public AudioSource playerAudioSource;
 
     //for Mouse Look
     Vector2 _mouseAbsolute;
