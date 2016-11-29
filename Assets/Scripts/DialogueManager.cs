@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Transform adultAlien, childAlien, player, ai;
     public List<AudioClip> adultDialogueClips, childDialogueClips, aiDialogueClips;
     public GameObject alienLettersEmpty;
+    public GameObject translatingText;
 
     [SerializeField]
     int adultDialogueIndex, childDialogueIndex, aiDialogueIndex;
@@ -71,13 +72,11 @@ public class DialogueManager : MonoBehaviour
 
                     if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count)
                     {
-                        if(adultDialogueIndex == 0)
+                        // Turns the Alien Letters and Translation text ON
+                        if (adultDialogueIndex == 0)
                         {
                             alienLettersEmpty.SetActive(true);
-                        }
-                        else
-                        {
-                            alienLettersEmpty.SetActive(false);
+                            translatingText.SetActive(true);
                         }
 
                         aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
@@ -91,6 +90,13 @@ public class DialogueManager : MonoBehaviour
                     }
                     if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex <= childDialogueClips.Count)
                     {
+                        // Turns the Alien Letters and Translation text OFF
+                        if (alienLettersEmpty.activeInHierarchy)
+                        {
+                            alienLettersEmpty.SetActive(false);
+                            translatingText.SetActive(false);
+                        }
+
                         aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
                         childDialogueIndex++;
                         _speakingNPC = speakingNPC.Adult;

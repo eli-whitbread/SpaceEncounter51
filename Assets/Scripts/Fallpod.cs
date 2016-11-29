@@ -97,7 +97,7 @@ public class Fallpod : MonoBehaviour
             if (currentPos > 0.1f)
             {
                 // Continue moving Pod
-                fraction += Time.deltaTime * lerpPodDropSpeed;
+                fraction += Time.deltaTime * (lerpPodDropSpeed / 100);
 
                 currentPos = Mathf.Lerp(currentPos, endPosEmpty.transform.position.y, fraction);
 
