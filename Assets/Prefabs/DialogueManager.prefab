@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -122.22829, y: 4.5375867, z: 6.55307}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -48,8 +48,8 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 1.5
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -116,13 +116,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speakingNPC: 0
+  adultAlienAudioSourcePoint: {fileID: 0}
+  childAlienAudioSourcePoint: {fileID: 0}
+  player: {fileID: 0}
+  aiAudioSourcePoint: {fileID: 0}
   adultAlien: {fileID: 0}
   childAlien: {fileID: 0}
-  player: {fileID: 0}
+  aiHead: {fileID: 0}
   adultDialogueClips:
   - {fileID: 8300000, guid: 3056c44a12e79914d966b7cbc52b950a, type: 3}
-  - {fileID: 8300000, guid: 3056c44a12e79914d966b7cbc52b950a, type: 3}
-  - {fileID: 8300000, guid: e1f4649718c8af24ba4d9d8ded504b79, type: 3}
   - {fileID: 8300000, guid: 49cfd0c8b67a2024fa5540f9697bfec9, type: 3}
   - {fileID: 8300000, guid: 6a4c7f800a461f94d907ab84a39c30ce, type: 3}
   - {fileID: 8300000, guid: fb590776fcc98e740b0e8b0a3ed93e19, type: 3}
@@ -133,7 +135,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a1cad70004972b44d8b131e96b7143a9, type: 3}
   - {fileID: 8300000, guid: a7661f70ae737094bb6bc19e76a77aa7, type: 3}
   - {fileID: 8300000, guid: 5c27971fcf1716d45b494f4fc0c1b0e7, type: 3}
-  - {fileID: 8300000, guid: df84c138d2b0dba4ba9e48178934ebf2, type: 3}
   childDialogueClips:
   - {fileID: 8300000, guid: 42ac289b00a2c61479cdc6d51e98a327, type: 3}
   - {fileID: 8300000, guid: ffd2b1acefde23044ab96f1efd89ae0f, type: 3}
@@ -141,8 +142,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c2aae133ea1f7e543abdba92420e28bc, type: 3}
   - {fileID: 8300000, guid: 71f478e84f64c8c48ab0d09748302dda, type: 3}
   - {fileID: 8300000, guid: d4c9ba94644c51541b2774e63075ec08, type: 3}
+  aiDialogueClips:
+  - {fileID: 8300000, guid: 6e67dae2de6faf241b7f769978b0b8a7, type: 3}
+  - {fileID: 8300000, guid: 7b3d7adf6d15d0c41a318b3be7a2da60, type: 3}
+  - {fileID: 8300000, guid: 136c9459a55e52447afce65d1f68a44f, type: 3}
+  alienLettersEmpty: {fileID: 0}
+  translatingText: {fileID: 0}
   adultDialogueIndex: 0
   childDialogueIndex: 0
+  aiDialogueIndex: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
