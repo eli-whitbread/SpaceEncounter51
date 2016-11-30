@@ -8,7 +8,8 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager _instance;
     public enum speakingNPC { Adult, Child, AI, None };
     public speakingNPC _speakingNPC;
-    public Transform adultAlien, childAlien, player, ai;
+    public Transform adultAlienAudioSourcePoint, childAlienAudioSourcePoint, player, aiAudioSourcePoint;
+    public GameObject adultAlien, childAlien, aiHead;
     public List<AudioClip> adultDialogueClips, childDialogueClips, aiDialogueClips;
     public GameObject alienLettersEmpty;
     public GameObject translatingText;
@@ -16,6 +17,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     int adultDialogueIndex, childDialogueIndex, aiDialogueIndex;
     AudioSource aSource;
+    bool animationPlaying = false;
+
+    public bool AnimationPlaying
+    {
+        set { animationPlaying = value; }
+    }
 
     void Awake()
     {
@@ -43,13 +50,13 @@ public class DialogueManager : MonoBehaviour
 
         switch (GameManager._gameManager.gameStates)
             {
-                case GameManager.GameStates.Start:
+            case GameManager.GameStates.Start:
                 if(_speakingNPC == speakingNPC.AI && !aSource.isPlaying && aiDialogueIndex < aiDialogueClips.Count)
                 {
                     if(aiDialogueIndex != 1)
                     {
-                    aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
-                    aiDialogueIndex++;
+                        aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                        aiDialogueIndex++;
                     }
                     else
                     {
@@ -64,53 +71,70 @@ public class DialogueManager : MonoBehaviour
                 {
                     _speakingNPC = speakingNPC.Adult;
                 }
-                    break;
-                case GameManager.GameStates.End:
+                break;
+            case GameManager.GameStates.End:
 
-                    break;
-                case GameManager.GameStates.Drone:
+                break;
+            case GameManager.GameStates.Drone:
 
-                    if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count)
+                if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count && animationPlaying == false)
+                {
+                    Animator anim = adultAlien.GetComponent<Animator>();
+
+                    // Turns the Alien Letters and Translation text ON
+                    if (adultDialogueIndex == 0)
                     {
-                        // Turns the Alien Letters and Translation text ON
-                        if (adultDialogueIndex == 0)
-                        {
-                            alienLettersEmpty.SetActive(true);
-                            translatingText.SetActive(true);
-                        }
-
-                        aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
-                        adultDialogueIndex++;
-
-                        if (childDialogueIndex != childDialogueClips.Count)
-                        {
-                            _speakingNPC = speakingNPC.Child;
-
-                        }
-                    }
-                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex <= childDialogueClips.Count)
-                    {
-                        // Turns the Alien Letters and Translation text OFF
-                        if (alienLettersEmpty.activeInHierarchy)
-                        {
-                            alienLettersEmpty.SetActive(false);
-                            translatingText.SetActive(false);
-                        }
-
-                        aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
-                        childDialogueIndex++;
-                        _speakingNPC = speakingNPC.Adult;
+                        alienLettersEmpty.SetActive(true);
+                        translatingText.SetActive(true);
                     }
 
-                    break;
-                case GameManager.GameStates.Cannon:
+                    if (adultDialogueIndex >= 1)
+                    {
+                        animationPlaying = true;
+                    }
+                    transform.position = adultAlienAudioSourcePoint.position;
+                    aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
 
-                    break;
-                case GameManager.GameStates.Free:
+                    //anim.SetBool("PlayDialogueAnim", true);
+                    anim.SetInteger("AudioIndex", adultDialogueIndex);
+                    anim.SetTrigger("canPlayNextClip");
+                    //anim.SetBool("PlayDialogueAnim", false);
 
+
+                    adultDialogueIndex++;
+                    
+                    if (childDialogueIndex <= childDialogueClips.Count && adultDialogueIndex > 2)
+                    {
+                        _speakingNPC = speakingNPC.Child;
+
+                    }
                     break;
-                default:
+                }
+                if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex <= childDialogueClips.Count && animationPlaying == false)
+                {
+                    // Turns the Alien Letters and Translation text OFF
+                    if (alienLettersEmpty.activeInHierarchy)
+                    {
+                        alienLettersEmpty.SetActive(false);
+                        translatingText.SetActive(false);
+                    }
+
+                    
+                    aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
+                    childDialogueIndex++;
+                    _speakingNPC = speakingNPC.Adult;
                     break;
+                }
+
+                break;
+            case GameManager.GameStates.Cannon:
+
+                break;
+            case GameManager.GameStates.Free:
+
+                break;
+            default:
+                break;
 
             
 
