@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        canUseGun = true;
+        canUseGun = false;
         managerAudioSource = GetComponent<AudioSource>();
     }
 	
@@ -105,11 +105,7 @@ public class GameManager : MonoBehaviour {
                 break;
 
             case GameStates.Cannon:
-                if (canUseGun == false)
-                {
-                    Bird_Controller._curBirdController.BirdBathing(true);
-                    canUseGun = true;
-                }
+                canUseGun = true;
                 
                 if (isInGun != true && birdsDestroyed >= deadBirdsRequired)
                 {
