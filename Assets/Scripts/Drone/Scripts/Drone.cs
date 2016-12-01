@@ -16,6 +16,10 @@ public class Drone : MonoBehaviour
     public bool techFound;
     private Rigidbody rigBody;
 
+    public GameObject drone;
+    public VR_CharacterController playerController;
+
+
     // Use this for initialization
     void Start()
     {
@@ -33,6 +37,8 @@ public class Drone : MonoBehaviour
         if (techFound)
         {
             droneText.text = "tech returned b to exit";
+            playerController.lockControls = false;
+            drone.SetActive(false);
         }
     }
     private void FixedUpdate()
