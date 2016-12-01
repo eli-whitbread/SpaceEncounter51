@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
                         }
                     }
                 }
-                else if(aiDialogueIndex == aiDialogueClips.Count)
+                else if (aiDialogueIndex == aiDialogueClips.Count)
                 {
                     _speakingNPC = speakingNPC.Adult;
                 }
@@ -102,7 +102,7 @@ public class DialogueManager : MonoBehaviour
 
 
                     adultDialogueIndex++;
-                    
+
                     if (childDialogueIndex <= childDialogueClips.Count && adultDialogueIndex > 2)
                     {
                         _speakingNPC = speakingNPC.Child;

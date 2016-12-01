@@ -4016,7 +4016,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160578}
   m_LocalRotation: {x: 0, y: 0.7676317, z: 0, w: 0.6408912}
-  m_LocalPosition: {x: -8.317, y: 1.091, z: -11.28}
+  m_LocalPosition: {x: -7.658, y: 1.12, z: -10.342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 100.283394, z: 0}
   m_Children:
@@ -4611,7 +4611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 4
-  toolTipAnchor: {fileID: 455436}
+  toolTipAnchorPoint: {fileID: 0}
   secondaryObject: {fileID: 0}
   toolTipCanvas: {fileID: 0}
   toolTipText: {fileID: 0}

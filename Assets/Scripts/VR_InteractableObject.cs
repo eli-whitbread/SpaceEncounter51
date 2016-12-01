@@ -8,6 +8,7 @@ public class VR_InteractableObject : MonoBehaviour {
     public enum InteractableObjectType { None, Pickup, Switch, Gun, NPC, Ejector, ChangeScene, ActivateTurret, DroneScreen};
     public InteractableObjectType objectType;
 
+    public Transform toolTipAnchorPoint;
     public GameObject secondaryObject;
     public Canvas toolTipCanvas;
     public Text toolTipText;
@@ -99,12 +100,20 @@ public class VR_InteractableObject : MonoBehaviour {
     {
         if (toolTipCanvas != null)
         {
-            toolTipCanvas.transform.position = new Vector3(transform.position.x, gameObject.GetComponent<MeshRenderer>().bounds.size.y + tipHoverHeight, transform.position.z);
+            MeshRenderer meshRnd = gameObject.GetComponent<MeshRenderer>();
+            if (meshRnd != null)
+            {
+                toolTipCanvas.transform.position = new Vector3(transform.position.x, meshRnd.bounds.size.y + tipHoverHeight, transform.position.z);
+            }
+            else
+            {
+                toolTipCanvas.transform.position = new Vector3(transform.position.x, toolTipAnchorPoint.position.y + tipHoverHeight, transform.position.z);
+            }
 
             toolTipCanvas.enabled = true;
             if (toolTip == "")
             {
-                toolTipText.text = "X Button to Interact";
+                toolTipText.text = "Interact";
             }
             else
             {
