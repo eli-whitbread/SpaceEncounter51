@@ -27,15 +27,15 @@ public class PlayLightningSound : MonoBehaviour
     void PlayThunderSound()
     {
         lightningSource.Stop();
-        float rnd = Random.Range(0.75f, 0.9f);
-        float thunderSwap = Random.Range(0, 10);
-        Debug.Log(thunderSwap);
-        if (thunderSwap > 6)
+        float rnd = Random.Range(0.4f, 0.9f);
+        float thunderSwap = Random.Range(0, 11);
+        //Debug.Log(thunderSwap);
+        if (thunderSwap >= 6)
         {
             if(thunderSwap % 2 == 0)
             {
                 lightningSource.clip = thunderLarge;
-                if (rnd >= 0.75f)
+                if (rnd >= 0.75f && GameManager._gameManager.startTimer == true)
                 {
                     lightningFlashCanvas.gameObject.SetActive(true);
                     StartCoroutine("FlashCanvasOff");
