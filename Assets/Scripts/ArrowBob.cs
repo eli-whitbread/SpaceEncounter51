@@ -32,11 +32,11 @@ public class ArrowBob : MonoBehaviour {
         switch (GameManager._gameManager.gameStates)
         {
             case GameManager.GameStates.Start:
-                this.transform.parent.gameObject.GetComponent<Renderer>().enabled = false;
+                this.GetComponent<SpriteRenderer>().enabled = false;
                 moveToGun = false; moveToAlien = false; moveToChild = false; moveToLaptop = false; moveToPickup = false;
                 break;
             case GameManager.GameStates.End:
-                this.transform.parent.gameObject.GetComponent<Renderer>().enabled = false;
+                this.GetComponent<SpriteRenderer>().enabled = false;
                 moveToGun = false; moveToAlien = false; moveToChild = false; moveToLaptop = false; moveToPickup = false;
                 break;
             case GameManager.GameStates.Drone:
@@ -44,28 +44,28 @@ public class ArrowBob : MonoBehaviour {
                 {
                     // If on Adult Alien
                     moveToAlien = true; moveToChild = false; moveToLaptop = false; moveToGun = false; moveToPickup = false;
-                    this.transform.parent.gameObject.GetComponent<Renderer>().enabled = true;
+                    this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(DialogueManager._instance._speakingNPC == DialogueManager.speakingNPC.Child)
                 {
                     // If on Child Alien
                     moveToChild = true; moveToLaptop = false; moveToGun = false; moveToAlien = false; moveToPickup = false;
-                    this.transform.parent.gameObject.GetComponent<Renderer>().enabled = true;
+                    this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(GameManager._gameManager.canUseDrone && !GameManager._gameManager.droneIsActive)
                 {
                     // If on Laptop
                     moveToLaptop = true; moveToAlien = false; moveToChild = false; moveToGun = false; moveToPickup = false;
-                    this.transform.parent.gameObject.GetComponent<Renderer>().enabled = true;
+                    this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(GameManager._gameManager.canUseDrone && GameManager._gameManager.droneIsActive)
                 {
                     moveToPickup = true; moveToLaptop = false; moveToAlien = false; moveToChild = false; moveToGun = false;
-                    this.transform.parent.gameObject.GetComponent<Renderer>().enabled = true;
+                    this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else
                 {
-                    this.transform.parent.gameObject.GetComponent<Renderer>().enabled = false;
+                    this.GetComponent<SpriteRenderer>().enabled = true;
                     moveToGun = false; moveToAlien = false; moveToChild = false; moveToLaptop = false; moveToPickup = false;
                 }
 
@@ -73,15 +73,15 @@ public class ArrowBob : MonoBehaviour {
             case GameManager.GameStates.Cannon:
 
                 moveToGun = true; moveToAlien = false; moveToChild = false; moveToLaptop = false; moveToPickup = false;
-                this.transform.parent.gameObject.GetComponent<Renderer>().enabled = true;
+                this.GetComponent<SpriteRenderer>().enabled = true;
 
                 break;
             case GameManager.GameStates.Free:
-                this.transform.parent.gameObject.GetComponent<Renderer>().enabled = false;
+                this.GetComponent<SpriteRenderer>().enabled = false;
                 moveToGun = false; moveToAlien = false; moveToChild = false; moveToLaptop = false; moveToPickup = false;
                 break;
             default:
-                this.transform.parent.gameObject.GetComponent<Renderer>().enabled = false;
+                this.GetComponent<SpriteRenderer>().enabled = false;
                 moveToGun = false; moveToAlien = false; moveToChild = false; moveToLaptop = false; moveToPickup = false;
                 break;
         }
