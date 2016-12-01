@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
     public bool startTimer = false;
     public bool podHasLanded = false;
     public bool playerHasWokenUp = false;
+    public bool droneIsActive = false;
 
     //private bool bodyDragHasPlayed = false;
     private bool bodyFallHasPlayed = false;
