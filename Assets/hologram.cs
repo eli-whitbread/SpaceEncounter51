@@ -6,10 +6,11 @@ public class hologram : MonoBehaviour {
     public GameObject screen;
     public GameObject holograph;
     public Transform newpos;
+
+    public float timer;
     // Use this for initialization
     void Start()
     {
-        ScreenActivated();
 
     }
 
