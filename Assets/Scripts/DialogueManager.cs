@@ -15,9 +15,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject translatingText;
 
     [SerializeField]
-    int adultDialogueIndex, childDialogueIndex, aiDialogueIndex;
+    int animationIndex, adultDialogueIndex, childDialogueIndex, aiDialogueIndex;
     AudioSource aSource;
-    bool animationPlaying = false;
+    public bool animationPlaying = false;
 
     public bool AnimationPlaying
     {
@@ -88,41 +88,44 @@ public class DialogueManager : MonoBehaviour
                         translatingText.SetActive(true);
                     }
 
-                    if (adultDialogueIndex >= 1)
-                    {
-                        animationPlaying = true;
-                    }
                     transform.position = adultAlienAudioSourcePoint.position;
                     aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
 
-                    //anim.SetBool("PlayDialogueAnim", true);
-                    anim.SetInteger("AudioIndex", adultDialogueIndex);
-                    anim.SetTrigger("canPlayNextClip");
-                    //anim.SetBool("PlayDialogueAnim", false);
-
+                    if (adultDialogueIndex >= 1)
+                    {
+                        animationPlaying = true;
+                        anim.SetInteger("AudioIndex", animationIndex);
+                        anim.SetTrigger("canPlayNextClip");
+                    }
+                    
+                    
 
                     adultDialogueIndex++;
+                    animationIndex++;
 
-                    if (childDialogueIndex <= childDialogueClips.Count && adultDialogueIndex > 2)
+                    //if (childDialogueIndex <= childDialogueClips.Count && adultDialogueIndex > 1)
+                    if(animationIndex == 2 || animationIndex == 4 || animationIndex == 7 || animationIndex == 10 || animationIndex == 13 || animationIndex == 17)
                     {
                         _speakingNPC = speakingNPC.Child;
-
+                        
                     }
+                    StartCoroutine("Waiter");
+                    
                     break;
                 }
-                if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex <= childDialogueClips.Count && animationPlaying == false)
+                if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false)
                 {
                     // Turns the Alien Letters and Translation text OFF
-                    if (alienLettersEmpty.activeInHierarchy)
-                    {
-                        alienLettersEmpty.SetActive(false);
-                        translatingText.SetActive(false);
-                    }
-
-                    
+                    Animator anim = childAlien.GetComponent<Animator>();
+                    anim.SetInteger("AudioIndex", animationIndex);
+                    anim.SetTrigger("canPlayNextClip");
+                    animationPlaying = true;
                     aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
                     childDialogueIndex++;
+                    animationIndex++;
                     _speakingNPC = speakingNPC.Adult;
+
+                    StartCoroutine("Waiter");
                     break;
                 }
 
@@ -136,11 +139,23 @@ public class DialogueManager : MonoBehaviour
             default:
                 break;
 
-            
 
+               
 
 
         }
+        if (alienLettersEmpty.activeInHierarchy && animationIndex == 3)
+        {
+            alienLettersEmpty.SetActive(false);
+            translatingText.SetActive(false);
+        }
+    }
+
+
+    IEnumerator Waiter()
+    {
+
+        yield return new WaitForSeconds(.1f);
     }
 
 }

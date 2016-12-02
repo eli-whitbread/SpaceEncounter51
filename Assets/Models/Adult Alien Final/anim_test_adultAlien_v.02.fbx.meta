@@ -1377,7 +1377,7 @@ ModelImporter:
     - serializedVersion: 16
       name: AA_41
       takeName: Take 001
-      firstFrame: 683
+      firstFrame: 686
       lastFrame: 878
       wrapMode: 0
       orientationOffsetY: 0
@@ -3072,7 +3072,7 @@ ModelImporter:
     - serializedVersion: 16
       name: AA_47
       takeName: Take 001
-      firstFrame: 1677
+      firstFrame: 1685
       lastFrame: 1912
       wrapMode: 0
       orientationOffsetY: 0
@@ -3411,7 +3411,7 @@ ModelImporter:
     - serializedVersion: 16
       name: AA_48
       takeName: Take 001
-      firstFrame: 1948
+      firstFrame: 1963
       lastFrame: 2106
       wrapMode: 0
       orientationOffsetY: 0

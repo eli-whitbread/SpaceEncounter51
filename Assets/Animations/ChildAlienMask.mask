@@ -1,0 +1,358 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ChildAlienMask
+  m_Mask: 00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Master_Controller
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_ChestEndEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_ChestOriginEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_HeadEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_LeftUpLeg
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_LeftUpLeg/Yeth1_Ctrl_LeftLeg
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_LeftUpLeg/Yeth1_Ctrl_LeftLeg/Yeth1_Ctrl_LeftFoot
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_RightUpLeg
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_RightUpLeg/Yeth1_Ctrl_RightLeg
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_RightUpLeg/Yeth1_Ctrl_RightLeg/Yeth1_Ctrl_RightFoot
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandIndex1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandIndex1/Yeth1_Ctrl_LeftHandIndex2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandIndex1/Yeth1_Ctrl_LeftHandIndex2/Yeth1_Ctrl_LeftHandIndex3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandIndex1/Yeth1_Ctrl_LeftHandIndex2/Yeth1_Ctrl_LeftHandIndex3/Yeth1_Ctrl_LeftHandIndex4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandMiddle1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandMiddle1/Yeth1_Ctrl_LeftHandMiddle2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandMiddle1/Yeth1_Ctrl_LeftHandMiddle2/Yeth1_Ctrl_LeftHandMiddle3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandMiddle1/Yeth1_Ctrl_LeftHandMiddle2/Yeth1_Ctrl_LeftHandMiddle3/Yeth1_Ctrl_LeftHandMiddle4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandRing1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandRing1/Yeth1_Ctrl_LeftHandRing2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandRing1/Yeth1_Ctrl_LeftHandRing2/Yeth1_Ctrl_LeftHandRing3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandRing1/Yeth1_Ctrl_LeftHandRing2/Yeth1_Ctrl_LeftHandRing3/Yeth1_Ctrl_LeftHandRing4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandThumb1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandThumb1/Yeth1_Ctrl_LeftHandThumb2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandThumb1/Yeth1_Ctrl_LeftHandThumb2/Yeth1_Ctrl_LeftHandThumb3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_LeftShoulder/Yeth1_Ctrl_LeftArm/Yeth1_Ctrl_LeftForeArm/Yeth1_Ctrl_LeftHand/Yeth1_Ctrl_LeftHandThumb1/Yeth1_Ctrl_LeftHandThumb2/Yeth1_Ctrl_LeftHandThumb3/Yeth1_Ctrl_LeftHandThumb4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_Neck
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_Neck/Yeth1_Ctrl_Neck1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_Neck/Yeth1_Ctrl_Neck1/Yeth1_Ctrl_Head
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandIndex1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandIndex1/Yeth1_Ctrl_RightHandIndex2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandIndex1/Yeth1_Ctrl_RightHandIndex2/Yeth1_Ctrl_RightHandIndex3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandIndex1/Yeth1_Ctrl_RightHandIndex2/Yeth1_Ctrl_RightHandIndex3/Yeth1_Ctrl_RightHandIndex4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandMiddle1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandMiddle1/Yeth1_Ctrl_RightHandMiddle2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandMiddle1/Yeth1_Ctrl_RightHandMiddle2/Yeth1_Ctrl_RightHandMiddle3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandMiddle1/Yeth1_Ctrl_RightHandMiddle2/Yeth1_Ctrl_RightHandMiddle3/Yeth1_Ctrl_RightHandMiddle4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandRing1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandRing1/Yeth1_Ctrl_RightHandRing2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandRing1/Yeth1_Ctrl_RightHandRing2/Yeth1_Ctrl_RightHandRing3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandRing1/Yeth1_Ctrl_RightHandRing2/Yeth1_Ctrl_RightHandRing3/Yeth1_Ctrl_RightHandRing4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandThumb1
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandThumb1/Yeth1_Ctrl_RightHandThumb2
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandThumb1/Yeth1_Ctrl_RightHandThumb2/Yeth1_Ctrl_RightHandThumb3
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_Hips/Yeth1_Ctrl_Spine/Yeth1_Ctrl_Spine1/Yeth1_Ctrl_Spine2/Yeth1_Ctrl_RightShoulder/Yeth1_Ctrl_RightArm/Yeth1_Ctrl_RightForeArm/Yeth1_Ctrl_RightHand/Yeth1_Ctrl_RightHandThumb1/Yeth1_Ctrl_RightHandThumb2/Yeth1_Ctrl_RightHandThumb3/Yeth1_Ctrl_RightHandThumb4
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_HipsEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftAnkleEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftElbowEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftHandIndexEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftHandMiddleEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftHandRingEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftHandThumbEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftHipEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftKneeEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftShoulderEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_LeftWristEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightAnkleEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightElbowEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightHandIndexEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightHandMiddleEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightHandRingEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightHandThumbEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightHipEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightKneeEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightShoulderEffector
+    m_Weight: 0
+  - m_Path: Master_Controller/Yeth1_Ctrl_Reference/Yeth1_Ctrl_RightWristEffector
+    m_Weight: 0
+  - m_Path: Yeth
+    m_Weight: 0
+  - m_Path: Yeth/pCylinder6
+    m_Weight: 0
+  - m_Path: Yeth1_Reference
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_LeftUpLeg
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_LeftUpLeg/Yeth1_LeftLeg
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_RightUpLeg
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_RightUpLeg/Yeth1_RightLeg
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandIndex1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandIndex1/Yeth1_LeftHandIndex2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandIndex1/Yeth1_LeftHandIndex2/Yeth1_LeftHandIndex3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandMiddle1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandMiddle1/Yeth1_LeftHandMiddle2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandMiddle1/Yeth1_LeftHandMiddle2/Yeth1_LeftHandMiddle3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandMiddle1/Yeth1_LeftHandMiddle2/Yeth1_LeftHandMiddle3/Yeth1_LeftHandMiddle4
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandRing1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandRing1/Yeth1_LeftHandRing2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandRing1/Yeth1_LeftHandRing2/Yeth1_LeftHandRing3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandRing1/Yeth1_LeftHandRing2/Yeth1_LeftHandRing3/Yeth1_LeftHandRing4
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandThumb1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandThumb1/Yeth1_LeftHandThumb2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandThumb1/Yeth1_LeftHandThumb2/Yeth1_LeftHandThumb3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_LeftShoulder/Yeth1_LeftArm/Yeth1_LeftForeArm/Yeth1_LeftHand/Yeth1_LeftHandThumb1/Yeth1_LeftHandThumb2/Yeth1_LeftHandThumb3/Yeth1_LeftHandThumb4
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/nurbsCircle1
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid1
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid3
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid4
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid5
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid6
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid7
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid8
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid16
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid17
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid18
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid19
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid20
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid21
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid22
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid23
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Upper_Teeth/pPyramid24
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid9
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid10
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid11
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid12
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid13
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid14
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid15
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid25
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid26
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid27
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid28
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid29
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid30
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid31
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Lower_Teeth/pPyramid32
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_Jaw/Yeth_Jaw1
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_LeftEye
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_LeftEye/Left_eye
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_LeftEye/Yeth1_LeftEye1
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_RightEye
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_RightEye/Right_eye
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_Neck/Yeth1_Neck1/Yeth1_RightEye/Yeth1_RightEye1
+    m_Weight: 1
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandIndex1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandIndex1/Yeth1_RightHandIndex2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandIndex1/Yeth1_RightHandIndex2/Yeth1_RightHandIndex3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandIndex1/Yeth1_RightHandIndex2/Yeth1_RightHandIndex3/Yeth1_RightHandIndex4
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandMiddle1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandMiddle1/Yeth1_RightHandMiddle2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandMiddle1/Yeth1_RightHandMiddle2/Yeth1_RightHandMiddle3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandMiddle1/Yeth1_RightHandMiddle2/Yeth1_RightHandMiddle3/Yeth1_RightHandMiddle4
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandRing1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandRing1/Yeth1_RightHandRing2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandRing1/Yeth1_RightHandRing2/Yeth1_RightHandRing3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandRing1/Yeth1_RightHandRing2/Yeth1_RightHandRing3/Yeth1_RightHandRing4
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandThumb1
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandThumb1/Yeth1_RightHandThumb2
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandThumb1/Yeth1_RightHandThumb2/Yeth1_RightHandThumb3
+    m_Weight: 0
+  - m_Path: Yeth1_Reference/Yeth1_Hips/Yeth1_Spine/Yeth1_Spine1/Yeth1_Spine2/Yeth1_RightShoulder/Yeth1_RightArm/Yeth1_RightForeArm/Yeth1_RightHand/Yeth1_RightHandThumb1/Yeth1_RightHandThumb2/Yeth1_RightHandThumb3/Yeth1_RightHandThumb4
+    m_Weight: 0

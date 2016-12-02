@@ -129,28 +129,29 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6a4c7f800a461f94d907ab84a39c30ce, type: 3}
   - {fileID: 8300000, guid: fb590776fcc98e740b0e8b0a3ed93e19, type: 3}
   - {fileID: 8300000, guid: 437f92185a248c948b36fbf7efb16ef1, type: 3}
-  - {fileID: 8300000, guid: 833a75966a9ab8b4d97fc665444aba04, type: 3}
   - {fileID: 8300000, guid: db70916c338b7834a98b063f24eaff64, type: 3}
+  - {fileID: 8300000, guid: 833a75966a9ab8b4d97fc665444aba04, type: 3}
   - {fileID: 8300000, guid: 92b596990d6358f41924e9857d3c03f2, type: 3}
   - {fileID: 8300000, guid: a1cad70004972b44d8b131e96b7143a9, type: 3}
-  - {fileID: 8300000, guid: a7661f70ae737094bb6bc19e76a77aa7, type: 3}
+  - {fileID: 8300000, guid: 41ee59f592924bf4aba0e5bb5a7dcf9b, type: 3}
   - {fileID: 8300000, guid: 5c27971fcf1716d45b494f4fc0c1b0e7, type: 3}
   childDialogueClips:
-  - {fileID: 8300000, guid: 42ac289b00a2c61479cdc6d51e98a327, type: 3}
-  - {fileID: 8300000, guid: ffd2b1acefde23044ab96f1efd89ae0f, type: 3}
-  - {fileID: 8300000, guid: 0e1e48fa32f03aa48acbe18dad88dff6, type: 3}
-  - {fileID: 8300000, guid: c2aae133ea1f7e543abdba92420e28bc, type: 3}
   - {fileID: 8300000, guid: 71f478e84f64c8c48ab0d09748302dda, type: 3}
   - {fileID: 8300000, guid: d4c9ba94644c51541b2774e63075ec08, type: 3}
+  - {fileID: 8300000, guid: c2aae133ea1f7e543abdba92420e28bc, type: 3}
+  - {fileID: 8300000, guid: 0e1e48fa32f03aa48acbe18dad88dff6, type: 3}
+  - {fileID: 8300000, guid: ffd2b1acefde23044ab96f1efd89ae0f, type: 3}
+  - {fileID: 8300000, guid: 42ac289b00a2c61479cdc6d51e98a327, type: 3}
   aiDialogueClips:
   - {fileID: 8300000, guid: 6e67dae2de6faf241b7f769978b0b8a7, type: 3}
   - {fileID: 8300000, guid: 7b3d7adf6d15d0c41a318b3be7a2da60, type: 3}
-  - {fileID: 8300000, guid: 136c9459a55e52447afce65d1f68a44f, type: 3}
   alienLettersEmpty: {fileID: 0}
   translatingText: {fileID: 0}
+  animationIndex: 0
   adultDialogueIndex: 0
   childDialogueIndex: 0
   aiDialogueIndex: 0
+  animationPlaying: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

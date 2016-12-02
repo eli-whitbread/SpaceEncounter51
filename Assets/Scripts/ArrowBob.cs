@@ -43,13 +43,13 @@ public class ArrowBob : MonoBehaviour {
                 if(DialogueManager._instance._speakingNPC == DialogueManager.speakingNPC.Adult)
                 {
                     // If on Adult Alien
-                    moveToAlien = true; moveToChild = false; moveToLaptop = false; moveToGun = false; moveToPickup = false;
+                    moveToAlien = false; moveToChild = true; moveToLaptop = false; moveToGun = false; moveToPickup = false;
                     this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(DialogueManager._instance._speakingNPC == DialogueManager.speakingNPC.Child)
                 {
                     // If on Child Alien
-                    moveToChild = true; moveToLaptop = false; moveToGun = false; moveToAlien = false; moveToPickup = false;
+                    moveToChild = false; moveToLaptop = false; moveToGun = false; moveToAlien = true; moveToPickup = false;
                     this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(GameManager._gameManager.canUseDrone && !GameManager._gameManager.droneIsActive)

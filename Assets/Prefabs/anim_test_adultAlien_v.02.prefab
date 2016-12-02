@@ -1529,7 +1529,6 @@ GameObject:
   - 65: {fileID: 6556738}
   - 114: {fileID: 11487070}
   - 114: {fileID: 11454068}
-  - 114: {fileID: 11458830}
   m_Layer: 0
   m_Name: anim_test_adultAlien_v.02
   m_TagString: Interactable
@@ -4016,7 +4015,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160578}
   m_LocalRotation: {x: 0, y: 0.7676317, z: 0, w: 0.6408912}
-  m_LocalPosition: {x: -7.658, y: 1.12, z: -10.342}
+  m_LocalPosition: {x: -8.590037, y: 1.158, z: -11.422323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 100.283394, z: 0}
   m_Children:
@@ -4503,7 +4502,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181334}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.56, y: 2.15, z: 0.36488152}
@@ -4617,35 +4616,6 @@ MonoBehaviour:
   toolTipText: {fileID: 0}
   toolTip: 
   tipHoverHeight: 0.25
---- !u!114 &11458830
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160578}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a81ecd00256314c9a67fe116f85d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AlienTextTranslate: {fileID: 0}
-  free: []
-  drone:
-  - {fileID: 8300000, guid: 3056c44a12e79914d966b7cbc52b950a, type: 3}
-  - {fileID: 8300000, guid: 96adc8611019794458e02e8939f14fcb, type: 3}
-  - {fileID: 8300000, guid: 51e275d0fe00da34488718709a742a0b, type: 3}
-  - {fileID: 8300000, guid: 24db9eb348e3b9043ba237ebfec55441, type: 3}
-  - {fileID: 8300000, guid: 9765da3461ffae54cb3937c242e37b1e, type: 3}
-  - {fileID: 8300000, guid: a1c9fde89872e9542baac7dc0c60995e, type: 3}
-  - {fileID: 8300000, guid: 38cf6ba8fe012d548913825dc61f2da1, type: 3}
-  cannon:
-  - {fileID: 8300000, guid: abbaceb6506ad884980bb1801a9b3c4a, type: 3}
-  - {fileID: 8300000, guid: 73f056795dc535744b7c647de247e91e, type: 3}
-  end: []
-  freeIndex: 0
-  droneIndex: 0
-  cannonIndex: 0
-  endIndex: 0
 --- !u!114 &11487070
 MonoBehaviour:
   m_ObjectHideFlags: 1
