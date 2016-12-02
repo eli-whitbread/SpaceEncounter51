@@ -224,7 +224,14 @@ public class VR_CharacterController : MonoBehaviour {
                 RaycastHit colHit;
                 if(Physics.Raycast(directionChecker.position, directionChecker.forward, out colHit, collisionDistance))
                 {
-                    return;
+                    if (colHit.collider.CompareTag("Drone"))
+                    {
+                    }
+                    else
+                    {
+                        return;
+
+                    }
                 }
                 
             }
