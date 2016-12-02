@@ -4014,10 +4014,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160578}
-  m_LocalRotation: {x: 0, y: 0.7676317, z: 0, w: 0.6408912}
-  m_LocalPosition: {x: -8.590037, y: 1.158, z: -11.422323}
+  m_LocalRotation: {x: 0, y: 0.798074, z: 0, w: 0.60255945}
+  m_LocalPosition: {x: -7.732623, y: 1.127, z: -9.984283}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 100.283394, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 105.893196, z: 0}
   m_Children:
   - {fileID: 486470}
   - {fileID: 433326}
@@ -4491,7 +4491,7 @@ BoxCollider:
   m_GameObject: {fileID: 160578}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4, y: 2, z: 4}
   m_Center: {x: -0.000487715, y: 0, z: 0.0157023}
@@ -4610,7 +4610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 4
-  toolTipAnchorPoint: {fileID: 0}
+  toolTipAnchorPoint: {fileID: 455436}
   secondaryObject: {fileID: 0}
   toolTipCanvas: {fileID: 0}
   toolTipText: {fileID: 0}
