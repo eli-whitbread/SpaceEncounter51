@@ -12,7 +12,7 @@ public class hologram : MonoBehaviour
     private bool opening;
     private bool closing;
     private bool spin;
-
+    private bool playSound;
     public float speed = 1.0F;
     private float startTime;
 
@@ -21,6 +21,7 @@ public class hologram : MonoBehaviour
     private Vector3 startscale;
     private Vector3 endscale;
 
+    private AudioSource jetsound;
     // Use this for initialization
     void Start()
     {
@@ -29,6 +30,7 @@ public class hologram : MonoBehaviour
         journeyLength = Vector3.Distance(startPos.position, endPos.position);
         startscale = screen.transform.localScale;
         endscale = new Vector3(1.7f, 1.7f, 1.7f);
+        jetsound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class hologram : MonoBehaviour
         {
             player.GetComponent<VR_CharacterController>().lockControls = false;
             drone.SetActive(false);
+            playSound = false;
 
         }
         if (spin)
@@ -47,6 +50,14 @@ public class hologram : MonoBehaviour
         else
         {
             screen.transform.eulerAngles = new Vector3(0, 0,0);
+        }
+        if (playSound)
+        {
+            jetsound.Play();
+        }
+        else
+        {
+            jetsound.Stop();
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -58,6 +69,7 @@ public class hologram : MonoBehaviour
             {
                 player.GetComponent<VR_CharacterController>().lockControls = true;
                 drone.SetActive(true);
+                playSound = true;
             }
             
         }
