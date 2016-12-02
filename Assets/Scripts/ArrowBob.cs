@@ -42,14 +42,14 @@ public class ArrowBob : MonoBehaviour {
             case GameManager.GameStates.Drone:
                 if(DialogueManager._instance._speakingNPC == DialogueManager.speakingNPC.Adult)
                 {
-                    // If on Adult Alien
-                    moveToAlien = true; moveToChild = false; moveToLaptop = false; moveToGun = false; moveToPickup = false;
+                    // If Adult Alien speaking, point at him (this says move to child, as the dialogue manager needs to point to who is going to play next, rather than who is currently playing)
+                    moveToAlien = false; moveToChild = true; moveToLaptop = false; moveToGun = false; moveToPickup = false;
                     this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(DialogueManager._instance._speakingNPC == DialogueManager.speakingNPC.Child)
                 {
-                    // If on Child Alien
-                    moveToChild = true; moveToLaptop = false; moveToGun = false; moveToAlien = false; moveToPickup = false;
+                    // If Child Alien speaking, point at him (this says move to adult, as the dialogue manager needs to point to who is going to play next, rather than who is currently playing)
+                    moveToChild = false; moveToLaptop = false; moveToGun = false; moveToAlien = true; moveToPickup = false;
                     this.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 else if(GameManager._gameManager.canUseDrone && !GameManager._gameManager.droneIsActive)
