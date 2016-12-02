@@ -1,32 +1,85 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hologram : MonoBehaviour {
-
+public class hologram : MonoBehaviour
+{
     public GameObject screen;
-    public GameObject holograph;
-    public Transform newpos;
+    public GameObject cone;
+    public Transform startPos;
+    public Transform endPos;
+    public GameObject player;
+    public GameObject drone;
+    private bool opening;
+    private bool closing;
+    private bool spin;
+    private bool playSound;
+    public float speed = 1.0F;
+    private float startTime;
 
-    public float timer;
+    private float journeyLength;
+
+    private Vector3 startscale;
+    private Vector3 endscale;
+
+    private AudioSource jetsound;
     // Use this for initialization
     void Start()
     {
-
+        startTime = Time.time;
+        spin = true;
+        journeyLength = Vector3.Distance(startPos.position, endPos.position);
+        startscale = screen.transform.localScale;
+        endscale = new Vector3(1.7f, 1.7f, 1.7f);
+        jetsound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-    }
-    private void SpinHolograph()
-    {
-        
-    }
-    public void ScreenActivated()
-    {
-        holograph.transform.localScale += new Vector3(85, 85, 85);
-        screen.transform.localScale += new Vector3(1.5f, 1.5f, 1.5f);
-        screen.transform.position = newpos.position;
-    }
+        if (Input.GetButtonDown("B"))
+        {
+            player.GetComponent<VR_CharacterController>().lockControls = false;
+            drone.SetActive(false);
+            playSound = false;
 
+        }
+        if (spin)
+        {
+            screen.transform.Rotate(0, 1, 0);
+        }
+        else
+        {
+            screen.transform.eulerAngles = new Vector3(0, 0,0);
+        }
+        if (playSound)
+        {
+            jetsound.Play();
+        }
+        else
+        {
+            jetsound.Stop();
+        }
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            opening = false;
+            if (Input.GetButtonDown("Teleport"))
+            {
+                player.GetComponent<VR_CharacterController>().lockControls = true;
+                drone.SetActive(true);
+                playSound = true;
+            }
+            
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            spin = true;
+        }
+    }
+   
 }

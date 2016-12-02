@@ -61,8 +61,6 @@ public class VR_InteractableObject : MonoBehaviour {
                 togTurret.TeleportPlayer();
                 break;
             case InteractableObjectType.DroneScreen:
-                hologram holo = secondaryObject.GetComponent<hologram>();
-                holo.ScreenActivated();
                 break;
             default:
                 break;

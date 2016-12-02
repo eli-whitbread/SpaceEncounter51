@@ -12,6 +12,7 @@ TagManager:
   - Dust Cloud
   - Projectile
   - Interactable
+  - Drone
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - Ground
   - Interactable
-  - 
+  - Drone
   - 
   - 
   - 

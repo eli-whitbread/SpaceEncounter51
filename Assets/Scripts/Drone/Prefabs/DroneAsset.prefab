@@ -918,6 +918,8 @@ MonoBehaviour:
   droneText: {fileID: 0}
   pickUp: 0
   techFound: 0
+  drone: {fileID: 114882}
+  playerController: {fileID: 0}
 --- !u!114 &11484348
 MonoBehaviour:
   m_ObjectHideFlags: 1
