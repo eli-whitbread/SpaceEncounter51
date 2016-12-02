@@ -28,7 +28,7 @@ public class TogglePlayer : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            if ((Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.P)) && GameManager._gameManager.canUseDrone)
+            if ((Input.GetButtonDown("Teleport") || Input.GetKeyDown(KeyCode.P)) && GameManager._gameManager.canUseDrone)
             {
                 collision.gameObject.GetComponent<VR_CharacterController>().lockControls = true;
                 playerController = collision.gameObject.GetComponent<VR_CharacterController>();

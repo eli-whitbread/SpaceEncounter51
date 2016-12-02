@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &122054
 GameObject:
   m_ObjectHideFlags: 1
@@ -918,6 +918,8 @@ MonoBehaviour:
   droneText: {fileID: 0}
   pickUp: 0
   techFound: 0
+  drone: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &11484348
 MonoBehaviour:
   m_ObjectHideFlags: 1
