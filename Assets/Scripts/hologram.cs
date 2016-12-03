@@ -22,6 +22,11 @@ public class hologram : MonoBehaviour
     private Vector3 endscale;
 
     private AudioSource jetsound;
+
+    void Awake()
+    {
+        jetsound = GetComponent<AudioSource>();
+    }
     // Use this for initialization
     void Start()
     {
@@ -30,7 +35,7 @@ public class hologram : MonoBehaviour
         journeyLength = Vector3.Distance(startPos.position, endPos.position);
         startscale = screen.transform.localScale;
         endscale = new Vector3(1.7f, 1.7f, 1.7f);
-        jetsound = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -68,6 +73,7 @@ public class hologram : MonoBehaviour
             if (Input.GetButtonDown("Teleport"))
             {
                 player.GetComponent<VR_CharacterController>().lockControls = true;
+                GameManager._gameManager.droneIsActive = true;
                 drone.SetActive(true);
                 playSound = true;
             }
