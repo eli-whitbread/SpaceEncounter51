@@ -16,6 +16,7 @@ public class DripNTrickle : MonoBehaviour
     {
         moistASource = GetComponent<AudioSource>();
         InvokeRepeating("PlayDripTrickle", startTime, repeatEvery);
+        moistASource.volume = 0.17f;
     }
 	
 	// Update is called once per frame
@@ -26,35 +27,30 @@ public class DripNTrickle : MonoBehaviour
 
     void PlayDripTrickle()
     {
-        moistASource.Stop();
-        float rnd = Random.Range(0.4f, 0.8f);
-        float moistSwap = Random.Range(0, 7);
+        if(ParticleSystemSwapShack._instance.inTrigger)
+        {
+            moistASource.Stop();
+            float moistSwap = Random.Range(0, 7);
+            moistASource.volume = 0.17f;
 
-        if (moistSwap >= 3 && moistSwap <= 5)
-        {
-            moistASource.clip = trickle;
-        }
-        else if(moistSwap <= 2)
-        {
-            moistASource.clip = drip;
-        }
-        else
-        {
-            // Technological beep only at '6'
-            moistASource.clip = technolgicalBeep;
+            if (moistSwap >= 4 && moistSwap <= 5)
+            {
+                moistASource.clip = trickle;
+            }
+            else if(moistSwap <= 3)
+            {
+                moistASource.clip = drip;
+            }
+            else
+            {
+                moistASource.volume = 0.04f;
+                moistASource.clip = technolgicalBeep;
 
-        }
-                
-        if(moistASource.clip == technolgicalBeep)
-        {
-            moistASource.volume = 0.2f;
-        }
-        else
-        {
-            moistASource.volume = rnd;
-        }       
+            }       
         
-        moistASource.Play();
+            moistASource.Play();
+        }
+        
     }
     
 }

@@ -8,6 +8,8 @@ public class PlayLightningSound : MonoBehaviour
     public AudioClip thunderLarge;
     public float startTime = 3;
     public float repeatEvery = 8;
+    private float minVol = 0.4f;
+    private float maxVol = 0.9f;
     //public UnityEngine.UI.Image lightningFlashCanvas;
 
 	// Use this for initialization
@@ -27,7 +29,7 @@ public class PlayLightningSound : MonoBehaviour
     void PlayThunderSound()
     {
         lightningSource.Stop();
-        float rnd = Random.Range(0.4f, 0.9f);
+        float rnd = Random.Range(minVol, maxVol);
         float thunderSwap = Random.Range(0, 11);
         //Debug.Log(thunderSwap);
         if (thunderSwap >= 6)
@@ -35,11 +37,6 @@ public class PlayLightningSound : MonoBehaviour
             if(thunderSwap % 2 == 0)
             {
                 lightningSource.clip = thunderLarge;
-                if (rnd >= 0.75f)
-                {
-                    //lightningFlashCanvas.gameObject.SetActive(true);
-                    StartCoroutine("FlashCanvasOff");
-                }
             }
             else
             {
@@ -56,6 +53,11 @@ public class PlayLightningSound : MonoBehaviour
         if(GameManager._gameManager.startTimer == false)
         {
             lightningSource.volume = 0.1f;
+        }
+        else if(ParticleSystemSwapShack._instance.inTrigger == true)
+        {
+            // Player in shack, turn down lightning sound effect
+            lightningSource.volume = 0.2f;
         }
         else
         {
