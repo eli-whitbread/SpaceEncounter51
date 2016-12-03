@@ -25,6 +25,7 @@ public class VR_CharacterController : MonoBehaviour {
     public float maxTeleportDistance = 15f;
     int teleportOffDistance = 25;
     public AudioSource playerAudioSource;
+    public bool playerIsInShack;
 
     //for Mouse Look
     Vector2 _mouseAbsolute;
@@ -40,6 +41,12 @@ public class VR_CharacterController : MonoBehaviour {
     {
         get { return isUsingGun; }
         set { isUsingGun = value; }
+    }
+
+    public bool PlayerIsInShack
+    {
+        get { return playerIsInShack; }
+        set { playerIsInShack = value; }
     }
 
     void Awake()

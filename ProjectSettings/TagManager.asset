@@ -13,6 +13,7 @@ TagManager:
   - Projectile
   - Interactable
   - Drone
+  - ShackBoundsTrigger
   layers:
   - Default
   - TransparentFX

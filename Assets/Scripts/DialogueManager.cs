@@ -13,15 +13,21 @@ public class DialogueManager : MonoBehaviour
     public List<AudioClip> adultDialogueClips, childDialogueClips, aiDialogueClips;
     public GameObject alienLettersEmpty;
     public GameObject translatingText;
+    public int minDroneIndex = 0, maxDroneIndex = 9, minCannonIndex = 10, maxCannonIndex = 13;//, minEndIndex = 14, maxEndIndex = 17; 
 
     [SerializeField]
     int animationIndex, adultDialogueIndex, childDialogueIndex, aiDialogueIndex;
     AudioSource aSource;
-    public bool animationPlaying = false;
+    bool animationPlaying = false, playerInShack = false;
 
     public bool AnimationPlaying
     {
         set { animationPlaying = value; }
+    }
+
+    public bool PlayerInShack
+    {
+        set { playerInShack = value; }
     }
 
     void Awake()
@@ -53,7 +59,9 @@ public class DialogueManager : MonoBehaviour
             case GameManager.GameStates.Start:
                 if(_speakingNPC == speakingNPC.AI && !aSource.isPlaying && aiDialogueIndex < aiDialogueClips.Count)
                 {
-                    if(aiDialogueIndex != 1)
+                    transform.position = player.position;
+
+                    if (aiDialogueIndex != 1)
                     {
                         aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
                         aiDialogueIndex++;
@@ -73,68 +81,173 @@ public class DialogueManager : MonoBehaviour
                 }
                 break;
             case GameManager.GameStates.End:
+                if (playerInShack == true)
+                {
+                    if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count && animationPlaying == false)// && animationIndex >= minEndIndex && animationIndex <= maxEndIndex)
+                    {
+                        Animator anim = adultAlien.GetComponent<Animator>();
 
+                        // Turns the Alien Letters and Translation text ON
+                        if (adultDialogueIndex == 0)
+                        {
+                            alienLettersEmpty.SetActive(true);
+                            translatingText.SetActive(true);
+                        }
+
+                        transform.position = adultAlienAudioSourcePoint.position;
+                        aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
+
+                        if (adultDialogueIndex >= 1)
+                        {
+                            animationPlaying = true;
+                            anim.SetInteger("AudioIndex", animationIndex);
+                            anim.SetTrigger("canPlayNextClip");
+                        }
+
+
+
+                        adultDialogueIndex++;
+                        animationIndex++;
+
+                        if (animationIndex == 17)
+                        {
+                            _speakingNPC = speakingNPC.Child;
+
+                        }
+
+                        break;
+                    }
+                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false) // && animationIndex >= minEndIndex && animationIndex <= maxEndIndex)
+                    {
+                        // Turns the Alien Letters and Translation text OFF
+                        Animator anim = childAlien.GetComponent<Animator>();
+                        anim.SetInteger("AudioIndex", animationIndex);
+                        anim.SetTrigger("canPlayNextClip");
+                        animationPlaying = true;
+                        transform.position = childAlienAudioSourcePoint.position;
+                        aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
+                        childDialogueIndex++;
+                        animationIndex++;
+                        _speakingNPC = speakingNPC.Adult;
+
+
+                        break;
+                    }
+                }
                 break;
             case GameManager.GameStates.Drone:
 
-                if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count && animationPlaying == false)
+                if (playerInShack == true)
                 {
-                    Animator anim = adultAlien.GetComponent<Animator>();
-
-                    // Turns the Alien Letters and Translation text ON
-                    if (adultDialogueIndex == 0)
+                    if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count && animationPlaying == false && animationIndex <= maxDroneIndex)
                     {
-                        alienLettersEmpty.SetActive(true);
-                        translatingText.SetActive(true);
+                        Animator anim = adultAlien.GetComponent<Animator>();
+
+                        // Turns the Alien Letters and Translation text ON
+                        if (adultDialogueIndex == 0)
+                        {
+                            alienLettersEmpty.SetActive(true);
+                            translatingText.SetActive(true);
+                        }
+
+                        transform.position = adultAlienAudioSourcePoint.position;
+                        aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
+
+                        if (adultDialogueIndex >= 1)
+                        {
+                            animationPlaying = true;
+                            anim.SetInteger("AudioIndex", animationIndex);
+                            anim.SetTrigger("canPlayNextClip");
+                        }
+
+
+
+                        adultDialogueIndex++;
+                        animationIndex++;
+
+                        //if (childDialogueIndex <= childDialogueClips.Count && adultDialogueIndex > 1)
+                        if (animationIndex == 2 || animationIndex == 4 || animationIndex == 7 || animationIndex == 10 || animationIndex == 13 || animationIndex == 17)
+                        {
+                            _speakingNPC = speakingNPC.Child;
+
+                        }
+                        //StartCoroutine("Waiter");
+
+                        break;
                     }
-
-                    transform.position = adultAlienAudioSourcePoint.position;
-                    aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
-
-                    if (adultDialogueIndex >= 1)
+                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false && animationIndex <= maxDroneIndex)
                     {
-                        animationPlaying = true;
+                        // Turns the Alien Letters and Translation text OFF
+                        Animator anim = childAlien.GetComponent<Animator>();
                         anim.SetInteger("AudioIndex", animationIndex);
                         anim.SetTrigger("canPlayNextClip");
+                        animationPlaying = true;
+                        transform.position = childAlienAudioSourcePoint.position;
+                        aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
+                        childDialogueIndex++;
+                        animationIndex++;
+                        _speakingNPC = speakingNPC.Adult;
+
+                        //StartCoroutine("Waiter");
+                        break;
                     }
-                    
-                    
-
-                    adultDialogueIndex++;
-                    animationIndex++;
-
-                    //if (childDialogueIndex <= childDialogueClips.Count && adultDialogueIndex > 1)
-                    if(animationIndex == 2 || animationIndex == 4 || animationIndex == 7 || animationIndex == 10 || animationIndex == 13 || animationIndex == 17)
-                    {
-                        _speakingNPC = speakingNPC.Child;
-                        
-                    }
-                    StartCoroutine("Waiter");
-                    
-                    break;
                 }
-                if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false)
-                {
-                    // Turns the Alien Letters and Translation text OFF
-                    Animator anim = childAlien.GetComponent<Animator>();
-                    anim.SetInteger("AudioIndex", animationIndex);
-                    anim.SetTrigger("canPlayNextClip");
-                    animationPlaying = true;
-                    aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
-                    childDialogueIndex++;
-                    animationIndex++;
-                    _speakingNPC = speakingNPC.Adult;
-
-                    StartCoroutine("Waiter");
-                    break;
-                }
-
                 break;
+                
             case GameManager.GameStates.Cannon:
 
+                if (playerInShack == true)
+                {
+                    if (_speakingNPC == speakingNPC.Adult && !aSource.isPlaying && adultDialogueIndex < adultDialogueClips.Count && animationPlaying == false && animationIndex <= maxCannonIndex)
+                    {
+                        Animator anim = adultAlien.GetComponent<Animator>();
+
+                        // Turns the Alien Letters and Translation text ON
+                        if (adultDialogueIndex == 0)
+                        {
+                            alienLettersEmpty.SetActive(true);
+                            translatingText.SetActive(true);
+                        }
+
+                        transform.position = adultAlienAudioSourcePoint.position;
+                        aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
+
+                        if (adultDialogueIndex >= 1)
+                        {
+                            animationPlaying = true;
+                            anim.SetInteger("AudioIndex", animationIndex);
+                            anim.SetTrigger("canPlayNextClip");
+                        }
+
+
+
+                        adultDialogueIndex++;
+                        animationIndex++;
+
+                        _speakingNPC = speakingNPC.Child;
+
+                        break;
+                    }
+                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false && animationIndex <= maxCannonIndex)
+                    {
+                        // Turns the Alien Letters and Translation text OFF
+                        Animator anim = childAlien.GetComponent<Animator>();
+                        anim.SetInteger("AudioIndex", animationIndex);
+                        anim.SetTrigger("canPlayNextClip");
+                        animationPlaying = true;
+                        transform.position = childAlienAudioSourcePoint.position;
+                        aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
+                        childDialogueIndex++;
+                        animationIndex++;
+                        _speakingNPC = speakingNPC.Adult;
+
+
+                        break;
+                    }
+                }
                 break;
             case GameManager.GameStates.Free:
-
+                
                 break;
             default:
                 break;
@@ -152,10 +265,10 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    IEnumerator Waiter()
+    IEnumerator Waiter(float waitTime)
     {
 
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(waitTime);
     }
 
 }
