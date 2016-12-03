@@ -87,13 +87,7 @@ public class DialogueManager : MonoBehaviour
                     {
                         Animator anim = adultAlien.GetComponent<Animator>();
 
-                        // Turns the Alien Letters and Translation text ON
-                        if (adultDialogueIndex == 0)
-                        {
-                            alienLettersEmpty.SetActive(true);
-                            translatingText.SetActive(true);
-                        }
-
+                        
                         transform.position = adultAlienAudioSourcePoint.position;
                         aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
 
@@ -175,7 +169,7 @@ public class DialogueManager : MonoBehaviour
 
                         break;
                     }
-                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false && animationIndex <= maxDroneIndex)
+                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex <= childDialogueClips.Count && animationPlaying == false && animationIndex <= maxDroneIndex)
                     {
                         // Turns the Alien Letters and Translation text OFF
                         Animator anim = childAlien.GetComponent<Animator>();
@@ -224,11 +218,15 @@ public class DialogueManager : MonoBehaviour
                         adultDialogueIndex++;
                         animationIndex++;
 
-                        _speakingNPC = speakingNPC.Child;
+                        if (animationIndex == 13)
+                        {
+                            _speakingNPC = speakingNPC.Child;
+
+                        }
 
                         break;
                     }
-                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false && animationIndex <= maxCannonIndex)
+                    if (_speakingNPC == speakingNPC.Child && !aSource.isPlaying && childDialogueIndex < childDialogueClips.Count && animationPlaying == false)
                     {
                         // Turns the Alien Letters and Translation text OFF
                         Animator anim = childAlien.GetComponent<Animator>();
