@@ -26,6 +26,9 @@ ModelImporter:
     7400002: Talking
     7400004: Audio 1
     7400006: Blink
+    7400008: Audio 2
+    7400010: Audio 3
+    7400012: Audio 4
     9500000: //RootNode
     13700000: Head_Mesh
   materials:
@@ -168,6 +171,120 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 10
       lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Head/L_Eye
+        weight: 1
+      - path: Head/R_Eye
+        weight: 1
+      - path: Head_Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Audio 2
+      takeName: Take 001
+      firstFrame: 203
+      lastFrame: 286
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Head/L_Eye
+        weight: 1
+      - path: Head/R_Eye
+        weight: 1
+      - path: Head_Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Audio 3
+      takeName: Take 001
+      firstFrame: 305
+      lastFrame: 611
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Head/L_Eye
+        weight: 1
+      - path: Head/R_Eye
+        weight: 1
+      - path: Head_Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Audio 4
+      takeName: Take 001
+      firstFrame: 636
+      lastFrame: 948
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -18,7 +18,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     int animationIndex, adultDialogueIndex, childDialogueIndex, aiDialogueIndex;
     AudioSource aSource;
-    bool animationPlaying = false, playerInShack = false;
+    public AudioSource dropPodDialogue;
+    bool animationPlaying = false, playerInShack = false, hasPlayedAiClip2 = false;
 
     public bool AnimationPlaying
     {
@@ -63,13 +64,20 @@ public class DialogueManager : MonoBehaviour
 
                     if (aiDialogueIndex != 1)
                     {
-                        aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
-                        aiDialogueIndex++;
+                        if(!hasPlayedAiClip2)
+                        {                            
+                            dropPodDialogue.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                            aiDialogueIndex++;
+                            hasPlayedAiClip2 = true;
+                        }
+                        
                     }
                     else
                     {
                         if(GameManager._gameManager.podHasLanded)
                         {
+                            Animator anim = aiHead.GetComponent<Animator>();
+                            anim.SetInteger("GroundPodAudio", 1);
                             aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
                             aiDialogueIndex++;
                         }

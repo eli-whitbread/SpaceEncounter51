@@ -9,6 +9,7 @@ public class Fallpod : MonoBehaviour
     public GameObject FallingdropPod, groundDropPod;
     public GameObject cameraPlayer, whereHeadShouldBe;
     public GameObject startPosEmpty, endPosEmpty;
+    public GameObject aiHead;
     public Image fadeImg;
     public Transform playerStartPOS;
     public bool hasLanded, startFade;
@@ -47,7 +48,10 @@ public class Fallpod : MonoBehaviour
 
         currentPos = startPosEmpty.transform.position.y;
         distance = startPosEmpty.transform.position.y - endPosEmpty.transform.position.y;
-        //Debug.Log("Distance Equals = " + distance);
+        
+        Animator anim = aiHead.GetComponent<Animator>();
+
+        anim.SetBool("FallpodDialogue", true);
     }
 
     // Update is called once per frame
@@ -79,6 +83,7 @@ public class Fallpod : MonoBehaviour
             {
                 fallPodDescentSource.Play();
                 windParticleEffect.SetActive(true);
+                aiHead.SetActive(false);
             }
 
             if (fallPodDescentSource.isPlaying)
@@ -164,5 +169,7 @@ public class Fallpod : MonoBehaviour
         // Turn this script off! (Nothing will run following this)
         gameObject.GetComponent<Fallpod>().enabled = false;
     }
+
+
     
 }
