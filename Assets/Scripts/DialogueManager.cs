@@ -99,14 +99,9 @@ public class DialogueManager : MonoBehaviour
                         transform.position = adultAlienAudioSourcePoint.position;
                         aSource.PlayOneShot(adultDialogueClips[adultDialogueIndex]);
 
-                        if (adultDialogueIndex >= 1)
-                        {
-                            animationPlaying = true;
-                            anim.SetInteger("AudioIndex", animationIndex);
-                            anim.SetTrigger("canPlayNextClip");
-                        }
-
-
+                        animationPlaying = true;
+                        anim.SetInteger("AudioIndex", animationIndex);
+                        anim.SetTrigger("canPlayNextClip");
 
                         adultDialogueIndex++;
                         animationIndex++;
@@ -129,8 +124,8 @@ public class DialogueManager : MonoBehaviour
                         transform.position = childAlienAudioSourcePoint.position;
                         aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
                         childDialogueIndex++;
-                        animationIndex++;
-                        _speakingNPC = speakingNPC.Adult;
+                        //animationIndex++;
+                        //_speakingNPC = speakingNPC.Adult;
 
 
                         break;
