@@ -85,6 +85,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (aiDialogueIndex == aiDialogueClips.Count)
                 {
+                    aiHead.SetActive(false);
                     _speakingNPC = speakingNPC.Adult;
                 }
                 break;
