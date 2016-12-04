@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ActivateReEntry : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class ActivateReEntry : MonoBehaviour {
     public float WaitBeforeLoad = 0.6f;
     [SerializeField]
     private GameObject _MenuManager;
+    public float howLongFadeTakes = 10f;
+    bool fadeRunning = false;
 
     [SerializeField] private AudioSource ShuttleAudioSourceAlarm;
     [SerializeField] private AudioSource ShuttleAudioSourceBurn;
@@ -17,6 +20,12 @@ public class ActivateReEntry : MonoBehaviour {
     [SerializeField] private AudioClip Voice2Clip;
     [SerializeField] private AudioClip BurnClip;
     [SerializeField] private AudioClip VoiceClip;
+    public Image fadeImg;
+
+    void Awake()
+    {
+        fadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+    }
 
     // Use this for initialization
     void Start () {
@@ -25,8 +34,12 @@ public class ActivateReEntry : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+    {
+	    if(fadeRunning)
+        {
+            fadeImg.color = Color.Lerp(fadeImg.color, Color.black, howLongFadeTakes * Time.deltaTime);
+        }
 	}
 
     public void StartGame()
@@ -55,10 +68,30 @@ public class ActivateReEntry : MonoBehaviour {
     IEnumerator ChangeLevel()
     {
         yield return new WaitForSeconds(WaitBeforeLoad);
-
-        float fadeTime = _MenuManager.GetComponent<FadeScript>().BeginFade(1);
-        yield return new WaitForSeconds(fadeTime);
+        StartCoroutine("FadeToBlack");
+        //float fadeTime = _MenuManager.GetComponent<FadeScript>().BeginFade(1);
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene(1);
         //Debug.Log("Level should be loading");
     }
+
+    IEnumerator FadeToBlack()
+    {
+        // Lerp the colour of the image between itself and black.
+
+        //Debug.Log(fadeImg.color.a);
+
+        if (fadeImg.color.a >= 0.85f)
+        {
+            fadeImg.color = new Color(0, 0, 0, 255);
+        }
+        else
+        {
+            fadeRunning = true;
+            
+        }
+
+        yield return new WaitForSeconds(0);
+    }
+
 }
