@@ -3751,7 +3751,7 @@ ModelImporter:
       name: AA_49
       takeName: Take 001
       firstFrame: 2118
-      lastFrame: 2326
+      lastFrame: 2270
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -3771,7 +3771,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
+      - time: 0.7053292
         functionName: SendAnimationDoneMessage
         data: 
         objectReferenceParameter: {instanceID: 0}
