@@ -24,7 +24,7 @@ public class Drone : MonoBehaviour
     void Start()
     {
         StartUp();
-        droneText.text = "Press r to pickup";
+        droneText.text = "Press interact to pickup";
     }
 
     // Update is called once per frame
@@ -116,7 +116,7 @@ public class Drone : MonoBehaviour
     {
         if (collider.tag == "PickUp")
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetButtonDown("Teleport"))
             {
                 pickUp = true;
             }

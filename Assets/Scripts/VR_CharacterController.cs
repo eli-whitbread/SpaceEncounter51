@@ -248,14 +248,14 @@ public class VR_CharacterController : MonoBehaviour {
             if (Input.GetAxis("Horizontal") != 0)
             {
                 float sideMove = Input.GetAxis("Horizontal");
-                transform.Translate(transform.forward * -sideMove * moveSpeed * Time.deltaTime);
+                transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
             }
             if (Input.GetAxis("Vertical") != 0)
             {
                 float forwardMove = Input.GetAxis("Vertical");
-                transform.Translate(transform.right * forwardMove * moveSpeed * Time.deltaTime);
+                transform.Translate(transform.right * -forwardMove * moveSpeed * Time.deltaTime);
             }
-            transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+            transform.position = new Vector3(myCamera.position.x, yPos, transform.position.z);
 
             if (teleportIsOn)
             {

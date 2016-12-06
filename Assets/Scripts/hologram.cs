@@ -4,14 +4,9 @@ using System.Collections;
 public class hologram : MonoBehaviour
 {
     public GameObject screen;
-    public GameObject cone;
-    public Transform startPos;
-    public Transform endPos;
     public GameObject player;
     public GameObject drone;
-    private bool opening;
-    private bool closing;
-    private bool spin;
+   
     private bool playSound;
     public float speed = 1.0F;
     private float startTime;
@@ -30,11 +25,7 @@ public class hologram : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startTime = Time.time;
-        spin = true;
-        journeyLength = Vector3.Distance(startPos.position, endPos.position);
-        startscale = screen.transform.localScale;
-        endscale = new Vector3(1.7f, 1.7f, 1.7f);
+       
         
     }
 
@@ -48,14 +39,6 @@ public class hologram : MonoBehaviour
             playSound = false;
 
         }
-        if (spin)
-        {
-            screen.transform.Rotate(0, 1, 0);
-        }
-        else
-        {
-            screen.transform.eulerAngles = new Vector3(0, 0,0);
-        }
         if (playSound)
         {
             jetsound.Play();
@@ -65,11 +48,11 @@ public class hologram : MonoBehaviour
             jetsound.Stop();
         }
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            opening = false;
+            
             if (Input.GetButtonDown("Teleport"))
             {
                 player.GetComponent<VR_CharacterController>().lockControls = true;
@@ -80,12 +63,6 @@ public class hologram : MonoBehaviour
             
         }
     }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            spin = true;
-        }
-    }
+    
    
 }
