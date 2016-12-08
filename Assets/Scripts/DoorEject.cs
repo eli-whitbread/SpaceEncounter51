@@ -6,6 +6,7 @@ public class DoorEject : MonoBehaviour {
     public GameObject[] ejectors;
     public GameObject[] particles;
     public GameObject shipAIHead;
+    public Transform ai_CameraAnchorPos;
     private AudioSource ejectorAudioSouce;
     public AudioClip ejectorButtonSound;
 
@@ -36,9 +37,9 @@ public class DoorEject : MonoBehaviour {
         doorRigidBody.AddExplosionForce(Random.Range(4.5f, 30.0f),explosionPos.position, Random.Range(0.9f, 2.0f), Random.Range(0.3f, 0.9f), ForceMode.Impulse);
         VR_CharacterController._charController.lockControls = false;
         VR_CharacterController._charController.teleportIsOn = true;
-        shipAIHead.transform.parent = GameObject.Find("CameraAnchor").transform;
-        shipAIHead.transform.localPosition = new Vector3(1.385f, -0.517f, 0.81f);
-        shipAIHead.transform.eulerAngles = new Vector3(17.9f, 20f, 3.6f);
+        shipAIHead.transform.parent = ai_CameraAnchorPos;
+        shipAIHead.transform.localPosition = ai_CameraAnchorPos.position;
+        shipAIHead.transform.rotation = ai_CameraAnchorPos.rotation;
         //shipAIHead.SetActive(false);
         GameManager._gameManager.startTimer = true;
         VR_CharacterController._charController.playerAudioSource.volume = 0.06f;
