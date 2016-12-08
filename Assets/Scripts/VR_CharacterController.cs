@@ -127,9 +127,17 @@ public class VR_CharacterController : MonoBehaviour {
                 blinkCanvas.alpha = blinkAlpha;
                 Quaternion snapRot = cameraAnchor.transform.rotation;
                 //snapRot.y = snapRot.y + (snapTurnAmount * snapDir);
-                cameraAnchor.transform.rotation = Quaternion.AngleAxis(snapRot.y + 25.0f, Vector3.up);
+                //cameraAnchor.transform.rotation = Quaternion.AngleAxis(snapRot.y + 25.0f, Vector3.up);
+                if (Input.GetAxis("SnapTurn") > 0)
+                {
+                    cameraAnchor.transform.Rotate(0, 45.0f, 0);
+                }
+                else
+                {
+                    cameraAnchor.transform.Rotate(0, -45.0f, 0);
+                }
                 //InputTracking.Recenter();
-                
+
             }            
             if (TeleportActive)
             {                
@@ -231,10 +239,7 @@ public class VR_CharacterController : MonoBehaviour {
                 RaycastHit colHit;
                 if(Physics.Raycast(directionChecker.position, directionChecker.forward, out colHit, collisionDistance))
                 {
-                    if (colHit.collider.CompareTag("Drone"))
-                    {
-                    }
-                    else
+                    if (colHit.collider.CompareTag("Environment") || colHit.collider.CompareTag("Shack"))
                     {
                         return;
 
@@ -243,19 +248,19 @@ public class VR_CharacterController : MonoBehaviour {
                 
             }
 
-            //WARNING CONTROLs HAVE BEEN FLIPPED
-
+            
             if (Input.GetAxis("Horizontal") != 0)
             {
                 float sideMove = Input.GetAxis("Horizontal");
-                transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
+                transform.Translate(myCamera.right * sideMove * moveSpeed * Time.deltaTime);
             }
             if (Input.GetAxis("Vertical") != 0)
             {
                 float forwardMove = Input.GetAxis("Vertical");
-                transform.Translate(transform.right * -forwardMove * moveSpeed * Time.deltaTime);
+                transform.Translate(myCamera.forward * forwardMove * moveSpeed * Time.deltaTime);
             }
-            transform.position = new Vector3(myCamera.position.x, yPos, transform.position.z);
+
+            transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
 
             if (teleportIsOn)
             {
@@ -270,7 +275,7 @@ public class VR_CharacterController : MonoBehaviour {
             }
         }
         
-        BrokenGlassEffect.transform.rotation = myCamera.transform.rotation;
+        //BrokenGlassEffect.transform.rotation = myCamera.transform.rotation;
     }
 
     void OnTriggerEnter(Collider hit)

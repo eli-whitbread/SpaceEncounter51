@@ -24,6 +24,7 @@ public class ShackTrigger : MonoBehaviour {
                 playerInShack = true;
                 VR_CharacterController._charController.PlayerIsInShack = true;
                 DialogueManager._instance.PlayerInShack = true;
+                ParticleSystemSwapShack._instance.SwitchParticles(false);
             }
         }
         else
@@ -33,6 +34,7 @@ public class ShackTrigger : MonoBehaviour {
                 playerInShack = false;
                 VR_CharacterController._charController.PlayerIsInShack = false;
                 DialogueManager._instance.PlayerInShack = false;
+                ParticleSystemSwapShack._instance.SwitchParticles(true);
             }
         }
 	}

@@ -83,11 +83,11 @@ public class DialogueManager : MonoBehaviour
                         }
                     }
                 }
-                else if (aiDialogueIndex == aiDialogueClips.Count)
-                {
-                    aiHead.SetActive(false);
-                    _speakingNPC = speakingNPC.Adult;
-                }
+                //else if (aiDialogueIndex == aiDialogueClips.Count)
+                //{
+                //    aiHead.SetActive(false);
+                //    _speakingNPC = speakingNPC.Adult;
+                //}
                 break;
             case GameManager.GameStates.End:
                 if (playerInShack == true)
@@ -190,6 +190,15 @@ public class DialogueManager : MonoBehaviour
                         break;
                     }
                 }
+                else if (aiDialogueIndex == aiDialogueClips.Count)
+                {
+                    aiHead.SetActive(false);
+                    if (adultDialogueIndex == 0)
+                    {
+                        _speakingNPC = speakingNPC.Adult;
+                    }
+                }
+                
                 break;
                 
             case GameManager.GameStates.Cannon:
@@ -259,7 +268,7 @@ public class DialogueManager : MonoBehaviour
 
 
         }
-        if (alienLettersEmpty.activeInHierarchy && animationIndex == 3)
+        if (alienLettersEmpty.activeInHierarchy && animationIndex >= 2)
         {
             alienLettersEmpty.SetActive(false);
             translatingText.SetActive(false);

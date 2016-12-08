@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11445590}
   - 114: {fileID: 11410788}
   - 54: {fileID: 5422928}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: birdy
   m_TagString: Bird_AI
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.2, y: 22.806532, z: 26.600168}
+  m_LocalPosition: {x: -41.2, y: 22.806547, z: 26.600199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

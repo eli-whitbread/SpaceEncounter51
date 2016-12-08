@@ -27,23 +27,9 @@ public class ParticleSystemSwapShack : MonoBehaviour
         
 	}
 	
-	// Update is called once per frame
-	void Update ()
+    public void SwitchParticles(bool playerIn)
     {
-        Vector3 offset = Player.transform.position - transform.position;
-
-        distance = offset.sqrMagnitude;
-
-        if(distance <= closeDistance * closeDistance)
-        {
-            inTrigger = true;
-        }
-        else
-        {
-            inTrigger = false;
-        }
-
-        if(inTrigger)
+        if (!playerIn)
         {
             levelDustParticle.SetActive(false);
             VR_CharacterController._charController.playerAudioSource.volume = 0.02f;
@@ -51,11 +37,42 @@ public class ParticleSystemSwapShack : MonoBehaviour
         else
         {
             levelDustParticle.SetActive(true);
-            if(GameManager._gameManager.startTimer)
+            if (GameManager._gameManager.startTimer)
             {
                 VR_CharacterController._charController.playerAudioSource.volume = 0.06f;
             }
-            
+
         }
-	}
+    }
+	// Update is called once per frame
+	//void Update ()
+ //   {
+ //       Vector3 offset = Player.transform.position - transform.position;
+
+ //       distance = offset.sqrMagnitude;
+
+ //       if(distance <= closeDistance * closeDistance)
+ //       {
+ //           inTrigger = true;
+ //       }
+ //       else
+ //       {
+ //           inTrigger = false;
+ //       }
+
+ //       if(inTrigger)
+ //       {
+ //           levelDustParticle.SetActive(false);
+ //           VR_CharacterController._charController.playerAudioSource.volume = 0.02f;
+ //       }
+ //       else
+ //       {
+ //           levelDustParticle.SetActive(true);
+ //           if(GameManager._gameManager.startTimer)
+ //           {
+ //               VR_CharacterController._charController.playerAudioSource.volume = 0.06f;
+ //           }
+            
+ //       }
+	//}
 }
