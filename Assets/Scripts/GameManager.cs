@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
     private bool bodyFallHasPlayed = false;
 
     float curTime;
-    bool countDown = false;
+    bool countDown = false, hasWokenUp = false;
 
     void Awake()
     {
@@ -178,7 +178,11 @@ public class GameManager : MonoBehaviour {
         fadeImg.color = Color.Lerp(fadeImg.color, new Color(0, 0, 0, 1), j);        
 
         yield return new WaitForSeconds(wakeUpTime);
-        VR_CharacterController._charController.MovePlayer(wakeUpPosition);
+        if (hasWokenUp == false)
+        {
+            VR_CharacterController._charController.MovePlayer(wakeUpPosition);
+            hasWokenUp = true;
+        }
         playerPassedOut = true;
     }
     

@@ -98,17 +98,17 @@ public class VR_CharacterController : MonoBehaviour {
                 gameStart = false;
             }
         }
-        if (VRDevice.isPresent)
-        {
-            Quaternion lookDirection = InputTracking.GetLocalRotation(VRNode.Head);
-            lookDirection.x = 0;
-            lookDirection.z = 0;
-            transform.rotation = lookDirection;
-        }
-        else
-        {
-            MouseLook();
-        }
+        //if (VRDevice.isPresent)
+        //{
+        //    Quaternion lookDirection = InputTracking.GetLocalRotation(VRNode.Head);
+        //    lookDirection.x = 0;
+        //    lookDirection.z = 0;
+        //    transform.rotation = lookDirection;
+        //}
+        //else
+        //{
+        //    MouseLook();
+        //}
         
         if (!lockControls)
         {
@@ -125,7 +125,7 @@ public class VR_CharacterController : MonoBehaviour {
                 teleportIsOn = true;
                 blinkAlpha = 1.0f;
                 blinkCanvas.alpha = blinkAlpha;
-                Quaternion snapRot = cameraAnchor.transform.rotation;
+                //Quaternion snapRot = cameraAnchor.transform.rotation;
                 //snapRot.y = snapRot.y + (snapTurnAmount * snapDir);
                 //cameraAnchor.transform.rotation = Quaternion.AngleAxis(snapRot.y + 25.0f, Vector3.up);
                 if (Input.GetAxis("SnapTurn") > 0)
@@ -252,12 +252,12 @@ public class VR_CharacterController : MonoBehaviour {
             if (Input.GetAxis("Horizontal") != 0)
             {
                 float sideMove = Input.GetAxis("Horizontal");
-                transform.Translate(myCamera.right * sideMove * moveSpeed * Time.deltaTime);
+                transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
             }
             if (Input.GetAxis("Vertical") != 0)
             {
                 float forwardMove = Input.GetAxis("Vertical");
-                transform.Translate(myCamera.forward * forwardMove * moveSpeed * Time.deltaTime);
+                transform.Translate(myCamera.right * -forwardMove * moveSpeed * Time.deltaTime);
             }
 
             transform.position = new Vector3(transform.position.x, yPos, transform.position.z);

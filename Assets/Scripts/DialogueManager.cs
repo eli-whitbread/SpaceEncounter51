@@ -190,7 +190,7 @@ public class DialogueManager : MonoBehaviour
                         break;
                     }
                 }
-                else if (aiDialogueIndex == aiDialogueClips.Count)
+                if (aiDialogueIndex == aiDialogueClips.Count)
                 {
                     aiHead.SetActive(false);
                     if (adultDialogueIndex == 0)
