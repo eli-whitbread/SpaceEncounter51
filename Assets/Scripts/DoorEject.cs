@@ -38,8 +38,8 @@ public class DoorEject : MonoBehaviour {
         VR_CharacterController._charController.lockControls = false;
         VR_CharacterController._charController.teleportIsOn = true;
         shipAIHead.transform.parent = ai_CameraAnchorPos;
-        shipAIHead.transform.localPosition = ai_CameraAnchorPos.position;
-        shipAIHead.transform.rotation = ai_CameraAnchorPos.rotation;
+        shipAIHead.transform.localRotation = Quaternion.identity;
+        shipAIHead.transform.localPosition = Vector3.zero;
         //shipAIHead.SetActive(false);
         GameManager._gameManager.startTimer = true;
         VR_CharacterController._charController.playerAudioSource.volume = 0.06f;

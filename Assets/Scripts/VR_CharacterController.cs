@@ -73,6 +73,12 @@ public class VR_CharacterController : MonoBehaviour {
 
         // Set target direction for the character body to its inital state.
         targetCharacterDirection = transform.localRotation.eulerAngles;
+
+        if(!VRDevice.isPresent)
+        {
+            // Add Character controller
+            gameObject.AddComponent<CharacterController>();
+        }
     }
 
     public void EnableGunControl()
@@ -109,7 +115,12 @@ public class VR_CharacterController : MonoBehaviour {
         //{
         //    MouseLook();
         //}
-        
+
+        if(!VRDevice.isPresent)
+        {
+            MouseLook();
+        }
+
         if (!lockControls)
         {
             //blink turn
@@ -248,19 +259,47 @@ public class VR_CharacterController : MonoBehaviour {
                 
             }
 
-            
-            if (Input.GetAxis("Horizontal") != 0)
+            if (!VRDevice.isPresent)
             {
-                float sideMove = Input.GetAxis("Horizontal");
-                transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
+                //if (Input.GetAxis("Horizontal") != 0)
+                //{
+                //    float sideMove = Input.GetAxis("Horizontal");
+                //    transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
+                //}
+                //if (Input.GetAxis("Vertical") != 0)
+                //{
+                //    float forwardMove = Input.GetAxis("Vertical");
+                //    transform.Translate(myCamera.right * -forwardMove * moveSpeed * Time.deltaTime);
+                //}
+
+                Vector3 moveDirection = Vector3.zero;
+
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = transform.TransformDirection(moveDirection);
+                moveDirection *= moveSpeed;
+
+                // (20.0f is gravity)
+                moveDirection.y -= 20.0f * Time.deltaTime;
+                GetComponent<CharacterController>().Move(moveDirection * Time.deltaTime);
+                
             }
-            if (Input.GetAxis("Vertical") != 0)
+            else
             {
-                float forwardMove = Input.GetAxis("Vertical");
-                transform.Translate(myCamera.right * -forwardMove * moveSpeed * Time.deltaTime);
+                if (Input.GetAxis("Horizontal") != 0)
+                {
+                    float sideMove = Input.GetAxis("Horizontal");
+                    transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
+                }
+                if (Input.GetAxis("Vertical") != 0)
+                {
+                    float forwardMove = Input.GetAxis("Vertical");
+                    transform.Translate(myCamera.right * -forwardMove * moveSpeed * Time.deltaTime);
+                }
+
+                transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
             }
 
-            transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+            
 
             if (teleportIsOn)
             {
