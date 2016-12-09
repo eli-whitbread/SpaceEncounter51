@@ -119,6 +119,7 @@ public class Drone : MonoBehaviour
             if (Input.GetButtonDown("Teleport"))
             {
                 pickUp = true;
+                collider.gameObject.SetActive(false);
             }
         }
     }

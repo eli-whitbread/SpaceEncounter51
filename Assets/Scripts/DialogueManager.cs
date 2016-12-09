@@ -125,15 +125,28 @@ public class DialogueManager : MonoBehaviour
                         transform.position = childAlienAudioSourcePoint.position;
                         aSource.PlayOneShot(childDialogueClips[childDialogueIndex]);
                         childDialogueIndex++;
-                        //animationIndex++;
-                        //_speakingNPC = speakingNPC.Adult;
+                        animationIndex++;
+                        _speakingNPC = speakingNPC.AI;
 
 
                         break;
                     }
+
+                    if(_speakingNPC == speakingNPC.AI && !aSource.isPlaying && aiDialogueIndex < aiDialogueClips.Count)
+                    {
+                        aiHead.SetActive(true);
+                        Animator anim = aiHead.GetComponent<Animator>();
+                        anim.SetInteger("GroundPodAudio", aiDialogueIndex);
+                        transform.position = aiHead.transform.position;
+                        aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                        
+                        GameManager._gameManager.gameStates = GameManager.GameStates.Free;
+                        GameManager._gameManager.birdsDestroyed = 0;
+                    }
                 }
                 break;
             case GameManager.GameStates.Drone:
+
 
                 if (playerInShack == true)
                 {
@@ -144,6 +157,10 @@ public class DialogueManager : MonoBehaviour
                         // Turns the Alien Letters and Translation text ON
                         if (adultDialogueIndex == 0)
                         {
+                            if(aiHead.activeInHierarchy)
+                            {
+                                aiHead.SetActive(false);
+                            }
                             alienLettersEmpty.SetActive(true);
                             translatingText.SetActive(true);
                         }
@@ -258,7 +275,10 @@ public class DialogueManager : MonoBehaviour
                 }
                 break;
             case GameManager.GameStates.Free:
-                
+                if(!aSource.isPlaying && aiHead.activeInHierarchy)
+                {
+                    aiHead.SetActive(false);
+                }
                 break;
             default:
                 break;

@@ -18,6 +18,7 @@ public class hologram : MonoBehaviour
 
     private AudioSource jetsound;
 
+    public Transform dronePos;
     void Awake()
     {
         jetsound = GetComponent<AudioSource>();
@@ -37,6 +38,8 @@ public class hologram : MonoBehaviour
             player.GetComponent<VR_CharacterController>().lockControls = false;
             drone.SetActive(false);
             playSound = false;
+
+            drone.transform.position = dronePos.position;
 
         }
         if (playSound)
@@ -59,6 +62,8 @@ public class hologram : MonoBehaviour
                 GameManager._gameManager.droneIsActive = true;
                 drone.SetActive(true);
                 playSound = true;
+                drone.transform.position = dronePos.position;
+                drone.transform.rotation = Quaternion.identity;
             }
             
         }

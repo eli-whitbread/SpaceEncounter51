@@ -146,6 +146,7 @@ MonoBehaviour:
   aiDialogueClips:
   - {fileID: 8300000, guid: 6e67dae2de6faf241b7f769978b0b8a7, type: 3}
   - {fileID: 8300000, guid: 7b3d7adf6d15d0c41a318b3be7a2da60, type: 3}
+  - {fileID: 8300000, guid: 136c9459a55e52447afce65d1f68a44f, type: 3}
   alienLettersEmpty: {fileID: 0}
   translatingText: {fileID: 0}
   minDroneIndex: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   adultDialogueIndex: 0
   childDialogueIndex: 0
   aiDialogueIndex: 0
+  dropPodDialogue: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -116,7 +116,10 @@ public class GameManager : MonoBehaviour {
                 break;
 
             case GameStates.Free:
-                if(VR_CharacterController._charController.teleportIsOn == false)
+                
+                Bird_Controller._curBirdController.BirdBathing(true);
+
+                if (VR_CharacterController._charController.teleportIsOn == false)
                 {
                     VR_CharacterController._charController.teleportIsOn = true;
                 }
@@ -137,6 +140,10 @@ public class GameManager : MonoBehaviour {
                     StartCoroutine("PlayerWakeUp");
                 }
                 gameStates = GameStates.Drone;
+
+                DialogueManager._instance._speakingNPC = DialogueManager.speakingNPC.Adult;
+                playerPassedOut = false;
+                
             }
             //playerPassedOut = false;
         }
