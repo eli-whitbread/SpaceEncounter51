@@ -77,7 +77,7 @@ public class VR_CharacterController : MonoBehaviour {
         if(!VRDevice.isPresent)
         {
             // Add Character controller
-            gameObject.AddComponent<CharacterController>();
+            //gameObject.AddComponent<CharacterController>();
         }
     }
 
@@ -261,27 +261,14 @@ public class VR_CharacterController : MonoBehaviour {
 
             if (!VRDevice.isPresent)
             {
-                //if (Input.GetAxis("Horizontal") != 0)
-                //{
-                //    float sideMove = Input.GetAxis("Horizontal");
-                //    transform.Translate(myCamera.forward * sideMove * moveSpeed * Time.deltaTime);
-                //}
-                //if (Input.GetAxis("Vertical") != 0)
-                //{
-                //    float forwardMove = Input.GetAxis("Vertical");
-                //    transform.Translate(myCamera.right * -forwardMove * moveSpeed * Time.deltaTime);
-                //}
-
+                               
                 Vector3 moveDirection = Vector3.zero;
-
-                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                moveDirection = transform.TransformDirection(moveDirection);
-                moveDirection *= moveSpeed;
-
-                // (20.0f is gravity)
-                moveDirection.y -= 20.0f * Time.deltaTime;
-                GetComponent<CharacterController>().Move(moveDirection * Time.deltaTime);
                 
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+                transform.Translate(moveDirection * Time.deltaTime * moveSpeed);
+
+               
             }
             else
             {
@@ -296,10 +283,10 @@ public class VR_CharacterController : MonoBehaviour {
                     transform.Translate(myCamera.right * -forwardMove * moveSpeed * Time.deltaTime);
                 }
 
-                transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+                
             }
+            transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
 
-            
 
             if (teleportIsOn)
             {
@@ -314,7 +301,6 @@ public class VR_CharacterController : MonoBehaviour {
             }
         }
         
-        //BrokenGlassEffect.transform.rotation = myCamera.transform.rotation;
     }
 
     void OnTriggerEnter(Collider hit)
