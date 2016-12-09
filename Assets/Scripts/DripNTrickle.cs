@@ -27,7 +27,7 @@ public class DripNTrickle : MonoBehaviour
 
     void PlayDripTrickle()
     {
-        if(ParticleSystemSwapShack._instance.inTrigger)
+        if(!ParticleSystemSwapShack._instance.lightningOn)
         {
             moistASource.Stop();
             float moistSwap = Random.Range(0, 7);

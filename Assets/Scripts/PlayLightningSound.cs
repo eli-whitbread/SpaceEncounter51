@@ -54,7 +54,7 @@ public class PlayLightningSound : MonoBehaviour
         {
             lightningSource.volume = 0.1f;
         }
-        else if(ParticleSystemSwapShack._instance.inTrigger == true)
+        else if(ParticleSystemSwapShack._instance.lightningOn == false)
         {
             // Player in shack, turn down lightning sound effect
             lightningSource.volume = 0.2f;

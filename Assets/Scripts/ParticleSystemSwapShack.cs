@@ -8,9 +8,11 @@ public class ParticleSystemSwapShack : MonoBehaviour
     public GameObject levelDustParticle;
     public GameObject Player;
 
-    public bool inTrigger = false;
-    float distance;
-    public float closeDistance = 4.0f;
+    public bool lightningOn = false;
+
+    //public bool inTrigger = false;
+    //float distance;
+    //public float closeDistance = 4.0f;
     // Use this for initialization
 
     void Start ()
@@ -32,11 +34,13 @@ public class ParticleSystemSwapShack : MonoBehaviour
         if (!playerIn)
         {
             levelDustParticle.SetActive(false);
+            lightningOn = false;
             VR_CharacterController._charController.playerAudioSource.volume = 0.02f;
         }
         else
         {
             levelDustParticle.SetActive(true);
+            lightningOn = true;
             if (GameManager._gameManager.startTimer)
             {
                 VR_CharacterController._charController.playerAudioSource.volume = 0.06f;
