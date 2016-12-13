@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public speakingNPC _speakingNPC;
     public Transform adultAlienAudioSourcePoint, childAlienAudioSourcePoint, player, aiAudioSourcePoint;
     public GameObject adultAlien, childAlien, aiHead;
-    public List<AudioClip> adultDialogueClips, childDialogueClips, aiDialogueClips;
+    public List<AudioClip> adultDialogueClips, childDialogueClips, aiDialogueClips, aiAlternateClips;
     public GameObject alienLettersEmpty;
     public GameObject translatingText;
     public int minDroneIndex = 0, maxDroneIndex = 9, minCannonIndex = 10, maxCannonIndex = 13;//, minEndIndex = 14, maxEndIndex = 17; 
@@ -65,8 +65,16 @@ public class DialogueManager : MonoBehaviour
                     if (aiDialogueIndex != 1)
                     {
                         if(!hasPlayedAiClip2)
-                        {                            
-                            dropPodDialogue.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                        {   
+                            if(PlayerPrefs.GetInt("AlternateAIVoice") != 1)
+                            {
+                                dropPodDialogue.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                            }
+                            else if(PlayerPrefs.GetInt("AlternateAIVoice") == 1)
+                            {
+                                dropPodDialogue.PlayOneShot(aiAlternateClips[aiDialogueIndex]);                                
+                            }                         
+                            
                             aiDialogueIndex++;
                             hasPlayedAiClip2 = true;
                         }
@@ -78,7 +86,16 @@ public class DialogueManager : MonoBehaviour
                         {
                             Animator anim = aiHead.GetComponent<Animator>();
                             anim.SetInteger("GroundPodAudio", 1);
-                            aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                            if (PlayerPrefs.GetInt("AlternateAIVoice") != 1)
+                            {
+                                aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                            }
+                            else if (PlayerPrefs.GetInt("AlternateAIVoice") == 1)
+                            {
+                                aSource.PlayOneShot(aiAlternateClips[aiDialogueIndex]);
+                            }
+
+                                
                             aiDialogueIndex++;
                         }
                     }
@@ -138,7 +155,15 @@ public class DialogueManager : MonoBehaviour
                         Animator anim = aiHead.GetComponent<Animator>();
                         anim.SetInteger("GroundPodAudio", aiDialogueIndex);
                         transform.position = aiHead.transform.position;
-                        aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                        if (PlayerPrefs.GetInt("AlternateAIVoice") != 1)
+                        {
+                            aSource.PlayOneShot(aiDialogueClips[aiDialogueIndex]);
+                        }
+                        else if(PlayerPrefs.GetInt("AlternateAIVoice") == 1)
+                        {
+                            aSource.PlayOneShot(aiAlternateClips[aiDialogueIndex]);
+                        }
+                            
                         
                         GameManager._gameManager.gameStates = GameManager.GameStates.Free;
                         GameManager._gameManager.birdsDestroyed = 0;

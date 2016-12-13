@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ActivateReEntry : MonoBehaviour {
 
+    public static ActivateReEntry _instance;
     public Light point;
     public float WaitBeforeLoad = 0.6f;
     [SerializeField]
     private GameObject _MenuManager;
+    public bool alternateDialogue = false;
     public float howLongFadeTakes = 10f;
     bool fadeRunning = false;
 
@@ -24,6 +26,7 @@ public class ActivateReEntry : MonoBehaviour {
 
     void Awake()
     {
+        _instance = this;
         fadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
     }
 
@@ -51,7 +54,16 @@ public class ActivateReEntry : MonoBehaviour {
         ShuttleAudioSourceAlarm.Play();
         ShuttleAudioSourceBurn.clip = BurnClip;
         ShuttleAudioSourceBurn.Play();
-        ShuttleAudioSourceVoice.clip = VoiceClip;
+        if(!alternateDialogue)
+        {
+            ShuttleAudioSourceVoice.clip = VoiceClip;
+        }
+        else
+        {
+            ShuttleAudioSourceVoice.clip = Voice2Clip;
+            PlayerPrefs.SetInt("AlternateAIVoice", 1);
+        }
+        
         ShuttleAudioSourceVoice.Play();        
     }
 

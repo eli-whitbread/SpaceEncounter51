@@ -4,6 +4,7 @@ using System.Collections;
 public class NewMouseScript : MonoBehaviour
 {
     bool usingVR = false;
+
     public GameObject aiHead;
     Vector2 _mouseAbsolute;
     Vector2 _smoothMouse;
@@ -19,6 +20,14 @@ public class NewMouseScript : MonoBehaviour
     // Yaw rotation will affect this object instead of the camera if set.
     public GameObject characterBody;
 
+    void Awake()
+    {
+        if (PlayerPrefs.GetInt("AlternateAIVoice") != 0)
+        {
+            PlayerPrefs.SetInt("AlternateAIVoice", 0);
+        }
+    }
+
     void Start()
     {
         // Set target direction to the camera's initial orientation.
@@ -32,8 +41,8 @@ public class NewMouseScript : MonoBehaviour
     {        
         if(Input.GetKeyDown(KeyCode.Backspace))
         {
-            Animator anim = aiHead.GetComponent<Animator>();
-            anim.SetTrigger("Blink");
+            //Animator anim = aiHead.GetComponent<Animator>();
+            //anim.SetTrigger("Blink");
             if (!usingVR)
             {
                 usingVR = true;
@@ -42,6 +51,19 @@ public class NewMouseScript : MonoBehaviour
             {
                 usingVR = false;
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            if(ActivateReEntry._instance.alternateDialogue)
+            {
+                ActivateReEntry._instance.alternateDialogue = false;
+            }
+            else
+            {
+                ActivateReEntry._instance.alternateDialogue = true;
+            }
+            
         }
 
         if(usingVR)

@@ -16,14 +16,16 @@ public class InteractiveItemLever : MonoBehaviour {
     public GameObject leverToTurnOn;
     public GameObject LeverHighlight;
     public GameObject aiHead;
-
+    public AudioSource shipChairAudio;
+    Animator anim;
     private Quaternion newLeverRotation;
     private Quaternion startingRotation;
     [SerializeField]
     float leverRotationSpeed;
+    ActivateReEntry startReentry;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         //foreach(Material i in GetComponent<Renderer>().materials)
         //{
@@ -35,7 +37,8 @@ public class InteractiveItemLever : MonoBehaviour {
 
         //startingRotation = new Quaternion(leverToRotate.transform.rotation.x, leverToRotate.transform.rotation.y, leverToRotate.transform.rotation.z, leverToRotate.transform.rotation.w);
         //newLeverRotation = new Quaternion(600.0f, leverToRotate.transform.rotation.y, leverToRotate.transform.rotation.z, leverToRotate.transform.rotation.w);
-        
+        anim = aiHead.GetComponent<Animator>();
+        startReentry = GetComponent<ActivateReEntry>();
     }
 	
 	// Update is called once per frame
@@ -57,6 +60,8 @@ public class InteractiveItemLever : MonoBehaviour {
 
 	}
 
+    
+
     public void amOver()
     {
         isLookedAt = true;
@@ -65,18 +70,20 @@ public class InteractiveItemLever : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Teleport"))
             {
-                Animator anim = aiHead.GetComponent<Animator>();
+                aiHead.SetActive(true);
+                
+                shipChairAudio.Stop(); 
                 initialLever.GetComponent<MeshRenderer>().enabled = false;
                 LeverHighlight.GetComponent<MeshRenderer>().enabled = false;
                 leverHead.GetComponent<MeshRenderer>().enabled = false;
-                anim.SetBool("RunDialogue1", true);                
+                anim.SetBool("RunDialogue1", true);
                 StartCoroutine("RotateLever");
 
                 //Debug.Log("Have been interacted with");
                 IncreasePlanetSize increaseScript = planetToResize.GetComponent<IncreasePlanetSize>();
-                ActivateReEntry startReentry = GetComponent<ActivateReEntry>();
+                
                 increaseScript.increasePlanet();
-                startReentry.StartGame();
+                
             }
         }
         
@@ -86,8 +93,7 @@ public class InteractiveItemLever : MonoBehaviour {
 
     private IEnumerator RotateLever()
     {
-        while (true)
-        {
+        
             //leverToRotate.transform.rotation = Quaternion.Lerp(leverToRotate.transform.rotation, newLeverRotation, Time.deltaTime * leverRotationSpeed);
             //If object is in new position, stop script
             //if (startingRotation == newLeverRotation)
@@ -98,8 +104,10 @@ public class InteractiveItemLever : MonoBehaviour {
             leverToTurnOn.SetActive(true);
 
             // Otherwise, continue next frame
-            yield return new WaitForSeconds(0);
-        }
+            yield return new WaitForSeconds(0.5f);
+            
+            startReentry.StartGame();
+       
 
     }
 }
